@@ -102,6 +102,13 @@ include __DIR__ . '/includes/header.php';
             <aside>
                 <!-- Quick Enquiry Widget -->
                 <div style="background: #FFFFFF; padding: 2rem; border-radius: var(--radius-lg); border: 2px solid var(--accent-gold); box-shadow: var(--shadow-md); margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(212, 175, 55, 0.3);">
+                        <img src="assets/images/logo.png" alt="Dehradun Defence College Official Emblem" style="width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(11,27,61,0.15)); flex-shrink: 0;">
+                        <div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: var(--primary-navy); line-height: 1.2;">Dehradun Defence College</div>
+                            <span class="badge-saffron" style="font-size: 0.65rem; padding: 2px 7px; margin-top: 2px; display: inline-block;">★ Admissions 2026</span>
+                        </div>
+                    </div>
                     <span class="badge-gold">Admissions Open</span>
                     <h3 style="font-size: 1.35rem; margin: 0.5rem 0 0.5rem 0;">Join NDA 2026 Batch</h3>
                     <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem;">

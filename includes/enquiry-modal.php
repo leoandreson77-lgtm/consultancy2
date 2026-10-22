@@ -9,10 +9,16 @@ require_once __DIR__ . '/../config.php';
     <div class="ddc-modal-box">
         <button type="button" class="ddc-modal-close close-enquiry-modal" aria-label="Close Modal">&times;</button>
         
-        <div class="hero-form-header" style="margin-top: 0.5rem;">
-            <span class="badge-gold">Admissions Open 2026</span>
-            <h3 id="modalTitle" style="margin-top: 0.5rem;">Admission Enquiry & Counseling</h3>
-            <p>Fill out the form below. Our senior defence counselor will contact you within 24 hours.</p>
+        <div class="hero-form-header" style="margin-top: 0.5rem; text-align: center;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.85rem; margin-bottom: 0.65rem;">
+                <img src="assets/images/logo.png" alt="Dehradun Defence College Logo" style="width: 54px; height: 54px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3)); flex-shrink: 0;">
+                <div style="text-align: left;">
+                    <div style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; line-height: 1.2;">Dehradun Defence College</div>
+                    <span class="badge-gold" style="font-size: 0.68rem; padding: 2px 7px; display: inline-block; margin-top: 2px;">★ Admissions Open 2026-2027</span>
+                </div>
+            </div>
+            <h3 id="modalTitle" style="margin: 0.35rem 0 0.25rem 0; font-size: 1.35rem; color: var(--accent-gold);">Admission Enquiry &amp; Registration</h3>
+            <p style="font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-bottom: 0;">Fill out the form below. Our senior defence counselor will contact you within 24 hours.</p>
         </div>
 
         <form action="send-enquiry.php" method="POST" class="ddc-enquiry-form" novalidate>

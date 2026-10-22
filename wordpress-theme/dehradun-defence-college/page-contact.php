@@ -58,6 +58,13 @@ $address = get_theme_mod('ddc_address', 'Maldevta Road, Near Laal Pull (Red Brid
             <!-- Right Form -->
             <div style="background: #FFFFFF; padding: 2.75rem 2.25rem; border-radius: var(--radius-lg); border: 2px solid var(--accent-gold); box-shadow: var(--shadow-lg);">
                 <div class="hero-form-header" style="text-align: left; margin-bottom: 1.75rem;">
+                    <div style="display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(212, 175, 55, 0.3);">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo.png'); ?>" alt="Dehradun Defence College Official Emblem" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(11,27,61,0.15)); flex-shrink: 0;">
+                        <div>
+                            <div style="font-size: 1.1rem; font-weight: 800; color: var(--primary-navy); line-height: 1.2;">Dehradun Defence College</div>
+                            <span class="badge-saffron" style="font-size: 0.7rem; padding: 2px 8px; margin-top: 2px; display: inline-block;">★ Admissions Open 2026 Batch</span>
+                        </div>
+                    </div>
                     <span class="badge-saffron">Admissions 2026</span>
                     <h3 style="font-size: 1.85rem; margin-top: 0.5rem;">Send an Admission Enquiry</h3>
                 </div>

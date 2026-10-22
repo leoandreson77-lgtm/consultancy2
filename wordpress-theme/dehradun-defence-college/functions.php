@@ -9,6 +9,30 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+// Load Admission Email Engine & SMTP Mailer
+if (file_exists(get_template_directory() . '/includes/email-templates.php')) {
+    require_once get_template_directory() . '/includes/email-templates.php';
+}
+if (file_exists(get_template_directory() . '/includes/smtp-mailer.php')) {
+    require_once get_template_directory() . '/includes/smtp-mailer.php';
+}
+
+/**
+ * Configure WordPress to dispatch emails via official Gmail SMTP
+ */
+function ddc_configure_phpmailer_smtp($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host       = 'smtp.gmail.com';
+    $phpmailer->SMTPAuth   = true;
+    $phpmailer->Port       = 465;
+    $phpmailer->SMTPSecure = 'ssl';
+    $phpmailer->Username   = 'dehradundefencecollege@gmail.com';
+    $phpmailer->Password   = 'owspotavnlkavvxp';
+    $phpmailer->From       = 'dehradundefencecollege@gmail.com';
+    $phpmailer->FromName   = 'Dehradun Defence College Admissions';
+}
+add_action('phpmailer_init', 'ddc_configure_phpmailer_smtp');
+
 /**
  * Theme Setup
  */
@@ -244,7 +268,7 @@ function ddc_customize_register($wp_customize) {
 add_action('customize_register', 'ddc_customize_register');
 
 /**
- * WordPress AJAX Handler for Admission Enquiry Form
+ * WordPress AJAX Handler for Admission Enquiry & Online Registration Form
  */
 function ddc_ajax_submit_enquiry_handler() {
     // Verify request
@@ -258,13 +282,19 @@ function ddc_ajax_submit_enquiry_handler() {
     }
 
     // Input sanitization
-    $full_name       = sanitize_text_field($_POST['full_name'] ?? '');
-    $email           = sanitize_email($_POST['email'] ?? '');
-    $mobile          = sanitize_text_field($_POST['mobile_number'] ?? '');
-    $course_interest = sanitize_text_field($_POST['course_interest'] ?? '');
-    $education_level = sanitize_text_field($_POST['education_level'] ?? 'Not Specified');
-    $preferred_contact = sanitize_text_field($_POST['preferred_contact'] ?? 'Call');
-    $message         = sanitize_textarea_field($_POST['message'] ?? '');
+    $full_name         = sanitize_text_field($_POST['full_name'] ?? '');
+    $father_name       = sanitize_text_field($_POST['father_name'] ?? '');
+    $email             = sanitize_email($_POST['email'] ?? '');
+    $mobile            = sanitize_text_field($_POST['mobile_number'] ?? '');
+    $parent_mobile     = sanitize_text_field($_POST['parent_mobile'] ?? '');
+    $dob               = sanitize_text_field($_POST['dob'] ?? '');
+    $gender            = sanitize_text_field($_POST['gender'] ?? 'Not Specified');
+    $course_interest   = sanitize_text_field($_POST['course_interest'] ?? '');
+    $education_level   = sanitize_text_field($_POST['education_level'] ?? 'Not Specified');
+    $city_state        = sanitize_text_field($_POST['city_state'] ?? '');
+    $preferred_contact = sanitize_text_field($_POST['preferred_contact'] ?? 'Call / WhatsApp');
+    $message           = sanitize_textarea_field($_POST['message'] ?? '');
+    $form_type         = sanitize_text_field($_POST['form_type'] ?? 'enquiry');
 
     $errors = [];
 
@@ -292,26 +322,68 @@ function ddc_ajax_submit_enquiry_handler() {
         ], 422);
     }
 
-    // Recipient Email
-    $admin_email = get_theme_mod('ddc_email', 'dehradundefencecollege@gmail.com');
-    $subject = "New Admission Enquiry: {$full_name} ({$course_interest})";
+    // Normalized 10-digit mobile number
+    $normalized_mobile = substr($clean_mobile, -10);
 
-    $body = "New admission inquiry received via website:\n\n";
-    $body .= "Name: {$full_name}\n";
-    $body .= "Phone: {$mobile}\n";
-    $body .= "Email: {$email}\n";
-    $body .= "Course: {$course_interest}\n";
-    $body .= "Education: {$education_level}\n";
-    $body .= "Preferred Contact: {$preferred_contact}\n";
-    $body .= "Message: {$message}\n\n";
-    $body .= "Submitted on: " . current_time('d M Y, h:i A') . "\n";
+    // Construct lead data structure for templates & logging
+    $lead_entry = [
+        'lead_id'           => 'DDC_' . strtoupper(substr(md5(uniqid()), 0, 8)),
+        'timestamp'         => current_time('mysql'),
+        'form_type'         => $form_type,
+        'full_name'         => $full_name,
+        'father_name'       => $father_name,
+        'email'             => $email,
+        'mobile_number'     => $normalized_mobile,
+        'parent_mobile'     => $parent_mobile,
+        'dob'               => $dob,
+        'gender'            => $gender,
+        'city_state'        => $city_state,
+        'course_interest'   => $course_interest,
+        'education_level'   => $education_level,
+        'preferred_contact' => $preferred_contact,
+        'message'           => $message,
+        'ip_address'        => $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN',
+    ];
+
+    $admin_email = get_theme_mod('ddc_email', 'dehradundefencecollege@gmail.com');
+    $is_registration = ($form_type === 'online_registration');
+    $subject = $is_registration 
+        ? "★ NEW ONLINE REGISTRATION: {$full_name} ({$course_interest}) - Dehradun Defence College"
+        : "★ NEW ADMISSION ENQUIRY: {$full_name} ({$course_interest}) - Dehradun Defence College";
+
+    // Build Gorgeous HTML Email for Academy Directorate
+    if (function_exists('ddc_build_admin_lead_email')) {
+        $admin_email_html = ddc_build_admin_lead_email($lead_entry);
+    } else {
+        $admin_email_html = "<h2>New Admission Lead</h2><p><strong>Name:</strong> {$full_name}</p><p><strong>Mobile:</strong> {$normalized_mobile}</p><p><strong>Email:</strong> {$email}</p><p><strong>Course:</strong> {$course_interest}</p>";
+    }
 
     $headers = [
-        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Type: text/html; charset=UTF-8',
+        'From: Dehradun Defence College Admissions <dehradundefencecollege@gmail.com>',
         'Reply-To: ' . $full_name . ' <' . $email . '>'
     ];
 
-    $sent = wp_mail($admin_email, $subject, $body, $headers);
+    // Try WordPress wp_mail (routed through Gmail SMTP via phpmailer_init hook)
+    $sent = wp_mail($admin_email, $subject, $admin_email_html, $headers);
+
+    // Fallback to direct native socket SMTP client if wp_mail failed
+    if (!$sent && function_exists('ddc_send_smtp_email')) {
+        $smtp_err = [];
+        $sent = ddc_send_smtp_email($admin_email, $subject, $admin_email_html, $email, $full_name, $smtp_err);
+    }
+
+    // Send Candidate Welcome Confirmation Email
+    if ($sent && is_email($email) && function_exists('ddc_build_student_welcome_email')) {
+        $student_subject = "Registration Confirmation: Dehradun Defence College - {$course_interest}";
+        $student_email_html = ddc_build_student_welcome_email($lead_entry);
+        $student_headers = [
+            'Content-Type: text/html; charset=UTF-8',
+            'From: Dehradun Defence College Admissions <dehradundefencecollege@gmail.com>',
+            'Reply-To: Dehradun Defence College Admissions <' . $admin_email . '>'
+        ];
+        wp_mail($email, $student_subject, $student_email_html, $student_headers);
+    }
 
     wp_send_json_success([
         'message' => "Thank you, {$full_name}! Your admission enquiry for {$course_interest} has been received. Our counselor will contact you shortly."

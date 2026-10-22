@@ -293,12 +293,19 @@ $theme_uri = get_template_directory_uri();
             <!-- Right Side: Persistent Eye-Catching Enquiry / Admission Registration Form Card -->
             <div class="hero-persistent-form-wrap">
                 <div class="eye-catchy-form-card" id="hero-enquiry-card">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.65rem; padding-bottom: 0.65rem; border-bottom: 1px solid rgba(255,215,0,0.25);">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/logo.png'); ?>" alt="Dehradun Defence College Official Emblem" style="width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3)); flex-shrink: 0;">
+                        <div>
+                            <div style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; line-height: 1.2;">Dehradun Defence College</div>
+                            <span style="font-size: 0.7rem; color: var(--accent-gold); font-weight: 700;">★ Official Admission Portal</span>
+                        </div>
+                    </div>
                     <div class="pulse-live-badge">
                         <span class="live-dot"></span>
                         <span>Admissions Open • 2026-2027 Batch</span>
                     </div>
                     <h3 class="form-card-title">Register For Admission</h3>
-                    <p class="form-card-sub">Get personalized counseling, fee structure & scholarship guidance</p>
+                    <p class="form-card-sub">Get personalized counseling, fee structure &amp; scholarship guidance</p>
 
                     <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST" class="ddc-enquiry-form" novalidate>
                         <input type="hidden" name="action" value="ddc_lead_enquiry">

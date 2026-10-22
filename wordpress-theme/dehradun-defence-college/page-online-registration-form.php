@@ -36,12 +36,18 @@ get_header();
             <div class="registration-layout-grid" id="registration-form-section">
                 <!-- Left Column: The Comprehensive Online Registration Form -->
                 <div class="registration-form-card">
-                    <div style="margin-bottom: 2rem;">
-                        <span class="badge-saffron">Enrollment 2026-2027</span>
-                        <h2 style="font-size: 1.85rem; color: var(--primary-navy); margin-top: 0.5rem; margin-bottom: 0.4rem;">Candidate Admission Application</h2>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0;">
-                            Please enter genuine details below. Our admissions council will review eligibility and contact you with the batch schedule and fee structure.
-                        </p>
+                    <div style="display: flex; align-items: center; gap: 1.15rem; margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 2px solid rgba(212, 175, 55, 0.35);">
+                        <img src="<?php echo esc_url($theme_uri . '/assets/images/logo.png'); ?>" alt="Dehradun Defence College Official Emblem" style="width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(11,27,61,0.2)); flex-shrink: 0;">
+                        <div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.35rem;">
+                                <span class="badge-saffron" style="font-size: 0.72rem; padding: 2px 8px;">★ Session 2026-2027</span>
+                                <span class="badge-gold" style="font-size: 0.72rem; padding: 2px 8px;">Official Application</span>
+                            </div>
+                            <h2 style="font-size: clamp(1.3rem, 2vw, 1.75rem); color: var(--primary-navy); margin: 0; line-height: 1.2;">Candidate Admission Application</h2>
+                            <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0.25rem 0 0 0; line-height: 1.4;">
+                                Dehradun Defence College &bull; NDA, CDS, SSB &amp; Schooling Foundation
+                            </p>
+                        </div>
                     </div>
 
                     <form action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" method="POST" class="ddc-enquiry-form" novalidate id="onlineRegistrationForm">

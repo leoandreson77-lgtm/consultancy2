@@ -200,6 +200,13 @@ include __DIR__ . '/includes/header.php';
             <aside class="course-sidebar-col">
                 <div class="course-sidebar-card">
                     <div class="hero-form-header">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 0.85rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(212, 175, 55, 0.3);">
+                            <img src="assets/images/logo.png" alt="Dehradun Defence College Official Emblem" style="width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(11,27,61,0.15)); flex-shrink: 0;">
+                            <div style="text-align: left;">
+                                <div style="font-size: 1rem; font-weight: 800; color: var(--primary-navy); line-height: 1.2;">Dehradun Defence College</div>
+                                <span class="badge-saffron" style="font-size: 0.65rem; padding: 2px 7px; margin-top: 2px; display: inline-block;">★ Official Registration</span>
+                            </div>
+                        </div>
                         <span class="badge-saffron">Enrollment 2026</span>
                         <h3>Register for this Course</h3>
                         <p>Direct admission guidance & fee breakdown for <strong><?php echo htmlspecialchars($c['title']); ?></strong></p>

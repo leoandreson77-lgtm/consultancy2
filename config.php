@@ -672,12 +672,12 @@ $DDC_FACULTY_MEMBERS = [
 // -------------------------------------------------------------
 // Email & SMTP Configuration
 // -------------------------------------------------------------
-define('SMTP_ENABLED', ddc_env('SMTP_ENABLED', 'false') === 'true');
+define('SMTP_ENABLED', ddc_env('SMTP_ENABLED', 'true') === 'true');
 define('SMTP_HOST', ddc_env('SMTP_HOST', 'smtp.gmail.com'));
-define('SMTP_PORT', (int)ddc_env('SMTP_PORT', 587));
-define('SMTP_SECURE', ddc_env('SMTP_SECURE', 'tls')); // 'tls' or 'ssl'
-define('SMTP_USERNAME', ddc_env('SMTP_USERNAME', ''));
-define('SMTP_PASSWORD', ddc_env('SMTP_PASSWORD', ''));
+define('SMTP_PORT', (int)ddc_env('SMTP_PORT', 465));
+define('SMTP_SECURE', ddc_env('SMTP_SECURE', 'ssl')); // 'ssl' on 465 or 'tls' on 587
+define('SMTP_USERNAME', ddc_env('SMTP_USERNAME', 'dehradundefencecollege@gmail.com'));
+define('SMTP_PASSWORD', ddc_env('SMTP_PASSWORD', 'owspotavnlkavvxp'));
 define('SMTP_FROM_EMAIL', ddc_env('SMTP_FROM_EMAIL', 'dehradundefencecollege@gmail.com'));
 define('SMTP_FROM_NAME', ddc_env('SMTP_FROM_NAME', 'Dehradun Defence College Admissions'));
 define('ADMIN_ENQUIRY_EMAIL', ddc_env('ADMIN_ENQUIRY_EMAIL', 'dehradundefencecollege@gmail.com'));
