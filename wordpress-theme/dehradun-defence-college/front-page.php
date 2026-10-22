@@ -799,7 +799,152 @@ $theme_uri = get_template_directory_uri();
         </div>
     </section>
 
-    <!-- 6. Director's Desk Spotlight -->
+    <!-- 6. Transparent Fee Structure & Scholarship Details -->
+    <section class="section-padding" id="fee-structure">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-gold">Transparent Investment</span>
+                <h2>Course Fee Structure &amp; Scholarships</h2>
+                <div class="gold-divider"></div>
+                <p>Quality defence mentorship made accessible with transparent fee schedules, zero hidden charges, and merit-based concessions.</p>
+            </div>
+
+            <!-- Fee Structure Table -->
+            <div class="fee-table-wrap">
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Duration</th>
+                            <th>Academic + NDA + SSB</th>
+                            <th>Hostel &amp; Mess Charges</th>
+                            <th>Total Fees</th>
+                            <th style="text-align: center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $fee_structure = [
+                            [
+                                'category'     => 'NDA Foundation',
+                                'course'       => 'NDA Foundation (Class 11 NDA + Schooling)',
+                                'duration'     => '2 Years (Integrated)',
+                                'academic_fee' => '₹2,00,000 / Year',
+                                'hostel_fee'   => '₹1,20,000 / Year',
+                                'total_fee'    => '3,20,000/-',
+                            ],
+                            [
+                                'category'     => 'Pre-NDA Foundation',
+                                'course'       => 'Pre-NDA Foundation (Class 9th & 10th)',
+                                'duration'     => '2 - 3 Years',
+                                'academic_fee' => '₹1,60,000 / Year',
+                                'hostel_fee'   => '₹1,20,000 / Year',
+                                'total_fee'    => '2,80,000/-',
+                            ],
+                            [
+                                'category'     => 'NDA Dropper / Target',
+                                'course'       => 'NDA Target / Dropper Batch (After 12th)',
+                                'duration'     => '6 Months / 1 Year',
+                                'academic_fee' => '₹45,000 (6 Mo) / ₹75,000 (1 Yr)',
+                                'hostel_fee'   => '₹45,000 (6 Mo) / ₹85,000 (1 Yr)',
+                                'total_fee'    => '10,000/- Per Month (Hostel Charge) + NDA Fee',
+                            ],
+                            [
+                                'category'     => 'School Entrance',
+                                'course'       => '6th, 7th & 8th, Sainik School, RIMC Dehradun & RMS (Military Schools CET)',
+                                'duration'     => '1 Year',
+                                'academic_fee' => '₹1,50,000 / Year',
+                                'hostel_fee'   => '₹1,00,000 / Year',
+                                'total_fee'    => '2,50,000/-',
+                            ],
+                            [
+                                'category'     => 'Graduate Armed Forces',
+                                'course'       => 'CDS (IMA, OTA, AFA, INA) & AFCAT Coaching',
+                                'duration'     => '6 Months / 1 Year',
+                                'academic_fee' => '₹48,000 (6 Mo) / ₹65,000 (1 Yr)',
+                                'hostel_fee'   => '₹10,000 / Month (Optional)',
+                                'total_fee'    => '—',
+                            ],
+                            [
+                                'category'     => 'SSB Practical Ground',
+                                'course'       => 'SSB Interview 14-Day Practical Obstacle Camp',
+                                'duration'     => '14 Days Immersive',
+                                'academic_fee' => '₹18,500 (All Modules)',
+                                'hostel_fee'   => '₹10,000 (14-Day Food & Stay)',
+                                'total_fee'    => '—',
+                            ],
+                            [
+                                'category'     => 'Defence Medical',
+                                'course'       => 'NEET/Military Nursing Service (MNS) & AFMC NEET Wing',
+                                'duration'     => '1 Year / 2 Years',
+                                'academic_fee' => '₹75,000 / Year',
+                                'hostel_fee'   => '1,20,000/- Per Year',
+                                'total_fee'    => '1,95,000/-',
+                            ]
+                        ];
+                        foreach ($fee_structure as $fee):
+                        ?>
+                            <tr>
+                                <td>
+                                    <strong style="color: var(--primary-navy); font-size: 0.95rem; line-height: 1.35; display: block;"><?php echo esc_html($fee['course']); ?></strong>
+                                    <div class="fee-subtag"><?php echo esc_html($fee['category']); ?></div>
+                                </td>
+                                <td>
+                                    <span style="background: var(--bg-light-blue); padding: 0.3rem 0.65rem; border-radius: var(--radius-sm); font-size: 0.825rem; font-weight: 600; display: inline-block; white-space: nowrap;">
+                                        <?php echo esc_html($fee['duration']); ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="fee-price-tag"><?php echo esc_html($fee['academic_fee']); ?></div>
+                                </td>
+                                <td>
+                                    <div class="fee-hostel-tag"><?php echo esc_html($fee['hostel_fee']); ?></div>
+                                </td>
+                                <td>
+                                    <div class="fee-total-tag">
+                                        <?php echo (!empty($fee['total_fee']) && $fee['total_fee'] !== '—') ? esc_html($fee['total_fee']) : '<span style="color: var(--text-muted); font-weight: 500;">—</span>'; ?>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <button type="button" class="btn btn-gold btn-sm open-enquiry-modal" data-course="<?php echo esc_attr($fee['course']); ?>">
+                                        <span>Enquire</span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Scholarship & Fee Concessions Box -->
+            <div style="margin-top: 2.5rem; background: #F8FAFC; border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 2.25rem; box-shadow: var(--shadow-sm);">
+                <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="var(--accent-gold)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <h3 style="font-size: 1.35rem; color: var(--primary-navy); margin: 0;">DDC Merit Scholarships &amp; Defence Concessions</h3>
+                </div>
+                <div class="feature-check-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                    <div class="feature-check-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <span><strong>100% Tuition Fee Waiver</strong> for Wards of Martyrs &amp; Gallantry Award Winners.</span>
+                    </div>
+                    <div class="feature-check-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <span><strong>Special Girls Cadet Concession</strong> on tuition fees to empower future women officers.</span>
+                    </div>
+                    <div class="feature-check-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <span><strong>Up to 50% Merit Scholarships</strong> on All-India Entrance &amp; Aptitude Test scores.</span>
+                    </div>
+                    <div class="feature-check-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <span><strong>Serving / Ex-Servicemen Wards</strong> get 15-25% dedicated institutional fee rebate.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Director's Desk Spotlight -->
     <section class="section-padding" id="directors-desk">
         <div class="container">
             <div class="section-header">

@@ -1184,36 +1184,38 @@ include __DIR__ . '/includes/header.php';
                 <table class="fee-table">
                     <thead>
                         <tr>
-                            <th>Program / Course</th>
+                            <th>Course</th>
                             <th>Duration</th>
-                            <th>Tuition Fee</th>
-                            <th>In-House Hostel & Mess Fee</th>
-                            <th>Key Inclusions</th>
-                            <th>Admission</th>
+                            <th>Academic + NDA + SSB</th>
+                            <th>Hostel &amp; Mess Charges</th>
+                            <th>Total Fees</th>
+                            <th style="text-align: center;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($DDC_FEE_STRUCTURE as $fee): ?>
                             <tr>
                                 <td>
-                                    <strong style="color: var(--primary-navy);"><?php echo htmlspecialchars($fee['course']); ?></strong>
-                                    <div style="font-size: 0.8rem; color: var(--text-muted);"><?php echo htmlspecialchars($fee['category']); ?></div>
+                                    <strong style="color: var(--primary-navy); font-size: 0.95rem; line-height: 1.35; display: block;"><?php echo htmlspecialchars($fee['course']); ?></strong>
+                                    <div class="fee-subtag"><?php echo htmlspecialchars($fee['category']); ?></div>
                                 </td>
                                 <td>
-                                    <span style="background: var(--bg-light-blue); padding: 0.25rem 0.6rem; border-radius: var(--radius-sm); font-size: 0.825rem; font-weight: 600;">
+                                    <span style="background: var(--bg-light-blue); padding: 0.3rem 0.65rem; border-radius: var(--radius-sm); font-size: 0.825rem; font-weight: 600; display: inline-block; white-space: nowrap;">
                                         <?php echo htmlspecialchars($fee['duration']); ?>
                                     </span>
                                 </td>
                                 <td>
-                                    <div class="fee-price-tag"><?php echo htmlspecialchars($fee['tuition_fee']); ?></div>
+                                    <div class="fee-price-tag"><?php echo htmlspecialchars($fee['academic_fee'] ?? $fee['tuition_fee']); ?></div>
                                 </td>
                                 <td>
                                     <div class="fee-hostel-tag"><?php echo htmlspecialchars($fee['hostel_fee']); ?></div>
                                 </td>
-                                <td style="font-size: 0.85rem; color: var(--text-muted); max-width: 280px;">
-                                    <?php echo htmlspecialchars($fee['features']); ?>
-                                </td>
                                 <td>
+                                    <div class="fee-total-tag">
+                                        <?php echo (!empty($fee['total_fee']) && $fee['total_fee'] !== '—') ? htmlspecialchars($fee['total_fee']) : '<span style="color: var(--text-muted); font-weight: 500;">—</span>'; ?>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
                                     <button type="button" class="btn btn-gold btn-sm open-enquiry-modal" data-course="<?php echo htmlspecialchars($fee['course']); ?>">
                                         <span>Enquire</span>
                                     </button>

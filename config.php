@@ -405,67 +405,81 @@ $DDC_COURSES = [
 // -------------------------------------------------------------
 $DDC_FEE_STRUCTURE = [
     [
-        'category'    => 'NDA Foundation',
-        'course'      => 'NDA Foundation (Class 11 + 12 + NDA + Schooling)',
-        'duration'    => '2 Years (Integrated)',
-        'tuition_fee' => '₹85,000 / Year',
-        'hostel_fee'  => '₹90,000 / Year',
-        'features'    => 'In-House Separate Hostel, 4 Meals Mess, Daily PT, GTO Ground & CBSE Schooling',
-        'course_key'  => 'nda-foundation-10'
+        'category'     => 'NDA Foundation',
+        'course'       => 'NDA Foundation (Class 11 NDA + Schooling)',
+        'duration'     => '2 Years (Integrated)',
+        'academic_fee' => '₹2,00,000 / Year',
+        'tuition_fee'  => '₹2,00,000 / Year',
+        'hostel_fee'   => '₹1,20,000 / Year',
+        'total_fee'    => '3,20,000/-',
+        'features'     => 'In-House Separate Hostel, 4 Meals Mess, Daily PT, GTO Ground & CBSE Schooling',
+        'course_key'   => 'nda-foundation-10'
     ],
     [
-        'category'    => 'Pre-NDA Foundation',
-        'course'      => 'Pre-NDA Foundation (Class 8th, 9th & 10th)',
-        'duration'    => '2 - 3 Years',
-        'tuition_fee' => '₹65,000 / Year',
-        'hostel_fee'  => '₹85,000 / Year',
-        'features'    => 'Early Defence Grooming, Speed Maths, NCERT Core Mastery, Physical Conditioning',
-        'course_key'  => 'nda-pre-foundation'
+        'category'     => 'Pre-NDA Foundation',
+        'course'       => 'Pre-NDA Foundation (Class 9th & 10th)',
+        'duration'     => '2 - 3 Years',
+        'academic_fee' => '₹1,60,000 / Year',
+        'tuition_fee'  => '₹1,60,000 / Year',
+        'hostel_fee'   => '₹1,20,000 / Year',
+        'total_fee'    => '2,80,000/-',
+        'features'     => 'Early Defence Grooming, Speed Maths, NCERT Core Mastery, Physical Conditioning',
+        'course_key'   => 'nda-pre-foundation'
     ],
     [
-        'category'    => 'NDA Dropper / Target',
-        'course'      => 'NDA Target / Dropper Batch (After 12th)',
-        'duration'    => '6 Months / 1 Year',
-        'tuition_fee' => '₹45,000 (6 Mo) / ₹75,000 (1 Yr)',
-        'hostel_fee'  => '₹45,000 (6 Mo) / ₹85,000 (1 Yr)',
-        'features'    => 'Intensive 8-10 Hrs Daily Study, Test Series, 14-Day SSB Interview Included',
-        'course_key'  => 'nda-target-12'
+        'category'     => 'NDA Dropper / Target',
+        'course'       => 'NDA Target / Dropper Batch (After 12th)',
+        'duration'     => '6 Months / 1 Year',
+        'academic_fee' => '₹45,000 (6 Mo) / ₹75,000 (1 Yr)',
+        'tuition_fee'  => '₹45,000 (6 Mo) / ₹75,000 (1 Yr)',
+        'hostel_fee'   => '₹45,000 (6 Mo) / ₹85,000 (1 Yr)',
+        'total_fee'    => '10,000/- Per Month (Hostel Charge) + NDA Fee',
+        'features'     => 'Intensive 8-10 Hrs Daily Study, Test Series, 14-Day SSB Interview Included',
+        'course_key'   => 'nda-target-12'
     ],
     [
-        'category'    => 'School Entrance',
-        'course'      => 'RIMC Dehradun & RMS (Military Schools CET)',
-        'duration'    => '1 Year Foundation Batch',
-        'tuition_fee' => '₹55,000 / Year',
-        'hostel_fee'  => '₹80,000 / Year',
-        'features'    => 'Subjective English Writing, Intelligence Reasoning, Caring Residential Gurukul',
-        'course_key'  => 'rimc-sainik'
+        'category'     => 'School Entrance',
+        'course'       => '6th, 7th & 8th, Sainik School, RIMC Dehradun & RMS (Military Schools CET)',
+        'duration'     => '1 Year',
+        'academic_fee' => '₹1,50,000 / Year',
+        'tuition_fee'  => '₹1,50,000 / Year',
+        'hostel_fee'   => '₹1,00,000 / Year',
+        'total_fee'    => '2,50,000/-',
+        'features'     => 'Subjective English Writing, Intelligence Reasoning, Caring Residential Gurukul',
+        'course_key'   => 'rimc-sainik'
     ],
     [
-        'category'    => 'Graduate Armed Forces',
-        'course'      => 'CDS (IMA, OTA, AFA, INA) & AFCAT Coaching',
-        'duration'    => '6 Months / 1 Year',
-        'tuition_fee' => '₹38,000 (6 Mo) / ₹65,000 (1 Yr)',
-        'hostel_fee'  => '₹8,500 / Month (Optional)',
-        'features'    => 'Ex-Defence Faculty, Special OTA Paper Strategy, SSB Orientation Included',
-        'course_key'  => 'cds-training'
+        'category'     => 'Graduate Armed Forces',
+        'course'       => 'CDS (IMA, OTA, AFA, INA) & AFCAT Coaching',
+        'duration'     => '6 Months / 1 Year',
+        'academic_fee' => '₹48,000 (6 Mo) / ₹65,000 (1 Yr)',
+        'tuition_fee'  => '₹48,000 (6 Mo) / ₹65,000 (1 Yr)',
+        'hostel_fee'   => '₹10,000 / Month (Optional)',
+        'total_fee'    => '—',
+        'features'     => 'Ex-Defence Faculty, Special OTA Paper Strategy, SSB Orientation Included',
+        'course_key'   => 'cds-training'
     ],
     [
-        'category'    => 'SSB Practical Ground',
-        'course'      => 'SSB Interview 14-Day Practical Obstacle Camp',
-        'duration'    => '14 Days Immersive',
-        'tuition_fee' => '₹18,500 (All Modules)',
-        'hostel_fee'  => '₹6,500 (14-Day Food & Stay)',
-        'features'    => 'Real Military GTO Ground, Psych Dossier TAT/WAT/SRT, Ex-Interviewing Officers',
-        'course_key'  => 'ssb-interview'
+        'category'     => 'SSB Practical Ground',
+        'course'       => 'SSB Interview 14-Day Practical Obstacle Camp',
+        'duration'     => '14 Days Immersive',
+        'academic_fee' => '₹18,500 (All Modules)',
+        'tuition_fee'  => '₹18,500 (All Modules)',
+        'hostel_fee'   => '₹10,000 (14-Day Food & Stay)',
+        'total_fee'    => '—',
+        'features'     => 'Real Military GTO Ground, Psych Dossier TAT/WAT/SRT, Ex-Interviewing Officers',
+        'course_key'   => 'ssb-interview'
     ],
     [
-        'category'    => 'Defence Medical',
-        'course'      => 'Military Nursing Service (MNS) & AFMC NEET Wing',
-        'duration'    => '1 Year / 2 Years',
-        'tuition_fee' => '₹65,000 / Year',
-        'hostel_fee'  => '₹85,000 / Year',
-        'features'    => 'Dedicated Girls Residential Wing, NCERT PCB Mastery, ToGIGE & Medical Interview',
-        'course_key'  => 'mns-nursing'
+        'category'     => 'Defence Medical',
+        'course'       => 'NEET/Military Nursing Service (MNS) & AFMC NEET Wing',
+        'duration'     => '1 Year / 2 Years',
+        'academic_fee' => '₹75,000 / Year',
+        'tuition_fee'  => '₹75,000 / Year',
+        'hostel_fee'   => '1,20,000/- Per Year',
+        'total_fee'    => '1,95,000/-',
+        'features'     => 'Dedicated Girls Residential Wing, NCERT PCB Mastery, ToGIGE & Medical Interview',
+        'course_key'   => 'mns-nursing'
     ]
 ];
 

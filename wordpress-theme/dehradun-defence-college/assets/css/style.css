@@ -4284,19 +4284,35 @@ body > .floating-whatsapp {
 }
 
 .fee-table tr:hover {
-  background: #FEF3C7;
+  background: #FFFBEB;
+}
+
+.fee-subtag {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 0.25rem;
 }
 
 .fee-price-tag {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--primary-navy);
+  white-space: nowrap;
 }
 
 .fee-hostel-tag {
-  font-size: 0.9rem;
-  color: var(--accent-gold-hover);
+  font-size: 0.95rem;
+  color: #D97706;
   font-weight: 600;
+  white-space: nowrap;
+}
+
+.fee-total-tag {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #B45309;
+  line-height: 1.35;
 }
 
 /* ============================================================
