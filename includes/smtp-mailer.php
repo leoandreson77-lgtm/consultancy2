@@ -33,8 +33,9 @@ if (!defined('SMTP_HOST')) {
  * @param array &$errorLog Array by reference to receive debug logs on failure
  * @return bool True if delivered to SMTP server successfully, False otherwise
  */
-function ddc_send_smtp_email($to, $subject, $htmlBody, $replyToEmail = '', $replyToName = '', &$errorLog = []) {
+function ddc_send_smtp_email($to, $subject, $htmlBody, $replyToEmail = '', $replyToName = '', &$errorLog = [], $attachments = []) {
     $errorLog = [];
+    $hasAttachments = !empty($attachments) && is_array($attachments);
 
     // If SMTP is disabled, fallback to standard mail()
     if (!defined('SMTP_ENABLED') || !SMTP_ENABLED) {
@@ -180,28 +181,82 @@ function ddc_send_smtp_email($to, $subject, $htmlBody, $replyToEmail = '', $repl
     $encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
     $encodedFromName = '=?UTF-8?B?' . base64_encode($fromName) . '?=';
 
-    $headers = [
-        "From: {$encodedFromName} <{$fromEmail}>",
-        "To: <{$to}>",
-        "Subject: {$encodedSubject}",
-        "Date: " . date('r'),
-        "MIME-Version: 1.0",
-        "Content-Type: text/html; charset=UTF-8",
-        "Content-Transfer-Encoding: base64",
-        "X-Mailer: Dehradun Defence College Admission Engine v2026"
-    ];
+    if ($hasAttachments) {
+        $boundary = "==DDC_Multipart_" . md5(uniqid((string)microtime(true), true));
+        $headers = [
+            "From: {$encodedFromName} <{$fromEmail}>",
+            "To: <{$to}>",
+            "Subject: {$encodedSubject}",
+            "Date: " . date('r'),
+            "MIME-Version: 1.0",
+            "Content-Type: multipart/mixed; boundary=\"{$boundary}\"",
+            "X-Mailer: Dehradun Defence College Admission Engine v2026"
+        ];
 
-    if (!empty($replyToEmail)) {
-        if (!empty($replyToName)) {
-            $encodedReplyName = '=?UTF-8?B?' . base64_encode($replyToName) . '?=';
-            $headers[] = "Reply-To: {$encodedReplyName} <{$replyToEmail}>";
-        } else {
-            $headers[] = "Reply-To: <{$replyToEmail}>";
+        if (!empty($replyToEmail)) {
+            if (!empty($replyToName)) {
+                $encodedReplyName = '=?UTF-8?B?' . base64_encode($replyToName) . '?=';
+                $headers[] = "Reply-To: {$encodedReplyName} <{$replyToEmail}>";
+            } else {
+                $headers[] = "Reply-To: <{$replyToEmail}>";
+            }
         }
-    }
 
-    $messageData = implode("\r\n", $headers) . "\r\n\r\n";
-    $messageData .= chunk_split(base64_encode($htmlBody)) . "\r\n.\r\n";
+        $bodyParts = [];
+
+        // HTML Body Part
+        $bodyParts[] = "--{$boundary}";
+        $bodyParts[] = "Content-Type: text/html; charset=UTF-8";
+        $bodyParts[] = "Content-Transfer-Encoding: base64\r\n";
+        $bodyParts[] = chunk_split(base64_encode($htmlBody));
+
+        // Attachment Parts
+        foreach ($attachments as $att) {
+            $filePath = is_array($att) ? ($att['path'] ?? '') : $att;
+            $fileName = is_array($att) ? ($att['name'] ?? basename($filePath)) : basename($filePath);
+            $fileMime = is_array($att) ? ($att['mime'] ?? 'application/octet-stream') : 'application/octet-stream';
+
+            if (!empty($filePath) && file_exists($filePath) && is_readable($filePath)) {
+                $fileContent = @file_get_contents($filePath);
+                if ($fileContent !== false) {
+                    $encodedFile = chunk_split(base64_encode($fileContent));
+                    $safeFileName = preg_replace('/[^a-zA-Z0-9_\-\.]/', '_', $fileName);
+
+                    $bodyParts[] = "--{$boundary}";
+                    $bodyParts[] = "Content-Type: {$fileMime}; name=\"{$safeFileName}\"";
+                    $bodyParts[] = "Content-Transfer-Encoding: base64";
+                    $bodyParts[] = "Content-Disposition: attachment; filename=\"{$safeFileName}\"\r\n";
+                    $bodyParts[] = $encodedFile;
+                }
+            }
+        }
+
+        $bodyParts[] = "--{$boundary}--";
+        $messageData = implode("\r\n", $headers) . "\r\n\r\n" . implode("\r\n", $bodyParts) . "\r\n.\r\n";
+    } else {
+        $headers = [
+            "From: {$encodedFromName} <{$fromEmail}>",
+            "To: <{$to}>",
+            "Subject: {$encodedSubject}",
+            "Date: " . date('r'),
+            "MIME-Version: 1.0",
+            "Content-Type: text/html; charset=UTF-8",
+            "Content-Transfer-Encoding: base64",
+            "X-Mailer: Dehradun Defence College Admission Engine v2026"
+        ];
+
+        if (!empty($replyToEmail)) {
+            if (!empty($replyToName)) {
+                $encodedReplyName = '=?UTF-8?B?' . base64_encode($replyToName) . '?=';
+                $headers[] = "Reply-To: {$encodedReplyName} <{$replyToEmail}>";
+            } else {
+                $headers[] = "Reply-To: <{$replyToEmail}>";
+            }
+        }
+
+        $messageData = implode("\r\n", $headers) . "\r\n\r\n";
+        $messageData .= chunk_split(base64_encode($htmlBody)) . "\r\n.\r\n";
+    }
 
     fputs($socket, $messageData);
     $dataResponse = $readResponse();

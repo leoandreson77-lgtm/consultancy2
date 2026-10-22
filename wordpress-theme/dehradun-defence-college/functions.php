@@ -296,7 +296,59 @@ function ddc_ajax_submit_enquiry_handler() {
     $message           = sanitize_textarea_field($_POST['message'] ?? '');
     $form_type         = sanitize_text_field($_POST['form_type'] ?? 'enquiry');
 
+    // Online Payment Fields
+    $payment_mode      = sanitize_text_field($_POST['payment_mode'] ?? 'pay_later');
+    $transaction_id    = sanitize_text_field($_POST['transaction_id'] ?? ($_POST['utr_number'] ?? ''));
+    $payment_amount    = sanitize_text_field($_POST['payment_amount'] ?? '500');
+    $payment_date      = sanitize_text_field($_POST['payment_date'] ?? date('Y-m-d'));
+
     $errors = [];
+
+    // File Upload Handler Helper
+    $cand_photo_path  = '';
+    $cand_photo_url   = '';
+    $payment_pod_path = '';
+    $payment_pod_url  = '';
+    $wp_upload_dir    = wp_upload_dir();
+    $base_upload_path = $wp_upload_dir['basedir'] . '/ddc_admissions/';
+    $base_upload_url  = $wp_upload_dir['baseurl'] . '/ddc_admissions/';
+
+    if (!is_dir($base_upload_path . 'candidates/')) {
+        @wp_mkdir_p($base_upload_path . 'candidates/');
+    }
+    if (!is_dir($base_upload_path . 'payments/')) {
+        @wp_mkdir_p($base_upload_path . 'payments/');
+    }
+
+    $allowed_exts = ['jpg', 'jpeg', 'png', 'webp', 'pdf'];
+
+    // Process Candidate Photo
+    if (!empty($_FILES['candidate_photo']['name']) && $_FILES['candidate_photo']['error'] === UPLOAD_ERR_OK) {
+        $file = $_FILES['candidate_photo'];
+        $ext  = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        if (in_array($ext, ['jpg', 'jpeg', 'png', 'webp'], true) && $file['size'] <= 6291456) {
+            $safe_name = 'cand_photo_' . date('Ymd_His') . '_' . wp_generate_password(8, false) . '.' . $ext;
+            $dest = $base_upload_path . 'candidates/' . $safe_name;
+            if (@move_uploaded_file($file['tmp_name'], $dest)) {
+                $cand_photo_path = $dest;
+                $cand_photo_url  = $base_upload_url . 'candidates/' . $safe_name;
+            }
+        }
+    }
+
+    // Process Payment Proof of Deposit (POD)
+    if (!empty($_FILES['payment_pod']['name']) && $_FILES['payment_pod']['error'] === UPLOAD_ERR_OK) {
+        $file = $_FILES['payment_pod'];
+        $ext  = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        if (in_array($ext, $allowed_exts, true) && $file['size'] <= 6291456) {
+            $safe_name = 'payment_pod_' . date('Ymd_His') . '_' . wp_generate_password(8, false) . '.' . $ext;
+            $dest = $base_upload_path . 'payments/' . $safe_name;
+            if (@move_uploaded_file($file['tmp_name'], $dest)) {
+                $payment_pod_path = $dest;
+                $payment_pod_url  = $base_upload_url . 'payments/' . $safe_name;
+            }
+        }
+    }
 
     // Validation
     if (strlen($full_name) < 3) {
@@ -315,6 +367,11 @@ function ddc_ajax_submit_enquiry_handler() {
         $errors['course_interest'] = 'Please select a course.';
     }
 
+    $has_payment = (!empty($payment_pod_path) || !empty($transaction_id) || $payment_mode === 'online' || $payment_mode === 'online_qr');
+    if (($payment_mode === 'online' || $payment_mode === 'online_qr') && empty($transaction_id) && empty($payment_pod_path)) {
+        $errors['transaction_id'] = 'Please enter your Transaction / UTR number or upload your Payment Proof Screenshot (POD).';
+    }
+
     if (!empty($errors)) {
         wp_send_json_error([
             'message' => 'Please correct the highlighted form errors.',
@@ -327,29 +384,52 @@ function ddc_ajax_submit_enquiry_handler() {
 
     // Construct lead data structure for templates & logging
     $lead_entry = [
-        'lead_id'           => 'DDC_' . strtoupper(substr(md5(uniqid()), 0, 8)),
-        'timestamp'         => current_time('mysql'),
-        'form_type'         => $form_type,
-        'full_name'         => $full_name,
-        'father_name'       => $father_name,
-        'email'             => $email,
-        'mobile_number'     => $normalized_mobile,
-        'parent_mobile'     => $parent_mobile,
-        'dob'               => $dob,
-        'gender'            => $gender,
-        'city_state'        => $city_state,
-        'course_interest'   => $course_interest,
-        'education_level'   => $education_level,
-        'preferred_contact' => $preferred_contact,
-        'message'           => $message,
-        'ip_address'        => $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN',
+        'lead_id'              => 'DDC_' . strtoupper(substr(md5(uniqid()), 0, 8)),
+        'timestamp'            => current_time('mysql'),
+        'form_type'            => $form_type,
+        'full_name'            => $full_name,
+        'father_name'          => $father_name,
+        'email'                => $email,
+        'mobile_number'        => $normalized_mobile,
+        'parent_mobile'        => $parent_mobile,
+        'dob'                  => $dob,
+        'gender'               => $gender,
+        'city_state'           => $city_state,
+        'course_interest'      => $course_interest,
+        'education_level'      => $education_level,
+        'preferred_contact'    => $preferred_contact,
+        'message'              => $message,
+        'has_payment'          => $has_payment,
+        'payment_mode'         => $payment_mode,
+        'payment_amount'       => $payment_amount,
+        'transaction_id'       => $transaction_id,
+        'payment_date'         => $payment_date,
+        'candidate_photo_path' => $cand_photo_path,
+        'candidate_photo_url'  => $cand_photo_url,
+        'payment_pod_path'     => $payment_pod_path,
+        'payment_pod_url'      => $payment_pod_url,
+        'ip_address'           => $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN',
     ];
 
     $admin_email = get_theme_mod('ddc_email', 'dehradundefencecollege@gmail.com');
     $is_registration = ($form_type === 'online_registration');
-    $subject = $is_registration 
-        ? "★ NEW ONLINE REGISTRATION: {$full_name} ({$course_interest}) - Dehradun Defence College"
-        : "★ NEW ADMISSION ENQUIRY: {$full_name} ({$course_interest}) - Dehradun Defence College";
+    
+    if ($has_payment) {
+        $subject = "💰 PAID REGISTRATION (POD ATTACHED): {$full_name} (₹{$payment_amount} - {$course_interest}) - Dehradun Defence College";
+    } elseif ($is_registration) {
+        $subject = "★ NEW ONLINE REGISTRATION: {$full_name} ({$course_interest}) - Dehradun Defence College";
+    } else {
+        $subject = "★ NEW ADMISSION ENQUIRY: {$full_name} ({$course_interest}) - Dehradun Defence College";
+    }
+
+    // Attachments for wp_mail and SMTP mailer
+    $attachments = [];
+    if (!empty($cand_photo_path) && file_exists($cand_photo_path)) {
+        $attachments[] = $cand_photo_path;
+    }
+    if (!empty($payment_pod_path) && file_exists($payment_pod_path)) {
+        $attachments[] = $payment_pod_path;
+    }
 
     // Build Gorgeous HTML Email for Academy Directorate
     if (function_exists('ddc_build_admin_lead_email')) {
@@ -365,17 +445,26 @@ function ddc_ajax_submit_enquiry_handler() {
     ];
 
     // Try WordPress wp_mail (routed through Gmail SMTP via phpmailer_init hook)
-    $sent = wp_mail($admin_email, $subject, $admin_email_html, $headers);
+    $sent = wp_mail($admin_email, $subject, $admin_email_html, $headers, $attachments);
 
     // Fallback to direct native socket SMTP client if wp_mail failed
     if (!$sent && function_exists('ddc_send_smtp_email')) {
         $smtp_err = [];
-        $sent = ddc_send_smtp_email($admin_email, $subject, $admin_email_html, $email, $full_name, $smtp_err);
+        $smtp_attachments = [];
+        if (!empty($cand_photo_path) && file_exists($cand_photo_path)) {
+            $smtp_attachments[] = ['path' => $cand_photo_path, 'name' => 'Candidate_' . $normalized_mobile . '.' . pathinfo($cand_photo_path, PATHINFO_EXTENSION), 'mime' => 'image/jpeg'];
+        }
+        if (!empty($payment_pod_path) && file_exists($payment_pod_path)) {
+            $smtp_attachments[] = ['path' => $payment_pod_path, 'name' => 'Payment_POD_' . $normalized_mobile . '.' . pathinfo($payment_pod_path, PATHINFO_EXTENSION), 'mime' => 'image/jpeg'];
+        }
+        $sent = ddc_send_smtp_email($admin_email, $subject, $admin_email_html, $email, $full_name, $smtp_err, $smtp_attachments);
     }
 
     // Send Candidate Welcome Confirmation Email
     if ($sent && is_email($email) && function_exists('ddc_build_student_welcome_email')) {
-        $student_subject = "Registration Confirmation: Dehradun Defence College - {$course_interest}";
+        $student_subject = $has_payment 
+            ? "Fee Payment & Registration Confirmation: Dehradun Defence College ({$course_interest})"
+            : "Registration Confirmation: Dehradun Defence College - {$course_interest}";
         $student_email_html = ddc_build_student_welcome_email($lead_entry);
         $student_headers = [
             'Content-Type: text/html; charset=UTF-8',
@@ -385,8 +474,13 @@ function ddc_ajax_submit_enquiry_handler() {
         wp_mail($email, $student_subject, $student_email_html, $student_headers);
     }
 
+    $reply_msg = $has_payment 
+        ? "Thank you, {$full_name}! Your registration and Proof of Deposit (POD) for ₹{$payment_amount} have been submitted. Our Admissions & Accounts team will verify your UTR."
+        : "Thank you, {$full_name}! Your admission enquiry for {$course_interest} has been received. Our counselor will contact you shortly.";
+
     wp_send_json_success([
-        'message' => "Thank you, {$full_name}! Your admission enquiry for {$course_interest} has been received. Our counselor will contact you shortly."
+        'message'     => $reply_msg,
+        'has_payment' => $has_payment
     ]);
 }
 add_action('wp_ajax_ddc_submit_enquiry', 'ddc_ajax_submit_enquiry_handler');
@@ -639,6 +733,11 @@ function ddc_auto_setup_pages() {
             'title'    => 'Online Registration Form',
             'slug'     => 'online-registration-form',
             'template' => 'page-online-registration-form.php',
+        ],
+        [
+            'title'    => 'Online Fee Payment & POD',
+            'slug'     => 'online-payment',
+            'template' => 'page-online-payment.php',
         ],
         [
             'title'    => 'Faculty & Facilities',

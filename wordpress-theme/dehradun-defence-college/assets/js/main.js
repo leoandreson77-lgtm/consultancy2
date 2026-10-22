@@ -424,9 +424,21 @@ document.addEventListener('DOMContentLoaded', function () {
         if (res.ok && res.data.success) {
           // Success State
           form.reset();
+          // Reset file previews if present
+          const candPreview = form.querySelector('#candidatePhotoPreview');
+          const candPrompt = form.querySelector('#candidatePhotoBox .upload-prompt');
+          if (candPreview) candPreview.classList.remove('has-file');
+          if (candPrompt) candPrompt.style.display = 'flex';
+
+          const podPreview = form.querySelector('#paymentPodPreview');
+          const podPrompt = form.querySelector('#paymentPodBox .upload-prompt');
+          if (podPreview) podPreview.classList.remove('has-file');
+          if (podPrompt) podPrompt.style.display = 'flex';
+
           if (statusAlert) {
             statusAlert.classList.add('alert-success');
-            statusAlert.innerHTML = `<strong>Registration Successful!</strong><br>${res.data.message}`;
+            const alertTitle = res.data.has_payment ? 'Payment &amp; Registration Submitted!' : 'Registration Successful!';
+            statusAlert.innerHTML = `<strong>${alertTitle}</strong><br>${res.data.message}`;
             statusAlert.style.display = 'block';
           }
         } else {
@@ -755,4 +767,233 @@ document.addEventListener('DOMContentLoaded', function () {
       setInterval(showNextEnrollment, 8800);
     }, 2000);
   }
+
+  // -------------------------------------------------------------
+  // 13. Candidate Photo & Online Fee Payment (POD) Controller
+  // -------------------------------------------------------------
+  function initPhotoAndPaymentController() {
+    // 13.1 Candidate Photo Live Preview
+    const photoInput = document.getElementById('candidate_photo');
+    const photoBox = document.getElementById('candidatePhotoBox');
+    const photoPreviewWrap = document.getElementById('candidatePhotoPreview');
+    const photoThumb = document.getElementById('candidatePhotoThumb');
+    const photoName = document.getElementById('candidatePhotoName');
+    const photoSize = document.getElementById('candidatePhotoSize');
+    const photoChangeBtn = document.getElementById('candidatePhotoChange');
+
+    if (photoInput && photoBox) {
+      photoBox.addEventListener('click', function (e) {
+        if (e.target !== photoChangeBtn && (!photoPreviewWrap || !photoPreviewWrap.contains(e.target))) {
+          photoInput.click();
+        }
+      });
+
+      photoBox.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        photoBox.classList.add('dragover');
+      });
+
+      photoBox.addEventListener('dragleave', function () {
+        photoBox.classList.remove('dragover');
+      });
+
+      photoBox.addEventListener('drop', function (e) {
+        e.preventDefault();
+        photoBox.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          photoInput.files = e.dataTransfer.files;
+          handlePhotoChange(e.dataTransfer.files[0]);
+        }
+      });
+
+      photoInput.addEventListener('change', function () {
+        if (photoInput.files && photoInput.files[0]) {
+          handlePhotoChange(photoInput.files[0]);
+        }
+      });
+
+      function handlePhotoChange(file) {
+        if (!file.type.match('image.*')) {
+          alert('Please select an image file (JPG, PNG, or WEBP).');
+          return;
+        }
+        if (file.size > 6 * 1024 * 1024) {
+          alert('Image size exceeds 6MB limit.');
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          if (photoThumb) photoThumb.src = e.target.result;
+          if (photoName) photoName.textContent = file.name;
+          if (photoSize) photoSize.textContent = (file.size / 1024).toFixed(1) + ' KB';
+          const prompt = photoBox.querySelector('.upload-prompt');
+          if (prompt) prompt.style.display = 'none';
+          if (photoPreviewWrap) photoPreviewWrap.classList.add('has-file');
+        };
+        reader.readAsDataURL(file);
+      }
+
+      if (photoChangeBtn) {
+        photoChangeBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          photoInput.value = '';
+          const prompt = photoBox.querySelector('.upload-prompt');
+          if (prompt) prompt.style.display = 'flex';
+          if (photoPreviewWrap) photoPreviewWrap.classList.remove('has-file');
+          if (photoThumb) photoThumb.src = '';
+        });
+      }
+    }
+
+    // 13.2 Payment Option Selector (Pay Online Now vs Pay Later)
+    const paymentPills = document.querySelectorAll('.payment-mode-pill');
+    const paymentSection = document.getElementById('onlinePaymentSection');
+    const regForm = document.getElementById('onlineRegistrationForm');
+    const submitBtn = regForm ? regForm.querySelector('button[type="submit"]') : null;
+
+    paymentPills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        paymentPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const radio = pill.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+
+        const mode = radio ? radio.value : 'pay_later';
+        if (paymentSection) {
+          if (mode === 'online' || mode === 'online_qr') {
+            paymentSection.style.display = 'block';
+            if (submitBtn) {
+              submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> <span>PROCEED & SUBMIT APPLICATION WITH POD (₹500)</span>';
+            }
+          } else {
+            paymentSection.style.display = 'none';
+            if (submitBtn) {
+              submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> <span>SUBMIT ONLINE REGISTRATION (2026-2027)</span>';
+            }
+          }
+        }
+      });
+    });
+
+    // 13.3 Proof of Deposit (POD) Upload & Live Preview
+    const podInput = document.getElementById('payment_pod');
+    const podBox = document.getElementById('paymentPodBox');
+    const podPreviewWrap = document.getElementById('paymentPodPreview');
+    const podThumb = document.getElementById('paymentPodThumb');
+    const podName = document.getElementById('paymentPodName');
+    const podSize = document.getElementById('paymentPodSize');
+    const podChangeBtn = document.getElementById('paymentPodChange');
+
+    if (podInput && podBox) {
+      podBox.addEventListener('click', function (e) {
+        if (e.target !== podChangeBtn && (!podPreviewWrap || !podPreviewWrap.contains(e.target))) {
+          podInput.click();
+        }
+      });
+
+      podBox.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        podBox.classList.add('dragover');
+      });
+
+      podBox.addEventListener('dragleave', function () {
+        podBox.classList.remove('dragover');
+      });
+
+      podBox.addEventListener('drop', function (e) {
+        e.preventDefault();
+        podBox.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+          podInput.files = e.dataTransfer.files;
+          handlePodChange(e.dataTransfer.files[0]);
+        }
+      });
+
+      podInput.addEventListener('change', function () {
+        if (podInput.files && podInput.files[0]) {
+          handlePodChange(podInput.files[0]);
+        }
+      });
+
+      function handlePodChange(file) {
+        if (file.size > 6 * 1024 * 1024) {
+          alert('POD receipt file exceeds 6MB limit.');
+          return;
+        }
+
+        if (file.type.match('image.*')) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            if (podThumb) {
+              podThumb.src = e.target.result;
+              podThumb.style.display = 'block';
+            }
+          };
+          reader.readAsDataURL(file);
+        } else {
+          // PDF receipt icon placeholder
+          if (podThumb) {
+            podThumb.src = 'assets/images/ddc-payment-qr.png';
+            podThumb.style.display = 'block';
+          }
+        }
+
+        if (podName) podName.textContent = file.name;
+        if (podSize) podSize.textContent = (file.size / 1024).toFixed(1) + ' KB';
+        const prompt = podBox.querySelector('.upload-prompt');
+        if (prompt) prompt.style.display = 'none';
+        if (podPreviewWrap) podPreviewWrap.classList.add('has-file');
+      }
+
+      if (podChangeBtn) {
+        podChangeBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          podInput.value = '';
+          const prompt = podBox.querySelector('.upload-prompt');
+          if (prompt) prompt.style.display = 'flex';
+          if (podPreviewWrap) podPreviewWrap.classList.remove('has-file');
+          if (podThumb) podThumb.src = '';
+        });
+      }
+    }
+
+    // 13.4 Click to Copy Bank Account / IFSC
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const textToCopy = btn.getAttribute('data-copy');
+        if (!textToCopy) return;
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(textToCopy).then(showCopied).catch(fallbackCopy);
+        } else {
+          fallbackCopy();
+        }
+
+        function fallbackCopy() {
+          const tempInput = document.createElement('input');
+          tempInput.value = textToCopy;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+          showCopied();
+        }
+
+        function showCopied() {
+          const origHtml = btn.innerHTML;
+          btn.innerHTML = '✓ Copied!';
+          btn.classList.add('copied');
+          setTimeout(function () {
+            btn.innerHTML = origHtml;
+            btn.classList.remove('copied');
+          }, 2200);
+        }
+      });
+    });
+  }
+
+  initPhotoAndPaymentController();
 });
+

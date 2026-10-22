@@ -112,6 +112,10 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
                     <span>ONLINE REGISTRATION</span>
                 </a>
+                <a href="online-payment.php" class="btn-top-schedule-tour" style="background: rgba(22, 163, 74, 0.2); color: #86efac; border-color: #22c55e; font-weight: 800; text-decoration: none;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                    <span>PAY ONLINE / POD</span>
+                </a>
             </div>
 
             <div class="top-marquee-wrap">
@@ -201,6 +205,7 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 <a href="results.php" class="nav-link <?php echo ($current_page === 'results') ? 'active' : ''; ?>">Selections 2026</a>
                 <a href="gallery.php" class="nav-link <?php echo ($current_page === 'gallery') ? 'active' : ''; ?>">Activities</a>
                 <a href="online-registration-form.php" class="nav-link <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration</a>
+                <a href="online-payment.php" class="nav-link <?php echo ($current_page === 'online-payment') ? 'active' : ''; ?>" style="color: #22c55e; font-weight: 700;">Pay Online / POD</a>
                 <a href="contact.php" class="nav-link <?php echo ($current_page === 'contact') ? 'active' : ''; ?>">Contact</a>
 
                 <div class="mobile-nav-footer">

@@ -97,6 +97,11 @@
       "permanent": false
     },
     {
+      "source": "/online-payment.php",
+      "destination": "/online-payment",
+      "permanent": false
+    },
+    {
       "source": "/privacy-policy.php",
       "destination": "/privacy-policy",
       "permanent": false

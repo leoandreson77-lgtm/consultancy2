@@ -125,6 +125,19 @@ define('YOUTUBE_LINK', 'https://www.youtube.com/@dehradundefencecollege');
 define('GOOGLE_MAPS_EMBED_URL', 'https://maps.google.com/maps?q=Dehradun%20Defence%20College%20Maldevta%20-%20NDA%20Coaching%20in%20Dehradun&t=m&z=14&output=embed&iwloc=near');
 
 // -------------------------------------------------------------
+// Official Bank & Online Fee Payment Credentials
+// -------------------------------------------------------------
+define('BANK_HOLDER_NAME', 'Dehradun Defence College');
+define('BANK_ACCOUNT_NO', '120003029000');
+define('BANK_NAME', 'Canara Bank');
+define('BANK_IFSC', 'CNRB0018515');
+define('BANK_BRANCH', 'Dehradun, Uttarakhand');
+define('PAYMENT_QR_IMAGE', 'assets/images/ddc-payment-qr.png');
+define('DEFAULT_REGISTRATION_FEE', '500');
+define('UPLOADS_DIR', __DIR__ . '/uploads');
+define('UPLOADS_URL', 'uploads');
+
+// -------------------------------------------------------------
 // Key Academy Statistics
 // -------------------------------------------------------------
 $DDC_STATS = [

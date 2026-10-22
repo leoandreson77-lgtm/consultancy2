@@ -100,6 +100,10 @@
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
                     <span>ONLINE REGISTRATION</span>
                 </a>
+                <a href="online-payment" class="btn-top-schedule-tour" style="background: rgba(22, 163, 74, 0.2); color: #86efac; border-color: #22c55e; font-weight: 800; text-decoration: none;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                    <span>PAY ONLINE / POD</span>
+                </a>
             </div>
 
             <div class="top-marquee-wrap">
@@ -189,6 +193,7 @@
                 <a href="results" class="nav-link ">Selections 2026</a>
                 <a href="gallery" class="nav-link ">Activities</a>
                 <a href="online-registration-form" class="nav-link active">Online Registration</a>
+                <a href="online-payment" class="nav-link " style="color: #22c55e; font-weight: 700;">Pay Online / POD</a>
                 <a href="contact" class="nav-link ">Contact</a>
 
                 <div class="mobile-nav-footer">
@@ -263,10 +268,10 @@
                         </div>
                     </div>
 
-                    <form action="send-enquiry" method="POST" class="ddc-enquiry-form" novalidate id="onlineRegistrationForm">
+                    <form action="send-enquiry" method="POST" enctype="multipart/form-data" class="ddc-enquiry-form" novalidate id="onlineRegistrationForm">
                         <input type="hidden" name="form_type" value="online_registration">
                         <input type="text" name="website_url_check" class="hp-field" tabindex="-1" autocomplete="off">
-                        <input type="hidden" name="form_start_time" value="1792673316">
+                        <input type="hidden" name="form_start_time" value="1792675745">
 
                         <div class="form-status-alert" role="alert"></div>
 
@@ -369,13 +374,199 @@
                             </div>
                         </div>
 
-                        <!-- 6. Additional Message / Background -->
+                        <!-- 6. Candidate Passport Photograph Upload -->
+                        <div class="ddc-form-section-title">
+                            <span class="section-step-badge">6</span>
+                            <h3>Candidate Passport Photograph</h3>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <input type="file" id="candidate_photo" name="candidate_photo" accept="image/jpeg,image/png,image/webp" style="display: none;">
+                            
+                            <div class="candidate-photo-box" id="candidatePhotoBox">
+                                <div class="upload-prompt">
+                                    <div class="upload-icon-circle">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                    </div>
+                                    <div style="font-weight: 700; color: var(--primary-navy); font-size: 0.95rem;">
+                                        Click or Drag to Upload Candidate Passport Photo
+                                    </div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">
+                                        Supported: JPG, PNG, WEBP (Max 5MB) &bull; Required for Cadet Identity Card &amp; Official Records
+                                    </div>
+                                </div>
+
+                                <div class="candidate-photo-preview-wrap" id="candidatePhotoPreview">
+                                    <img id="candidatePhotoThumb" src="" alt="Candidate Photo Preview">
+                                    <div style="flex: 1;">
+                                        <div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.25rem;">
+                                            <span style="background: #16a34a; color: #fff; font-size: 0.72rem; font-weight: 800; padding: 2px 7px; border-radius: 999px;">✓ Photo Ready</span>
+                                            <span style="font-weight: 700; color: var(--primary-navy); font-size: 0.88rem;" id="candidatePhotoName">photo.jpg</span>
+                                        </div>
+                                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.6rem;" id="candidatePhotoSize">0 KB</div>
+                                        <button type="button" class="btn btn-sm btn-outline-navy" id="candidatePhotoChange" style="padding: 3px 10px; font-size: 0.76rem;">Change Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-error-feedback"></div>
+                        </div>
+
+                        <!-- 7. Seat Reservation & Online Payment Option -->
+                        <div class="ddc-form-section-title">
+                            <span class="section-step-badge">7</span>
+                            <h3>Seat Reservation &amp; Online Fee Payment</h3>
+                        </div>
+                        
+                        <div class="payment-mode-selector">
+                            <label class="payment-mode-pill active">
+                                <input type="radio" name="payment_mode" value="online" checked>
+                                <div>
+                                    <div class="mode-title">
+                                        <span>💳 Pay Online &amp; Reserve Seat</span>
+                                        <span class="mode-badge-rec">RECOMMENDED</span>
+                                    </div>
+                                    <div class="mode-desc">
+                                        Scan official Canara Bank QR, pay ₹500 registration fee &amp; upload POD screenshot for instant seat reservation.
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="payment-mode-pill">
+                                <input type="radio" name="payment_mode" value="pay_later">
+                                <div>
+                                    <div class="mode-title">
+                                        <span>🏫 Pay Later at Campus</span>
+                                    </div>
+                                    <div class="mode-desc">
+                                        Submit registration now and pay during your campus counseling visit in Dehradun.
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- 7.1 The Official Payment & POD Standee Container -->
+                        <div id="onlinePaymentSection" style="margin-bottom: 1.5rem;">
+                            <div class="ddc-payment-standee-card">
+                                <div class="payment-standee-inner-grid">
+                                    <!-- QR Frame -->
+                                    <div class="standee-qr-frame">
+                                        <img src="assets/images/ddc-payment-qr.png" alt="Dehradun Defence College Official Payment Standee QR Code">
+                                        <span class="scan-badge">SCAN TO PAY (ALL UPI)</span>
+                                        <div style="font-size: 0.75rem; color: #475569; margin-top: 5px; font-weight: 600;">
+                                            GPay &bull; PhonePe &bull; Paytm &bull; BHIM
+                                        </div>
+                                    </div>
+
+                                    <!-- Bank Account Credentials -->
+                                    <div class="bank-details-wrapper">
+                                        <div class="bank-details-header">
+                                            <h4>
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                                                <span>Official Bank Details</span>
+                                            </h4>
+                                            <span style="background: rgba(22, 163, 74, 0.25); color: #86efac; border: 1px solid #22c55e; padding: 2px 8px; border-radius: 999px; font-size: 0.72rem; font-weight: 800;">
+                                                Verified Current A/C
+                                            </span>
+                                        </div>
+
+                                        <div class="bank-row">
+                                            <span class="bank-lbl">Holder Name:</span>
+                                            <span class="bank-val">Dehradun Defence College</span>
+                                        </div>
+
+                                        <div class="bank-row">
+                                            <span class="bank-lbl">Bank Name:</span>
+                                            <span class="bank-val">Canara Bank</span>
+                                        </div>
+
+                                        <div class="bank-row">
+                                            <span class="bank-lbl">Account Number:</span>
+                                            <span class="bank-val mono">
+                                                <span>120003029000</span>
+                                                <button type="button" class="copy-badge-btn" data-copy="120003029000" title="Copy Account Number">
+                                                    📋 Copy
+                                                </button>
+                                            </span>
+                                        </div>
+
+                                        <div class="bank-row">
+                                            <span class="bank-lbl">IFSC Code:</span>
+                                            <span class="bank-val mono">
+                                                <span>CNRB0018515</span>
+                                                <button type="button" class="copy-badge-btn" data-copy="CNRB0018515" title="Copy IFSC Code">
+                                                    📋 Copy
+                                                </button>
+                                            </span>
+                                        </div>
+
+                                        <div class="bank-row">
+                                            <span class="bank-lbl">Standard Fee:</span>
+                                            <span class="bank-val" style="color: var(--accent-gold); font-size: 1.05rem;">₹ 500 (One-Time Registration)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Inputs (UTR and Amount) -->
+                            <div class="form-grid-2col" style="margin-bottom: 1.25rem;">
+                                <div class="form-group">
+                                    <label class="form-label">Transaction ID / UTR Number * (12 Digits)</label>
+                                    <input type="text" name="transaction_id" id="transaction_id" class="form-control" placeholder="e.g. 428710294821 or UPI Ref ID" style="font-family: monospace; font-size: 1rem; font-weight: 700; letter-spacing: 0.5px;">
+                                    <small style="font-size: 0.76rem; color: var(--text-muted); display: block; margin-top: 3px;">
+                                        Found in your UPI app receipt after scanning QR.
+                                    </small>
+                                    <div class="form-error-feedback"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Amount Deposited (₹) *</label>
+                                    <input type="number" name="payment_amount" id="payment_amount" class="form-control" value="500" min="100" style="font-weight: 700;">
+                                    <small style="font-size: 0.76rem; color: var(--text-muted); display: block; margin-top: 3px;">
+                                        Standard Registration: ₹500 (or seat reservation token).
+                                    </small>
+                                    <div class="form-error-feedback"></div>
+                                </div>
+                            </div>
+
+                            <!-- Proof of Deposit (POD) Upload Box -->
+                            <div class="form-group">
+                                <label class="form-label">Upload Proof of Deposit (POD Screenshot / Receipt) *</label>
+                                <input type="file" id="payment_pod" name="payment_pod" accept="image/jpeg,image/png,image/webp,application/pdf" style="display: none;">
+                                
+                                <div class="pod-upload-zone" id="paymentPodBox">
+                                    <div class="upload-prompt">
+                                        <div class="upload-icon-circle" style="width: 48px; height: 48px; border-radius: 50%; background: #dcfce7; color: #15803d; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 6px;">
+                                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" x2="12" y1="3" y2="15"></line></svg>
+                                        </div>
+                                        <div style="font-weight: 800; color: #166534; font-size: 0.95rem;">
+                                            Click or Drag &amp; Drop Payment Screenshot (POD)
+                                        </div>
+                                        <div style="font-size: 0.8rem; color: #475569;">
+                                            Upload screenshot from PhonePe / Google Pay / Paytm / Bank (JPG, PNG, WEBP, PDF - Max 5MB)
+                                        </div>
+                                    </div>
+
+                                    <div class="pod-preview-wrap" id="paymentPodPreview">
+                                        <img id="paymentPodThumb" src="" alt="Payment POD Preview">
+                                        <div style="flex: 1;">
+                                            <div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.25rem;">
+                                                <span style="background: #16a34a; color: #ffffff; font-size: 0.72rem; font-weight: 800; padding: 2px 7px; border-radius: 999px;">✓ POD Screenshot Attached</span>
+                                                <span style="font-weight: 700; color: var(--primary-navy); font-size: 0.88rem;" id="paymentPodName">receipt.jpg</span>
+                                            </div>
+                                            <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.6rem;" id="paymentPodSize">0 KB</div>
+                                            <button type="button" class="btn btn-sm btn-outline-navy" id="paymentPodChange" style="padding: 3px 10px; font-size: 0.76rem;">Change Receipt</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Additional Message / Background -->
                         <div class="form-group" style="margin-bottom: 1.25rem;">
                             <label class="form-label">Additional Information / Prior Sports or NCC Achievements (Optional)</label>
                             <textarea name="message" class="form-control" rows="3" placeholder="Mention any NCC certificate, state/national sports achievements, or specific questions for the admissions counselor."></textarea>
                         </div>
 
-                        <!-- 7. Consent Checkbox -->
+                        <!-- 9. Consent Checkbox -->
                         <div class="form-check" style="margin-bottom: 1.75rem;">
                             <input type="checkbox" id="reg_consent" name="privacy_consent" checked required>
                             <label for="reg_consent" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
@@ -384,10 +575,10 @@
                             <div class="form-error-feedback"></div>
                         </div>
 
-                        <!-- 8. Submit Button -->
-                        <button type="submit" class="btn btn-gold" style="width: 100%; height: 52px; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.5px; border-radius: var(--radius-sm); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                        <!-- 10. Submit Button -->
+                        <button type="submit" class="btn btn-gold" style="width: 100%; height: 54px; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.5px; border-radius: var(--radius-sm); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            <span>SUBMIT ONLINE REGISTRATION (2026-2027)</span>
+                            <span>PROCEED &amp; SUBMIT APPLICATION WITH POD (₹500)</span>
                         </button>
                     </form>
 
@@ -645,6 +836,7 @@
                         <li><a href="https://careerindianairforce.cdac.in" target="_blank" rel="noopener">Indian Air Force ↗</a></li>
                         <li><a href="https://www.joinindiannavy.gov.in" target="_blank" rel="noopener">Indian Navy Careers ↗</a></li>
                         <li><a href="online-registration-form" style="color: var(--accent-gold); font-weight: 700;">★ Online Registration Form 2026</a></li>
+                        <li><a href="online-payment" style="color: #22c55e; font-weight: 700;">💳 Online Fee Payment &amp; POD</a></li>
                         <li><a href="about">About The Academy</a></li>
                         <li><a href="faculty-facilities">Campus & Hostels</a></li>
                         <li><a href="results">Hall of Fame / Results</a></li>
@@ -758,7 +950,7 @@
         <form action="send-enquiry" method="POST" class="ddc-enquiry-form" novalidate>
             <!-- Anti-Spam Hidden Fields -->
             <input type="text" name="website_url_check" class="hp-field" tabindex="-1" autocomplete="off">
-            <input type="hidden" name="form_start_time" value="1792673316">
+            <input type="hidden" name="form_start_time" value="1792675745">
 
             <!-- Form Status Messages -->
             <div class="form-status-alert" role="alert"></div>

@@ -67,10 +67,77 @@ if (isset($_POST['form_start_time'])) {
 }
 
 // -------------------------------------------------------------
+// -------------------------------------------------------------
 // 3. Input Extraction & Sanitization
 // -------------------------------------------------------------
 function ddc_clean_string($input) {
     return htmlspecialchars(trim((string)$input), ENT_QUOTES, 'UTF-8');
+}
+
+/**
+ * Handle secure file uploads for Candidate Photos and Payment PODs
+ */
+function ddc_handle_uploaded_file($fileKey, $targetSubdir, array $allowedExts = ['jpg', 'jpeg', 'png', 'webp', 'pdf'], $maxBytes = 6291456) {
+    if (!isset($_FILES[$fileKey]) || !is_array($_FILES[$fileKey])) {
+        return null;
+    }
+    $file = $_FILES[$fileKey];
+    if (empty($file['name']) || $file['error'] === UPLOAD_ERR_NO_FILE) {
+        return null;
+    }
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        return ['error' => 'File upload error (Code ' . (int)$file['error'] . '). Please try again.'];
+    }
+    if ($file['size'] > $maxBytes) {
+        $mb = round($maxBytes / 1048576, 1);
+        return ['error' => "File size exceeds the {$mb}MB limit. Please upload a smaller file."];
+    }
+    $origName = $file['name'];
+    $ext = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
+    if (!in_array($ext, $allowedExts, true)) {
+        return ['error' => 'Invalid file extension (.' . $ext . '). Allowed: ' . implode(', ', $allowedExts)];
+    }
+
+    // Verify MIME
+    $finfo = function_exists('finfo_open') ? finfo_open(FILEINFO_MIME_TYPE) : false;
+    $mimeType = $finfo ? finfo_file($finfo, $file['tmp_name']) : ($file['type'] ?? '');
+    if ($finfo) {
+        finfo_close($finfo);
+    }
+    $allowedMimes = [
+        'image/jpeg', 'image/pjpeg', 'image/png', 'image/x-png', 'image/webp', 'application/pdf'
+    ];
+    if (!empty($mimeType) && !in_array($mimeType, $allowedMimes, true)) {
+        return ['error' => 'File type security check failed.'];
+    }
+
+    $uploadDir = __DIR__ . '/uploads/' . trim($targetSubdir, '/') . '/';
+    if (!is_dir($uploadDir)) {
+        @mkdir($uploadDir, 0755, true);
+    }
+
+    $prefix = ($fileKey === 'candidate_photo') ? 'cand_photo' : 'payment_pod';
+    $safeName = $prefix . '_' . date('Ymd_His') . '_' . bin2hex(random_bytes(6)) . '.' . $ext;
+    $destPath = $uploadDir . $safeName;
+
+    $moved = false;
+    if (is_uploaded_file($file['tmp_name'])) {
+        $moved = move_uploaded_file($file['tmp_name'], $destPath);
+    } else {
+        $moved = @copy($file['tmp_name'], $destPath) || @rename($file['tmp_name'], $destPath);
+    }
+
+    if (!$moved) {
+        return ['error' => 'Failed to save uploaded file to server storage.'];
+    }
+
+    return [
+        'path'     => $destPath,
+        'filename' => $safeName,
+        'mime'     => $mimeType ?: 'application/octet-stream',
+        'size'     => $file['size'],
+        'url'      => 'uploads/' . trim($targetSubdir, '/') . '/' . $safeName
+    ];
 }
 
 $full_name         = ddc_clean_string($_POST['full_name'] ?? '');
@@ -88,7 +155,38 @@ $message           = ddc_clean_string($_POST['message'] ?? '');
 $privacy_consent   = isset($_POST['privacy_consent']) && ($_POST['privacy_consent'] === '1' || $_POST['privacy_consent'] === 'on' || $_POST['privacy_consent'] === 'yes');
 $form_type         = ddc_clean_string($_POST['form_type'] ?? 'enquiry');
 
+// Online Fee Payment Fields
+$payment_mode      = ddc_clean_string($_POST['payment_mode'] ?? 'pay_later');
+$transaction_id    = ddc_clean_string($_POST['transaction_id'] ?? ($_POST['utr_number'] ?? ''));
+$payment_amount    = ddc_clean_string($_POST['payment_amount'] ?? (defined('DEFAULT_REGISTRATION_FEE') ? DEFAULT_REGISTRATION_FEE : '500'));
+$payment_date      = ddc_clean_string($_POST['payment_date'] ?? date('Y-m-d'));
+
 $errors = [];
+
+// Handle File Uploads
+$cand_photo_path = '';
+$cand_photo_url  = '';
+$photo_result = ddc_handle_uploaded_file('candidate_photo', 'candidates', ['jpg', 'jpeg', 'png', 'webp']);
+if (is_array($photo_result)) {
+    if (isset($photo_result['error'])) {
+        $errors['candidate_photo'] = $photo_result['error'];
+    } elseif (isset($photo_result['path'])) {
+        $cand_photo_path = $photo_result['path'];
+        $cand_photo_url  = $photo_result['url'];
+    }
+}
+
+$payment_pod_path = '';
+$payment_pod_url  = '';
+$pod_result = ddc_handle_uploaded_file('payment_pod', 'payments', ['jpg', 'jpeg', 'png', 'webp', 'pdf']);
+if (is_array($pod_result)) {
+    if (isset($pod_result['error'])) {
+        $errors['payment_pod'] = $pod_result['error'];
+    } elseif (isset($pod_result['path'])) {
+        $payment_pod_path = $pod_result['path'];
+        $payment_pod_url  = $pod_result['url'];
+    }
+}
 
 // -------------------------------------------------------------
 // 4. Server-Side Validation Rules
@@ -135,7 +233,13 @@ if (empty($course_interest) || $course_interest === 'Select Course') {
 
 // Privacy Consent
 if (!$privacy_consent) {
-    $errors['privacy_consent'] = 'You must agree to the Privacy Policy to submit your enquiry.';
+    $errors['privacy_consent'] = 'You must agree to the terms to submit your application.';
+}
+
+// Payment Mode Validation
+$has_payment = (!empty($payment_pod_path) || !empty($transaction_id) || $payment_mode === 'online' || $payment_mode === 'online_qr');
+if (($payment_mode === 'online' || $payment_mode === 'online_qr') && empty($transaction_id) && empty($payment_pod_path)) {
+    $errors['transaction_id'] = 'Please enter your Transaction / UTR number or upload your Payment Proof Screenshot (POD).';
 }
 
 // If validation errors exist, halt and return clear feedback
@@ -143,33 +247,42 @@ if (!empty($errors)) {
     http_response_code(422);
     echo json_encode([
         'success' => false,
-        'message' => 'Please correct the errors in the form fields.',
+        'message' => 'Please correct the highlighted fields.',
         'errors'  => $errors
     ]);
     exit;
 }
 
 // -------------------------------------------------------------
-// 5. Record Lead to Local Storage (Safe Logging)
+// 5. Record Lead & Payment to Local Storage
 // -------------------------------------------------------------
 $lead_entry = [
-    'id'                => uniqid('DDC_', true),
-    'timestamp'         => date('Y-m-d H:i:s'),
-    'form_type'         => $form_type,
-    'full_name'         => $full_name,
-    'father_name'       => $father_name,
-    'email'             => $email,
-    'mobile_number'     => $cleaned_mobile,
-    'parent_mobile'     => $parent_mobile,
-    'dob'               => $dob,
-    'gender'            => $gender,
-    'city_state'        => $city_state,
-    'course_interest'   => $course_interest,
-    'education_level'   => $education_level,
-    'preferred_contact' => $preferred_contact,
-    'message'           => $message,
-    'ip_address'        => $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN',
-    'user_agent'        => $_SERVER['HTTP_USER_AGENT'] ?? 'UNKNOWN'
+    'id'                   => uniqid('DDC_', true),
+    'timestamp'            => date('Y-m-d H:i:s'),
+    'form_type'            => $form_type,
+    'full_name'            => $full_name,
+    'father_name'          => $father_name,
+    'email'                => $email,
+    'mobile_number'        => $cleaned_mobile,
+    'parent_mobile'        => $parent_mobile,
+    'dob'                  => $dob,
+    'gender'               => $gender,
+    'city_state'           => $city_state,
+    'course_interest'      => $course_interest,
+    'education_level'      => $education_level,
+    'preferred_contact'    => $preferred_contact,
+    'message'              => $message,
+    'has_payment'          => $has_payment,
+    'payment_mode'         => $payment_mode,
+    'payment_amount'       => $payment_amount,
+    'transaction_id'       => $transaction_id,
+    'payment_date'         => $payment_date,
+    'candidate_photo_path' => $cand_photo_path,
+    'candidate_photo_url'  => $cand_photo_url,
+    'payment_pod_path'     => $payment_pod_path,
+    'payment_pod_url'      => $payment_pod_url,
+    'ip_address'           => $_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN',
+    'user_agent'           => $_SERVER['HTTP_USER_AGENT'] ?? 'UNKNOWN'
 ];
 
 $storage_file = LEADS_LOG_FILE;
@@ -179,7 +292,7 @@ if (!is_dir($storage_dir)) {
     @mkdir($storage_dir, 0755, true);
 }
 
-// Append or create JSON log with file lock
+// Append to leads.json with file lock
 $leads = [];
 if (file_exists($storage_file)) {
     $current_data = @file_get_contents($storage_file);
@@ -190,24 +303,78 @@ if (file_exists($storage_file)) {
 $leads[] = $lead_entry;
 @file_put_contents($storage_file, json_encode($leads, JSON_PRETTY_PRINT), LOCK_EX);
 
+// If fee paid, record into dedicated payments ledger
+if ($has_payment) {
+    $payments_file = __DIR__ . '/storage/payments.json';
+    $payments = [];
+    if (file_exists($payments_file)) {
+        $p_data = @file_get_contents($payments_file);
+        if (!empty($p_data)) {
+            $payments = json_decode($p_data, true) ?: [];
+        }
+    }
+    $payments[] = [
+        'lead_id'          => $lead_entry['id'],
+        'timestamp'        => $lead_entry['timestamp'],
+        'student_name'     => $full_name,
+        'email'            => $email,
+        'mobile_number'    => $cleaned_mobile,
+        'course'           => $course_interest,
+        'amount'           => $payment_amount,
+        'transaction_id'   => $transaction_id,
+        'payment_pod_url'  => $payment_pod_url,
+        'bank_name'        => defined('BANK_NAME') ? BANK_NAME : 'Canara Bank',
+        'account_no'       => defined('BANK_ACCOUNT_NO') ? BANK_ACCOUNT_NO : '120003029000',
+        'status'           => 'Verification Pending'
+    ];
+    @file_put_contents($payments_file, json_encode($payments, JSON_PRETTY_PRINT), LOCK_EX);
+}
+
 // -------------------------------------------------------------
 // 6. Build & Dispatch Notifications via Authenticated SMTP
 // -------------------------------------------------------------
 $admin_email = ADMIN_ENQUIRY_EMAIL;
 $is_registration = ($form_type === 'online_registration');
-$email_subject = $is_registration 
-    ? "★ NEW ONLINE REGISTRATION: {$full_name} ({$course_interest}) - Dehradun Defence College"
-    : "★ NEW ADMISSION ENQUIRY: {$full_name} ({$course_interest}) - Dehradun Defence College";
+
+if ($has_payment) {
+    $email_subject = "💰 PAID REGISTRATION (POD ATTACHED): {$full_name} (₹{$payment_amount} - {$course_interest}) - Dehradun Defence College";
+} elseif ($is_registration) {
+    $email_subject = "★ NEW ONLINE REGISTRATION: {$full_name} ({$course_interest}) - Dehradun Defence College";
+} else {
+    $email_subject = "★ NEW ADMISSION ENQUIRY: {$full_name} ({$course_interest}) - Dehradun Defence College";
+}
+
+// Prepare Physical Email Attachments
+$email_attachments = [];
+$safeNameSlug = preg_replace('/[^a-zA-Z0-9_-]/', '', $full_name);
+
+if (!empty($cand_photo_path) && file_exists($cand_photo_path)) {
+    $email_attachments[] = [
+        'path' => $cand_photo_path,
+        'name' => 'Candidate_' . $safeNameSlug . '_' . $cleaned_mobile . '.' . pathinfo($cand_photo_path, PATHINFO_EXTENSION),
+        'mime' => (function_exists('mime_content_type') ? @mime_content_type($cand_photo_path) : 'image/jpeg') ?: 'image/jpeg'
+    ];
+}
+
+if (!empty($payment_pod_path) && file_exists($payment_pod_path)) {
+    $email_attachments[] = [
+        'path' => $payment_pod_path,
+        'name' => 'Payment_POD_' . $safeNameSlug . '_' . $cleaned_mobile . '.' . pathinfo($payment_pod_path, PATHINFO_EXTENSION),
+        'mime' => (function_exists('mime_content_type') ? @mime_content_type($payment_pod_path) : 'image/jpeg') ?: 'image/jpeg'
+    ];
+}
 
 // Build Attractive HTML Email for Admissions Directorate
 $admin_email_html = ddc_build_admin_lead_email($lead_entry);
 
 // Build Candidate Auto-Acknowledgement Welcome Email
-$student_subject = "Registration Confirmation: Dehradun Defence College - {$course_interest}";
+$student_subject = $has_payment 
+    ? "Fee Payment & Registration Confirmation: Dehradun Defence College ({$course_interest})"
+    : "Registration Confirmation: Dehradun Defence College - {$course_interest}";
 $student_email_html = ddc_build_student_welcome_email($lead_entry);
 
 $smtp_errors = [];
-$mail_sent = ddc_send_smtp_email($admin_email, $email_subject, $admin_email_html, $email, $full_name, $smtp_errors);
+$mail_sent = ddc_send_smtp_email($admin_email, $email_subject, $admin_email_html, $email, $full_name, $smtp_errors, $email_attachments);
 
 // If primary admin dispatch succeeded and student provided valid email, dispatch student welcome email
 if ($mail_sent && filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -227,14 +394,17 @@ if (!$mail_sent) {
     $mail_sent = @mail($admin_email, $email_subject, $admin_email_html, implode("\r\n", $fallback_headers));
 }
 
-// Even if host email service is in test mode or local sandbox, lead is guaranteed stored in leads.json
-$success_message = "Thank you, {$full_name}! Your admission enquiry for {$course_interest} has been registered successfully. Our senior admission mentor will contact you shortly.";
+// User-facing Success Message
+$success_message = $has_payment 
+    ? "Thank you, {$full_name}! Your registration and Proof of Deposit (POD) for ₹{$payment_amount} have been submitted successfully. Our Admissions Directorate & Accounts Team will verify your UTR and issue your confirmation."
+    : "Thank you, {$full_name}! Your admission application for {$course_interest} has been registered successfully. Our senior admission mentor will contact you shortly.";
 
 http_response_code(200);
 echo json_encode([
     'success'      => true,
     'message'      => $success_message,
     'lead_id'      => $lead_entry['id'],
+    'has_payment'  => $has_payment,
     'mail_status'  => $mail_sent ? 'delivered' : 'logged_securely'
 ]);
 exit;

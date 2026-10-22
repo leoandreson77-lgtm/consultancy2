@@ -7,16 +7,7 @@
  */
 
 if (!defined('SITE_NAME')) {
-    if (file_exists(__DIR__ . '/../config.php')) {
-        require_once __DIR__ . '/../config.php';
-    } elseif (file_exists(dirname(dirname(__DIR__)) . '/config.php')) {
-        require_once dirname(dirname(__DIR__)) . '/config.php';
-    } else {
-        define('SITE_NAME', 'Dehradun Defence College');
-        define('ADMIN_ENQUIRY_EMAIL', 'dehradundefencecollege@gmail.com');
-        define('OFFICIAL_PHONE_1', '+91 9719104024');
-        define('OFFICIAL_WHATSAPP', '+919719104024');
-    }
+    require_once __DIR__ . '/../config.php';
 }
 
 /**
@@ -43,12 +34,127 @@ function ddc_build_admin_lead_email(array $data): string {
     $timestamp        = date('d M Y, h:i A') . ' IST';
     $ipAddress        = htmlspecialchars($data['ip_address'] ?? ($_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN'), ENT_QUOTES, 'UTF-8');
 
+    $hasPayment         = !empty($data['has_payment']) || !empty($data['transaction_id']) || !empty($data['payment_pod']);
+    $paymentAmount      = htmlspecialchars($data['payment_amount'] ?? '500', ENT_QUOTES, 'UTF-8');
+    $transactionId      = htmlspecialchars($data['transaction_id'] ?? 'Not Provided', ENT_QUOTES, 'UTF-8');
+    $paymentDate        = htmlspecialchars($data['payment_date'] ?? date('d M Y'), ENT_QUOTES, 'UTF-8');
+    $paymentMode        = htmlspecialchars($data['payment_mode'] ?? 'online_qr', ENT_QUOTES, 'UTF-8');
+    $candidatePhotoPath = $data['candidate_photo_path'] ?? '';
+    $paymentPodPath     = $data['payment_pod_path'] ?? '';
+    $paymentPodUrl      = $data['payment_pod'] ?? '';
+
     $isRegistration = ($formType === 'online_registration');
-    $badgeText      = $isRegistration ? '🎖️ OFFICIAL ONLINE REGISTRATION' : '🔥 NEW ADMISSION LEAD';
-    $portalLabel    = $isRegistration ? 'Online Registration Portal • Session 2026-2027' : 'Website Lead Generation Engine • Session 2026';
-    $badgeBg        = $isRegistration ? '#FF9933' : '#D4AF37';
+    if ($hasPayment) {
+        $badgeText   = '💰 PAID REGISTRATION (POD ATTACHED)';
+        $badgeBg     = '#10b981';
+        $portalLabel = 'Online Fee Payment & Verification • Session 2026-2027';
+    } elseif ($isRegistration) {
+        $badgeText   = '🎖️ OFFICIAL ONLINE REGISTRATION';
+        $badgeBg     = '#FF9933';
+        $portalLabel = 'Online Registration Portal • Session 2026-2027';
+    } else {
+        $badgeText   = '🔥 NEW ADMISSION LEAD';
+        $badgeBg     = '#D4AF37';
+        $portalLabel = 'Website Lead Generation Engine • Session 2026';
+    }
 
     $logoUrl = 'https://dehradundefencecollege.com/assets/images/logo.png';
+
+    // Candidate Photo HTML
+    $candidatePhotoHtml = '';
+    if (!empty($candidatePhotoPath) && file_exists($candidatePhotoPath) && is_readable($candidatePhotoPath)) {
+        $photoExt = strtolower(pathinfo($candidatePhotoPath, PATHINFO_EXTENSION));
+        $photoMime = ($photoExt === 'png') ? 'image/png' : (($photoExt === 'webp') ? 'image/webp' : 'image/jpeg');
+        $photoBase64 = 'data:' . $photoMime . ';base64,' . base64_encode(file_get_contents($candidatePhotoPath));
+        $candidatePhotoHtml = "
+            <td width='110' style='vertical-align: middle; padding-right: 16px;'>
+                <img src='{$photoBase64}' alt='Candidate Photograph' width='96' height='114' style='display: block; border-radius: 8px; border: 2px solid #D4AF37; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.15);'>
+                <div style='font-size: 10px; color: #0369a1; text-align: center; margin-top: 3px; font-weight: 700;'>Candidate Photo</div>
+            </td>";
+    }
+
+    // Payment Card & Proof of Deposit (POD) HTML
+    $paymentCardHtml = '';
+    if ($hasPayment) {
+        $podImgHtml = '';
+        if (!empty($paymentPodPath) && file_exists($paymentPodPath) && is_readable($paymentPodPath)) {
+            $podExt = strtolower(pathinfo($paymentPodPath, PATHINFO_EXTENSION));
+            $podMime = ($podExt === 'png') ? 'image/png' : (($podExt === 'webp') ? 'image/webp' : 'image/jpeg');
+            $podBase64 = 'data:' . $podMime . ';base64,' . base64_encode(file_get_contents($paymentPodPath));
+            $podImgHtml = "
+                <div style='margin-top: 12px;'>
+                    <img src='{$podBase64}' alt='Proof of Deposit (POD)' style='max-width: 100%; max-height: 420px; border-radius: 8px; border: 2px solid #10b981; box-shadow: 0 4px 14px rgba(0,0,0,0.12); display: block; margin: 0 auto;'>
+                    <div style='font-size: 11px; color: #047857; margin-top: 6px; font-weight: 700;'>
+                        ✓ POD screenshot embedded above & original file attached to this email.
+                    </div>
+                </div>";
+        } elseif (!empty($paymentPodUrl)) {
+            $podImgHtml = "
+                <div style='margin-top: 10px; font-size: 12px; color: #065f46;'>
+                    Proof of Deposit File: <strong>{$paymentPodUrl}</strong>
+                </div>";
+        } else {
+            $podImgHtml = "
+                <div style='margin-top: 10px; font-size: 12px; color: #854d0e; font-style: italic;'>
+                    Candidate reported payment UTR without screenshot file. Verify in Canara Bank statement.
+                </div>";
+        }
+
+        $paymentCardHtml = "
+        <!-- 🚨 OFFICIAL PAYMENT & POD ALERT CARD 🚨 -->
+        <div style='background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2px solid #16a34a; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.18);'>
+            <div style='border-bottom: 1px solid #bbf7d0; padding-bottom: 12px; margin-bottom: 14px;'>
+                <table role='presentation' width='100%' border='0' cellspacing='0' cellpadding='0'>
+                    <tr>
+                        <td style='vertical-align: middle;'>
+                            <span style='background-color: #16a34a; color: #ffffff; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.5px;'>
+                                💰 ONLINE FEE PAYMENT RECEIVED (POD)
+                            </span>
+                            <div style='font-size: 13px; color: #166534; font-weight: 700; margin-top: 5px;'>
+                                Bank: Canara Bank &bull; A/C: 120003029000 &bull; IFSC: CNRB0018515
+                            </div>
+                        </td>
+                        <td align='right' style='vertical-align: middle;'>
+                            <div style='font-size: 26px; font-weight: 900; color: #15803d; line-height: 1;'>
+                                ₹ {$paymentAmount}
+                            </div>
+                            <div style='font-size: 10px; color: #166534; font-weight: 700; text-transform: uppercase;'>
+                                Registration Fee
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <table role='presentation' width='100%' border='0' cellspacing='0' cellpadding='0' style='font-size: 13px; line-height: 1.6; margin-bottom: 10px;'>
+                <tr>
+                    <td width='35%' style='padding: 5px 0; color: #166534; font-weight: 700;'>Transaction / UTR No:</td>
+                    <td style='padding: 5px 0;'>
+                        <span style='font-family: monospace; font-size: 15px; font-weight: 900; color: #0b1b3d; background: #ffffff; padding: 3px 10px; border-radius: 5px; border: 1.5px solid #86efac; display: inline-block; letter-spacing: 0.5px;'>
+                            {$transactionId}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='padding: 5px 0; color: #166534; font-weight: 700;'>Payment Date:</td>
+                    <td style='padding: 5px 0; color: #0f172a; font-weight: 600;'>{$paymentDate}</td>
+                </tr>
+                <tr>
+                    <td style='padding: 5px 0; color: #166534; font-weight: 700;'>Payment Method:</td>
+                    <td style='padding: 5px 0; color: #0f172a; font-weight: 600;'>Canara Bank QR Code / UPI Transfer</td>
+                </tr>
+            </table>
+
+            <!-- Proof of Deposit (POD) Screenshot Box -->
+            <div style='background-color: #ffffff; border: 1.5px dashed #22c55e; border-radius: 8px; padding: 14px; text-align: center; margin-top: 10px;'>
+                <div style='font-weight: 800; font-size: 13px; color: #15803d; margin-bottom: 4px;'>
+                    📸 PROOF OF DEPOSIT (POD) RECEIPT
+                </div>
+                {$podImgHtml}
+            </div>
+        </div>
+        ";
+    }
 
     return "
 <!DOCTYPE html>
@@ -56,7 +162,7 @@ function ddc_build_admin_lead_email(array $data): string {
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>" . ($isRegistration ? 'New Online Registration' : 'New Admission Lead') . "</title>
+    <title>" . ($hasPayment ? 'Paid Online Registration' : ($isRegistration ? 'New Online Registration' : 'New Admission Lead')) . "</title>
 </head>
 <body style='margin: 0; padding: 20px 10px; background-color: #0f172a; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.5;'>
     
@@ -98,7 +204,7 @@ function ddc_build_admin_lead_email(array $data): string {
                 <table role='presentation' width='100%' border='0' cellspacing='0' cellpadding='0'>
                     <tr>
                         <td style='vertical-align: middle;'>
-                            <span style='display: inline-block; background-color: {$badgeBg}; color: #07142b; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.5px;'>
+                            <span style='display: inline-block; background-color: {$badgeBg}; color: #ffffff; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.5px;'>
                                 {$badgeText}
                             </span>
                         </td>
@@ -116,16 +222,25 @@ function ddc_build_admin_lead_email(array $data): string {
                 
                 <!-- Candidate Spotlight Hero Box -->
                 <div style='background: linear-gradient(135deg, #f0f7ff 0%, #e2effe 100%); border-radius: 10px; padding: 18px 20px; border-left: 5px solid #0284c7; margin-bottom: 24px;'>
-                    <div style='font-size: 11px; font-weight: 800; text-transform: uppercase; color: #0369a1; letter-spacing: 0.8px;'>
-                        APPLICANT HIGHLIGHT
-                    </div>
-                    <div style='font-size: 22px; font-weight: 800; color: #0b1b3d; margin: 4px 0;'>
-                        {$fullName}
-                    </div>
-                    <div style='display: inline-block; background-color: #0b1b3d; color: #FFD700; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 6px; margin-top: 4px;'>
-                        Target Course: {$courseInterest}
-                    </div>
+                    <table role='presentation' width='100%' border='0' cellspacing='0' cellpadding='0'>
+                        <tr>
+                            {$candidatePhotoHtml}
+                            <td style='vertical-align: middle;'>
+                                <div style='font-size: 11px; font-weight: 800; text-transform: uppercase; color: #0369a1; letter-spacing: 0.8px;'>
+                                    APPLICANT HIGHLIGHT
+                                </div>
+                                <div style='font-size: 22px; font-weight: 800; color: #0b1b3d; margin: 4px 0;'>
+                                    {$fullName}
+                                </div>
+                                <div style='display: inline-block; background-color: #0b1b3d; color: #FFD700; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 6px; margin-top: 4px;'>
+                                    Target Course: {$courseInterest}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
+
+                {$paymentCardHtml}
 
                 <!-- Instant 1-Click Action Bar -->
                 <div style='margin-bottom: 24px; text-align: center;'>
@@ -266,6 +381,40 @@ function ddc_build_student_welcome_email(array $data): string {
     $leadId         = htmlspecialchars($data['lead_id'] ?? ('DDC_' . strtoupper(substr(md5(uniqid()), 0, 8))), ENT_QUOTES, 'UTF-8');
     $logoUrl        = 'https://dehradundefencecollege.com/assets/images/logo.png';
 
+    $hasPayment     = !empty($data['has_payment']) || !empty($data['transaction_id']) || !empty($data['payment_pod_path']);
+    $paymentAmount  = htmlspecialchars((string)($data['payment_amount'] ?? '500'), ENT_QUOTES, 'UTF-8');
+    $transactionId  = htmlspecialchars((string)($data['transaction_id'] ?? 'UTR Verification In Progress'), ENT_QUOTES, 'UTF-8');
+
+    $studentPaymentCard = '';
+    if ($hasPayment) {
+        $studentPaymentCard = "
+        <!-- Student Payment Confirmation Box -->
+        <div style='background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1.5px solid #22c55e; border-radius: 8px; padding: 16px; margin: 20px 0;'>
+            <table role='presentation' width='100%' border='0' cellspacing='0' cellpadding='0'>
+                <tr>
+                    <td style='vertical-align: middle;'>
+                        <span style='background-color: #16a34a; color: #ffffff; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 999px;'>
+                            ✓ ONLINE FEE PAYMENT RECORDED (POD)
+                        </span>
+                        <div style='font-size: 12px; color: #166534; font-weight: 700; margin-top: 4px;'>
+                            Bank: Canara Bank &bull; A/C: 120003029000 &bull; IFSC: CNRB0018515
+                        </div>
+                    </td>
+                    <td align='right' style='vertical-align: middle;'>
+                        <span style='font-size: 20px; font-weight: 800; color: #15803d;'>₹ {$paymentAmount}</span>
+                    </td>
+                </tr>
+            </table>
+            <div style='font-size: 13px; color: #166534; line-height: 1.6; margin-top: 10px; padding-top: 8px; border-top: 1px dashed #86efac;'>
+                <strong>Transaction / UTR No:</strong> <span style='font-family: monospace; font-weight: 700; color: #0b1b3d; background: #ffffff; padding: 2px 7px; border-radius: 4px; border: 1px solid #86efac;'>{$transactionId}</span><br>
+                <span style='font-size: 12px; color: #15803d; display: inline-block; margin-top: 4px;'>
+                    Your Proof of Deposit (POD) screenshot has been submitted to our Accounts Directorate. Your official registration receipt will be confirmed upon bank ledger reconciliation.
+                </span>
+            </div>
+        </div>
+        ";
+    }
+
     return "
 <!DOCTYPE html>
 <html lang='en'>
@@ -314,6 +463,8 @@ function ddc_build_student_welcome_email(array $data): string {
                     <div style='font-size: 16px; font-weight: 800; color: #0b1b3d; font-family: monospace;'>{$leadId}</div>
                     <div style='font-size: 12px; color: #0284c7; font-weight: 700; margin-top: 6px;'>Program: {$courseInterest}</div>
                 </div>
+
+                {$studentPaymentCard}
 
                 <h3 style='color: #0b1b3d; font-size: 15px; margin: 20px 0 8px 0;'>What Happens Next?</h3>
                 <ul style='margin: 0 0 20px 0; padding-left: 20px; font-size: 13px; color: #475569; line-height: 1.7;'>

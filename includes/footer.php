@@ -57,6 +57,7 @@ require_once __DIR__ . '/../config.php';
                         <li><a href="https://careerindianairforce.cdac.in" target="_blank" rel="noopener">Indian Air Force ↗</a></li>
                         <li><a href="https://www.joinindiannavy.gov.in" target="_blank" rel="noopener">Indian Navy Careers ↗</a></li>
                         <li><a href="online-registration-form.php" style="color: var(--accent-gold); font-weight: 700;">★ Online Registration Form 2026</a></li>
+                        <li><a href="online-payment.php" style="color: #22c55e; font-weight: 700;">💳 Online Fee Payment &amp; POD</a></li>
                         <li><a href="about.php">About The Academy</a></li>
                         <li><a href="faculty-facilities.php">Campus & Hostels</a></li>
                         <li><a href="results.php">Hall of Fame / Results</a></li>
