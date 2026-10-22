@@ -349,13 +349,15 @@ h6 { font-size: 0.95rem; }
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
+  max-width: 100%;
 }
 
 .top-notice-left {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .top-notice-item {
@@ -2306,50 +2308,61 @@ body > .floating-whatsapp {
 
 /* --- 19. RESPONSIVE BREAKPOINTS --- */
 
-/* Laptop Viewport Optimization (1081px - 1240px) */
-@media (min-width: 1081px) and (max-width: 1240px) {
+/* Laptop Viewport Optimization (1241px - 1440px) */
+@media (min-width: 1241px) and (max-width: 1440px) {
   .header-container {
     padding-left: 1rem;
     padding-right: 1rem;
     gap: 0.5rem;
+    max-width: 100%;
   }
 
   .brand-logo {
-    gap: 0.6rem;
+    gap: 0.5rem;
+    flex-shrink: 0;
   }
 
   .brand-logo-img {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
   }
 
   .brand-title {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
   }
 
   .brand-subtitle {
-    font-size: 0.58rem;
+    font-size: 0.55rem;
   }
 
   .nav-menu {
-    gap: 0.65rem;
+    gap: clamp(0.25rem, 0.55vw, 0.65rem);
   }
 
   .nav-link {
-    font-size: 0.825rem;
-    padding: 0.4rem 0.15rem;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.15rem;
   }
 
   .header-cta-group .btn-gold {
-    padding: 0.45rem 0.95rem;
-    font-size: 0.775rem;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.75rem;
   }
 }
 
-/* Tablet & Mobile Navigation Breakpoint (<= 1080px) */
-@media (max-width: 1080px) {
+/* Tablet & Mobile Navigation Breakpoint (<= 1240px) */
+@media (max-width: 1240px) {
   :root {
     --header-height: 68px;
+  }
+
+  /* Compact top notice bar on tablets */
+  .btn-top-schedule-tour {
+    display: none !important;
+  }
+
+  .top-marquee-wrap {
+    max-width: 280px;
   }
 
   .mobile-nav-toggle {
@@ -2811,6 +2824,32 @@ body > .floating-whatsapp {
   .directors-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1240px) {
+  /* Universal Grid Shrink & Overflow Safety */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .course-detail-layout,
+  .registration-layout-grid,
+  .contact-layout-grid,
+  .hero-grid,
+  .about-grid,
+  .fee-table-wrap {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .top-notice-bar {
+    display: none !important;
   }
 }
 
@@ -4774,11 +4813,26 @@ body > .floating-whatsapp {
   /* Fee Table Horizontal Scroll Container */
   .fee-table-wrap {
     margin-top: 1.25rem;
-    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
   }
 
   .fee-table {
-    min-width: 580px;
+    min-width: 640px;
+    font-size: 0.825rem;
+  }
+
+  .fee-table th,
+  .fee-table td {
+    padding: 0.75rem 0.65rem !important;
+  }
+
+  .fee-price-tag,
+  .fee-total-tag {
+    font-size: 0.925rem;
   }
 
   /* Activities Gallery on Mobile */
@@ -5141,10 +5195,17 @@ body > .floating-whatsapp {
   margin-bottom: 2rem;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1240px) {
   .registration-layout-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .form-grid-3col {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.15rem;
   }
 }
 

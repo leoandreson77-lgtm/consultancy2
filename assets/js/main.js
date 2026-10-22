@@ -63,13 +63,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Mobile Submenu Accordion (<= 1080px)
+  // Mobile Submenu Accordion (<= 1240px)
   const navDropdowns = document.querySelectorAll('.nav-dropdown');
   navDropdowns.forEach(function (dropdown) {
     const toggle = dropdown.querySelector('.nav-dropdown-toggle');
     if (toggle) {
       toggle.addEventListener('click', function (e) {
-        if (window.innerWidth <= 1080) {
+        if (window.innerWidth <= 1240) {
           e.preventDefault();
           dropdown.classList.toggle('is-active');
         }
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const drawerLinks = navMenu.querySelectorAll('.nav-link:not(.nav-dropdown-toggle), .dropdown-item, .open-enquiry-modal, .mobile-nav-footer a');
     drawerLinks.forEach(function (link) {
       link.addEventListener('click', function () {
-        if (window.innerWidth <= 1080) {
+        if (window.innerWidth <= 1240) {
           navMenu.classList.remove('is-open');
           mobileNavToggle.setAttribute('aria-expanded', 'false');
         }
