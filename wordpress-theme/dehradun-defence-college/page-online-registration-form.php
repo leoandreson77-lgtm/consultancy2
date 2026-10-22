@@ -229,19 +229,22 @@ get_header();
 
                     <!-- Card 2: Admission Help Desk Contact Box -->
                     <div class="registration-sidebar-box" style="border-left: 4px solid var(--accent-gold);">
-                        <h3 style="font-size: 1.25rem; color: var(--primary-navy); margin-bottom: 0.5rem;">Direct Admission Desk</h3>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <h3 style="font-size: 1.25rem; color: var(--primary-navy); margin: 0;">Direct Admission Desk</h3>
+                            <span class="badge-saffron" style="font-size: 0.7rem; padding: 2px 7px;">★ Helpline</span>
+                        </div>
                         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5;">
-                            Need immediate assistance or prefer speaking with the Chief Counselor?
+                            Need immediate assistance? Connect with our senior defence counselor directly.
                         </p>
                         
                         <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.25rem;">
                             <a href="tel:+919719104024" class="btn btn-outline-navy btn-sm" style="width: 100%; justify-content: center; gap: 0.5rem; font-weight: 700;">
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                <span>+91 9719104024 (Head Desk)</span>
+                                <span>Talk to Best Counselor: +91 9719104024</span>
                             </a>
                             <a href="tel:+918650666609" class="btn btn-outline-navy btn-sm" style="width: 100%; justify-content: center; gap: 0.5rem; font-weight: 700;">
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                <span>+91 8650666609 (Counselor)</span>
+                                <span>+91 8650666609 (Chief Counselor)</span>
                             </a>
                             <a href="https://wa.me/919719104024" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center; gap: 0.5rem; background-color: #25D366; border-color: #25D366;">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>

@@ -1977,12 +1977,135 @@ h6 { font-size: 0.95rem; }
 }
 
 /* --- 18. FLOATING WIDGETS & MOBILE BAR --- */
+/* Floating Contact Hub: Counselor Callout + WhatsApp */
+.floating-contact-hub {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* Counselor Callout Pill Above WhatsApp */
+.counselor-callout-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: #FFFFFF;
+  color: var(--primary-navy);
+  padding: 8px 16px 8px 12px;
+  border-radius: 50px;
+  border: 1.5px solid var(--accent-gold);
+  box-shadow: 0 8px 24px rgba(11, 27, 61, 0.18), 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  animation: counselorFloatBob 3s ease-in-out infinite;
+}
+
+.counselor-callout-pill:hover {
+  background: #0B1B3D;
+  border-color: #D4AF37;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(11, 27, 61, 0.28);
+}
+
+.counselor-callout-pill:hover .counselor-callout-subtitle {
+  color: #FFD700;
+}
+
+.counselor-callout-pill:hover .counselor-callout-phone {
+  color: #FFFFFF;
+}
+
+.counselor-callout-pill:hover .counselor-callout-pointer {
+  border-top-color: #0B1B3D;
+}
+
+.counselor-pulse-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: counselorPulseDot 1.8s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes counselorPulseDot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes counselorFloatBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.counselor-callout-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.counselor-callout-subtitle {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #B8860B;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition: color 0.2s ease;
+}
+
+.counselor-callout-phone {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #0B1B3D;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s ease;
+}
+
+.counselor-callout-phone svg {
+  color: #25D366;
+}
+
+.counselor-callout-pointer {
+  position: absolute;
+  bottom: -6px;
+  right: 22px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #FFFFFF;
+  transition: border-top-color 0.2s ease;
+}
+
 /* WhatsApp Floating Button */
 .floating-whatsapp {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  z-index: 999;
+  position: static;
   width: 60px;
   height: 60px;
   background-color: #25D366;
@@ -2002,10 +2125,18 @@ h6 { font-size: 0.95rem; }
   color: #FFFFFF;
 }
 
-/* Scroll To Top Button */
+/* Fallback if rendered outside hub */
+body > .floating-whatsapp {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+}
+
+/* Scroll To Top Button positioned above contact hub */
 .scroll-to-top {
   position: fixed;
-  bottom: 100px;
+  bottom: 165px;
   right: 30px;
   z-index: 998;
   width: 44px;
@@ -2996,13 +3127,36 @@ h6 { font-size: 0.95rem; }
   }
 
   /* On mobile: Hide redundant circular WhatsApp icon because WhatsApp button is directly in the mobile sticky bar */
+  .floating-contact-hub .floating-whatsapp,
   .floating-whatsapp {
     display: none !important;
   }
 
+  .floating-contact-hub {
+    bottom: 74px !important;
+    right: 12px !important;
+  }
+
+  .counselor-callout-pill {
+    padding: 6px 12px 6px 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .counselor-callout-subtitle {
+    font-size: 0.62rem;
+  }
+
+  .counselor-callout-phone {
+    font-size: 0.82rem;
+  }
+
+  .counselor-callout-pointer {
+    display: none;
+  }
+
   /* Scroll to top button cleanly positioned above the sticky bar */
   .scroll-to-top {
-    bottom: 68px !important;
+    bottom: 125px !important;
     right: 12px !important;
     width: 38px !important;
     height: 38px !important;
