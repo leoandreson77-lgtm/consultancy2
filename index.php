@@ -506,7 +506,6 @@ include __DIR__ . '/includes/header.php';
                         </div>
                     </div>
                     <div class="individual-selection-card">
-                        <span class="hero-cadet-pill-badge pill-officer" style="top: 12px; left: 12px; transform: none; font-size: 0.65rem; padding: 3px 8px;">COMMISSIONED</span>
                         <img src="assets/images/cadets/cadet-aadarsh-mishra.jpg" alt="Aadarsh Mishra - Flying Officer IAF" class="individual-selection-img" loading="lazy">
                         <div class="individual-selection-meta">
                             <h4>Aadarsh Mishra</h4>
@@ -515,7 +514,6 @@ include __DIR__ . '/includes/header.php';
                         </div>
                     </div>
                     <div class="individual-selection-card">
-                        <span class="hero-cadet-pill-badge pill-nda" style="top: 12px; left: 12px; transform: none; font-size: 0.65rem; padding: 3px 8px;">RECOMMENDED</span>
                         <img src="assets/images/cadets/cadet-sanskar-jha.jpg" alt="Sanskar Jha - NDA Recommended" class="individual-selection-img" loading="lazy">
                         <div class="individual-selection-meta">
                             <h4>Sanskar Jha</h4>

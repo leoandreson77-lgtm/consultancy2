@@ -364,8 +364,20 @@ if (!empty($payment_pod_path) && file_exists($payment_pod_path)) {
     ];
 }
 
+// Prepare Official DDC Logo Attachment (inline CID)
+$logoAttachment = function_exists('ddc_get_email_logo_attachment') ? ddc_get_email_logo_attachment() : [];
+if (!empty($logoAttachment)) {
+    $email_attachments[] = $logoAttachment;
+}
+
 // Build Attractive HTML Email for Admissions Directorate
 $admin_email_html = ddc_build_admin_lead_email($lead_entry);
+
+// Prepare Candidate Attachments (includes official college logo for inline rendering)
+$student_attachments = [];
+if (!empty($logoAttachment)) {
+    $student_attachments[] = $logoAttachment;
+}
 
 // Build Candidate Auto-Acknowledgement Welcome Email
 $student_subject = $has_payment 
@@ -376,10 +388,22 @@ $student_email_html = ddc_build_student_welcome_email($lead_entry);
 $smtp_errors = [];
 $mail_sent = ddc_send_smtp_email($admin_email, $email_subject, $admin_email_html, $email, $full_name, $smtp_errors, $email_attachments);
 
-// If primary admin dispatch succeeded and student provided valid email, dispatch student welcome email
-if ($mail_sent && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $student_smtp_err = [];
-    @ddc_send_smtp_email($email, $student_subject, $student_email_html, $admin_email, SMTP_FROM_NAME, $student_smtp_err);
+// Dispatch Candidate Auto-Acknowledgement Welcome Email with official logo
+$student_mail_sent = false;
+$student_smtp_err = [];
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $student_mail_sent = ddc_send_smtp_email(
+        $email,
+        $student_subject,
+        $student_email_html,
+        $admin_email,
+        defined('SMTP_FROM_NAME') ? SMTP_FROM_NAME : 'Dehradun Defence College Admissions',
+        $student_smtp_err,
+        $student_attachments
+    );
+    if (!$student_mail_sent && !empty($student_smtp_err)) {
+        error_log("Applicant Welcome Email SMTP error for {$email}: " . implode(' | ', $student_smtp_err));
+    }
 }
 
 // Fallback to PHP mail() if SMTP was disabled or failed

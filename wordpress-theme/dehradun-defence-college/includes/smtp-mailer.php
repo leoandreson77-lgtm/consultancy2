@@ -215,6 +215,7 @@ function ddc_send_smtp_email($to, $subject, $htmlBody, $replyToEmail = '', $repl
             $filePath = is_array($att) ? ($att['path'] ?? '') : $att;
             $fileName = is_array($att) ? ($att['name'] ?? basename($filePath)) : basename($filePath);
             $fileMime = is_array($att) ? ($att['mime'] ?? 'application/octet-stream') : 'application/octet-stream';
+            $cid      = is_array($att) ? ($att['cid'] ?? '') : '';
 
             if (!empty($filePath) && file_exists($filePath) && is_readable($filePath)) {
                 $fileContent = @file_get_contents($filePath);
@@ -225,7 +226,13 @@ function ddc_send_smtp_email($to, $subject, $htmlBody, $replyToEmail = '', $repl
                     $bodyParts[] = "--{$boundary}";
                     $bodyParts[] = "Content-Type: {$fileMime}; name=\"{$safeFileName}\"";
                     $bodyParts[] = "Content-Transfer-Encoding: base64";
-                    $bodyParts[] = "Content-Disposition: attachment; filename=\"{$safeFileName}\"\r\n";
+                    if (!empty($cid)) {
+                        $safeCid = preg_replace('/[^a-zA-Z0-9_\-\.]/', '', $cid);
+                        $bodyParts[] = "Content-ID: <{$safeCid}>";
+                        $bodyParts[] = "Content-Disposition: inline; filename=\"{$safeFileName}\"\r\n";
+                    } else {
+                        $bodyParts[] = "Content-Disposition: attachment; filename=\"{$safeFileName}\"\r\n";
+                    }
                     $bodyParts[] = $encodedFile;
                 }
             }

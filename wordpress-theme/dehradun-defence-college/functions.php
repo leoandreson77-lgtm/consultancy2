@@ -460,18 +460,42 @@ function ddc_ajax_submit_enquiry_handler() {
         $sent = ddc_send_smtp_email($admin_email, $subject, $admin_email_html, $email, $full_name, $smtp_err, $smtp_attachments);
     }
 
-    // Send Candidate Welcome Confirmation Email
-    if ($sent && is_email($email) && function_exists('ddc_build_student_welcome_email')) {
+    // Send Candidate Welcome Confirmation Email with Official College Logo
+    if (is_email($email) && function_exists('ddc_build_student_welcome_email')) {
         $student_subject = $has_payment 
             ? "Fee Payment & Registration Confirmation: Dehradun Defence College ({$course_interest})"
             : "Registration Confirmation: Dehradun Defence College - {$course_interest}";
         $student_email_html = ddc_build_student_welcome_email($lead_entry);
-        $student_headers = [
-            'Content-Type: text/html; charset=UTF-8',
-            'From: Dehradun Defence College Admissions <dehradundefencecollege@gmail.com>',
-            'Reply-To: Dehradun Defence College Admissions <' . $admin_email . '>'
-        ];
-        wp_mail($email, $student_subject, $student_email_html, $student_headers);
+
+        $student_attachments = [];
+        $logoAttachment = function_exists('ddc_get_email_logo_attachment') ? ddc_get_email_logo_attachment() : [];
+        if (!empty($logoAttachment)) {
+            $student_attachments[] = $logoAttachment;
+        }
+
+        $student_sent = false;
+        if (function_exists('ddc_send_smtp_email')) {
+            $student_smtp_err = [];
+            $student_sent = ddc_send_smtp_email(
+                $email,
+                $student_subject,
+                $student_email_html,
+                $admin_email,
+                'Dehradun Defence College Admissions',
+                $student_smtp_err,
+                $student_attachments
+            );
+        }
+
+        if (!$student_sent) {
+            $student_headers = [
+                'Content-Type: text/html; charset=UTF-8',
+                'From: Dehradun Defence College Admissions <dehradundefencecollege@gmail.com>',
+                'Reply-To: Dehradun Defence College Admissions <' . $admin_email . '>'
+            ];
+            $wp_attachments = !empty($logoAttachment['path']) ? [$logoAttachment['path']] : [];
+            @wp_mail($email, $student_subject, $student_email_html, $student_headers, $wp_attachments);
+        }
     }
 
     $reply_msg = $has_payment 

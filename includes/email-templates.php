@@ -11,6 +11,35 @@ if (!defined('SITE_NAME')) {
 }
 
 /**
+ * Get the local path and CID structure of the official DDC logo for email inline attachment
+ *
+ * @return array Attachment specification with CID or empty array if not found
+ */
+function ddc_get_email_logo_attachment(): array {
+    $possiblePaths = [
+        __DIR__ . '/../assets/images/logo-192.png',
+        __DIR__ . '/../assets/images/logo.png',
+        dirname(__DIR__) . '/assets/images/logo-192.png',
+        dirname(__DIR__) . '/assets/images/logo.png',
+    ];
+    if (function_exists('get_template_directory')) {
+        array_unshift($possiblePaths, get_template_directory() . '/assets/images/logo-192.png');
+        array_unshift($possiblePaths, get_template_directory() . '/assets/images/logo.png');
+    }
+    foreach ($possiblePaths as $path) {
+        if (!empty($path) && file_exists($path) && is_readable($path)) {
+            return [
+                'path' => $path,
+                'name' => 'ddc-logo.png',
+                'mime' => 'image/png',
+                'cid'  => 'ddc_logo'
+            ];
+        }
+    }
+    return [];
+}
+
+/**
  * Generate Administrator Lead Notification Email HTML
  *
  * @param array $data Lead details
@@ -58,7 +87,7 @@ function ddc_build_admin_lead_email(array $data): string {
         $portalLabel = 'Website Lead Generation Engine • Session 2026';
     }
 
-    $logoUrl = 'https://dehradundefencecollege.com/assets/images/logo.png';
+    $logoUrl = !empty($data['logo_url']) ? $data['logo_url'] : 'cid:ddc_logo';
 
     // Candidate Photo HTML
     $candidatePhotoHtml = '';
@@ -379,7 +408,7 @@ function ddc_build_student_welcome_email(array $data): string {
     $fullName       = htmlspecialchars($data['full_name'] ?? 'Candidate', ENT_QUOTES, 'UTF-8');
     $courseInterest = htmlspecialchars($data['course_interest'] ?? 'Defence Preparation', ENT_QUOTES, 'UTF-8');
     $leadId         = htmlspecialchars($data['lead_id'] ?? ('DDC_' . strtoupper(substr(md5(uniqid()), 0, 8))), ENT_QUOTES, 'UTF-8');
-    $logoUrl        = 'https://dehradundefencecollege.com/assets/images/logo.png';
+    $logoUrl        = !empty($data['logo_url']) ? $data['logo_url'] : 'cid:ddc_logo';
 
     $hasPayment     = !empty($data['has_payment']) || !empty($data['transaction_id']) || !empty($data['payment_pod_path']);
     $paymentAmount  = htmlspecialchars((string)($data['payment_amount'] ?? '500'), ENT_QUOTES, 'UTF-8');
