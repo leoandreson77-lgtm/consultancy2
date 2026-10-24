@@ -119,8 +119,8 @@ define('OFFICE_HOURS', 'Monday - Sunday: 8:00 AM - 6:00 PM');
 define('WHATSAPP_NUMBER', '919719104024');
 define('WHATSAPP_LINK', 'https://wa.me/919719104024?text=' . urlencode('Hello Dehradun Defence College, I am interested in admission for NDA/Defence exam coaching. Please share course and batch details.'));
 define('WHATSAPP_GROUP_LINK', 'https://whatsapp.com/channel/0029Va7Vlq9GJP8JqjCFIY0H');
-define('FACEBOOK_LINK', 'https://www.facebook.com/people/Dehradun-Defence-College/100088052876273/');
-define('INSTAGRAM_LINK', 'https://www.instagram.com/dehradundefencecollege/');
+define('FACEBOOK_LINK', 'https://www.facebook.com/profile.php?id=61590307295275');
+define('INSTAGRAM_LINK', 'https://www.instagram.com/dehradun_defence7/');
 define('YOUTUBE_LINK', 'https://www.youtube.com/@dehradundefencecollege');
 
 // Google Maps Embed URL

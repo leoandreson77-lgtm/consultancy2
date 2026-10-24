@@ -17,7 +17,7 @@ require_once __DIR__ . '/../config.php';
                     <span class="badge-gold" style="font-size: 0.68rem; padding: 2px 7px; display: inline-block; margin-top: 2px;">★ Admissions Open 2026-2027</span>
                 </div>
             </div>
-            <h3 id="modalTitle" style="margin: 0.35rem 0 0.25rem 0; font-size: 1.35rem; color: var(--accent-gold);">Admission Enquiry &amp; Registration</h3>
+            <h3 id="modalTitle" style="margin: 0.35rem 0 0.25rem 0; font-size: 1.35rem; color: var(--accent-gold);">Career Counselling Form</h3>
             <p style="font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-bottom: 0;">Fill out the form below. Our senior defence counselor will contact you within 24 hours.</p>
         </div>
 
