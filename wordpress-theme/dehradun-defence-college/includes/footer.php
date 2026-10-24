@@ -2,7 +2,11 @@
 /**
  * Master Footer Template - Dehradun Defence College
  */
-require_once __DIR__ . '/../config.php';
+if (file_exists(__DIR__ . '/../config.php')) {
+    require_once __DIR__ . '/../config.php';
+} elseif (file_exists(dirname(__DIR__) . '/config.php')) {
+    require_once dirname(__DIR__) . '/config.php';
+}
 ?>
 
     <!-- 3. Site Footer -->

@@ -2,7 +2,11 @@
 /**
  * Quick Admission Enquiry Modal - Dehradun Defence College
  */
-require_once __DIR__ . '/../config.php';
+if (file_exists(__DIR__ . '/../config.php')) {
+    require_once __DIR__ . '/../config.php';
+} elseif (file_exists(dirname(__DIR__) . '/config.php')) {
+    require_once dirname(__DIR__) . '/config.php';
+}
 ?>
 <!-- Quick Admission Enquiry Modal Window -->
 <div class="ddc-modal-overlay" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">

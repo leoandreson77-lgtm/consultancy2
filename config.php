@@ -24,9 +24,11 @@ if (file_exists(__DIR__ . '/.env')) {
 }
 
 // Helper to get environment variable with fallback
-function ddc_env($key, $default = '') {
-    $val = getenv($key);
-    return ($val !== false && $val !== '') ? $val : $default;
+if (!function_exists('ddc_env')) {
+    function ddc_env($key, $default = '') {
+        $val = getenv($key);
+        return ($val !== false && $val !== '') ? $val : $default;
+    }
 }
 
 // -------------------------------------------------------------
