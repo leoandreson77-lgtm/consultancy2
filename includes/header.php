@@ -102,20 +102,12 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 </span>
                 <span class="top-notice-item top-visiting-hours">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    <span>Monday - Sunday: 8:00 AM - 6:00 PM</span>
+                    <span>Mon - Sun: 8:00 AM - 6:00 PM</span>
                 </span>
                 <button type="button" class="btn-top-schedule-tour open-enquiry-modal" data-course="Schedule Campus Tour">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    <span>SCHEDULE CAMPUS TOUR</span>
+                    <span>Schedule Tour</span>
                 </button>
-                <a href="online-registration-form.php" class="btn-top-schedule-tour" style="background: var(--accent-gold); color: var(--primary-navy); font-weight: 800; border-color: var(--accent-gold); text-decoration: none;">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
-                    <span>ONLINE REGISTRATION</span>
-                </a>
-                <a href="online-payment.php" class="btn-top-schedule-tour" style="background: rgba(22, 163, 74, 0.2); color: #86efac; border-color: #22c55e; font-weight: 800; text-decoration: none;">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
-                    <span>PAY ONLINE / POD</span>
-                </a>
             </div>
 
             <div class="top-marquee-wrap">
@@ -156,8 +148,7 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
             </div>
             <div class="top-scholarship-actions">
                 <button type="button" class="btn-scholarship-apply" id="openScholarshipPopup">
-                    <span>APPLY FOR SCHOLARSHIP / FEE CONCESSION</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <span>Apply Scholarship →</span>
                 </button>
                 <button type="button" class="btn-scholarship-close" id="closeScholarshipBar" aria-label="Dismiss Scholarship Notice">&times;</button>
             </div>
@@ -204,7 +195,7 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 <a href="faculty-facilities.php" class="nav-link <?php echo ($current_page === 'faculty-facilities') ? 'active' : ''; ?>">Faculty & Campus</a>
                 <a href="results.php" class="nav-link <?php echo ($current_page === 'results') ? 'active' : ''; ?>">Selections 2026</a>
                 <a href="gallery.php" class="nav-link <?php echo ($current_page === 'gallery') ? 'active' : ''; ?>">Activities</a>
-                <a href="online-registration-form.php" class="nav-link <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration</a>
+                <a href="online-registration-form.php" class="nav-link nav-link-reg-desktop-hidden <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration</a>
                 <a href="online-payment.php" class="nav-link <?php echo ($current_page === 'online-payment') ? 'active' : ''; ?>" style="color: #22c55e; font-weight: 700;">Pay Online / POD</a>
                 <a href="contact.php" class="nav-link <?php echo ($current_page === 'contact') ? 'active' : ''; ?>">Contact</a>
 
@@ -226,7 +217,7 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                     <span>Call Now</span>
                 </a>
 
-                <a href="online-registration-form.php" class="btn btn-gold btn-sm" style="font-weight: 800; gap: 0.4rem; display: inline-flex; align-items: center;">
+                <a href="online-registration-form.php" class="btn btn-gold btn-sm" style="font-weight: 800; gap: 0.4rem; display: inline-flex; align-items: center; white-space: nowrap; flex-shrink: 0;">
                     <span>Register Now</span>
                 </a>
 

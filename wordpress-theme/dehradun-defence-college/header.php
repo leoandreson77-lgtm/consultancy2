@@ -32,12 +32,12 @@ $theme_uri = get_template_directory_uri();
                     <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone1)); ?>"><?php echo esc_html($phone1); ?></a>
                 </span>
                 <span class="top-notice-item top-visiting-hours">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    <span>Monday - Sunday: 8:00 AM - 6:00 PM</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 16 14"></polyline></svg>
+                    <span>Mon - Sun: 8:00 AM - 6:00 PM</span>
                 </span>
                 <button type="button" class="btn-top-schedule-tour open-enquiry-modal" data-course="Schedule Campus Tour">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                    <span>SCHEDULE CAMPUS TOUR</span>
+                    <span>Schedule Tour</span>
                 </button>
             </div>
 
@@ -73,8 +73,7 @@ $theme_uri = get_template_directory_uri();
             </div>
             <div class="top-scholarship-actions">
                 <button type="button" class="btn-scholarship-apply" id="openScholarshipPopup">
-                    <span>APPLY FOR SCHOLARSHIP / FEE CONCESSION</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <span>Apply Scholarship →</span>
                 </button>
                 <button type="button" class="btn-scholarship-close" id="closeScholarshipBar" aria-label="Dismiss Scholarship Notice">&times;</button>
             </div>
