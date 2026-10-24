@@ -2400,6 +2400,29 @@ body > .floating-whatsapp {
   border: 2px solid var(--accent-gold);
 }
 
+.ddc-modal-box .hero-form-header {
+  background: linear-gradient(135deg, #0B1B3D 0%, #162B56 100%);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 4px 15px rgba(11, 27, 61, 0.15);
+}
+
+.ddc-modal-box .hero-form-header h3 {
+  color: #FFD700 !important;
+  font-weight: 800;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.ddc-modal-box .hero-form-header p {
+  color: #FFFFFF !important;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
 .ddc-modal-close {
   position: absolute;
   top: 1rem;
