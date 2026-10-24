@@ -44,8 +44,10 @@ define('SITE_URL', ddc_env('SITE_URL', 'http://localhost/consultancy'));
 $DDC_SEO_KEYWORDS = [
     'Best NDA Coaching in Dehradun',
     'Top NDA Coaching Institute in India',
+    'Dreamers Hub Education',
     'Dreamers Edu Hub Dehradun',
     'Doon Defence Dreamers',
+    'Dreamers Hub Defence Coaching',
     'Best Defence Academy in Dehradun',
     'NDA Coaching with Hostel and Mess Facilities',
     'NDA Coaching with Schooling in Dehradun',

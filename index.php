@@ -1710,13 +1710,13 @@ include __DIR__ . '/includes/header.php';
                 <!-- FAQ 7: Location & Sahastradhara / JK Tower -->
                 <div class="faq-item">
                     <button type="button" class="faq-question">
-                        <span>7. How is DDC connected to Sahastradhara Road, JK Tower, and Dreamers Edu Hub Dehradun?</span>
+                        <span>7. How is DDC connected to Sahastradhara Road, JK Tower, and Major Defence Coaching Hubs in Dehradun?</span>
                         <span class="faq-toggle-icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
                         </span>
                     </button>
                     <div class="faq-answer">
-                        Aspirants searching for <strong>NDA coaching near Sahastradhara Road Dehradun</strong>, <strong>top-rated defence academy near JK Tower Dehradun</strong>, or hubs like <strong>Dreamers Edu Hub Dehradun</strong> / <strong>Doon Defence Dreamers</strong> can reach our expansive residential campus in under 20 minutes via Raipur - Maldevta Road. Situated in a pollution-free green valley, our campus provides the ideal quiet atmosphere, clean mountain air, and physical obstacle grounds that crowded city centers cannot offer.
+                        Aspirants searching for <strong>NDA coaching near Sahastradhara Road Dehradun</strong>, <strong>top-rated defence academy near JK Tower Dehradun</strong>, or major education centres across Dehradun can reach our expansive residential campus in under 20 minutes via Raipur - Maldevta Road. Situated in a pollution-free green valley, our campus provides the ideal quiet atmosphere, clean mountain air, and physical obstacle grounds that crowded city centers cannot offer.
                     </div>
                 </div>
 

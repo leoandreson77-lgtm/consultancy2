@@ -111,8 +111,8 @@ $theme_uri    = get_template_directory_uri();
                 <div class="footer-seo-tags-cloud">
                     <a href="<?php echo esc_url(home_url('/defence-courses/')); ?>" class="seo-tag-item">Best NDA Coaching in Dehradun</a>
                     <a href="<?php echo esc_url(home_url('/defence-courses/')); ?>" class="seo-tag-item">Top NDA Coaching Institute in India</a>
-                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="seo-tag-item">Dreamers Edu Hub Dehradun</a>
-                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="seo-tag-item">Doon Defence Dreamers</a>
+                    <a href="<?php echo esc_url(home_url('/defence-courses/')); ?>" class="seo-tag-item">NDA Foundation Course After 12th</a>
+                    <a href="<?php echo esc_url(home_url('/defence-courses/')); ?>" class="seo-tag-item">NDA Girls Special Residential Wing</a>
                     <a href="<?php echo esc_url(home_url('/defence-courses/')); ?>" class="seo-tag-item">Best Defence Academy in Dehradun</a>
                     <a href="<?php echo esc_url(home_url('/faculty-campus/')); ?>" class="seo-tag-item">NDA Coaching with Hostel and Mess Facilities</a>
                     <a href="<?php echo esc_url(home_url('/defence-courses/')); ?>" class="seo-tag-item">NDA Coaching with Schooling in Dehradun</a>

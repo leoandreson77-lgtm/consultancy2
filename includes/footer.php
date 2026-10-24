@@ -108,8 +108,8 @@ require_once __DIR__ . '/../config.php';
                 <div class="footer-seo-tags-cloud">
                     <a href="courses.php" class="seo-tag-item">Best NDA Coaching in Dehradun</a>
                     <a href="courses.php" class="seo-tag-item">Top NDA Coaching Institute in India</a>
-                    <a href="about.php" class="seo-tag-item">Dreamers Edu Hub Dehradun</a>
-                    <a href="about.php" class="seo-tag-item">Doon Defence Dreamers</a>
+                    <a href="courses.php" class="seo-tag-item">NDA Foundation Course After 12th</a>
+                    <a href="courses.php" class="seo-tag-item">NDA Girls Special Residential Wing</a>
                     <a href="courses.php" class="seo-tag-item">Best Defence Academy in Dehradun</a>
                     <a href="faculty-facilities.php" class="seo-tag-item">NDA Coaching with Hostel and Mess Facilities</a>
                     <a href="course-detail.php?course=nda-foundation-10" class="seo-tag-item">NDA Coaching with Schooling in Dehradun</a>
