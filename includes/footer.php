@@ -157,6 +157,6 @@ require_once __DIR__ . '/../config.php';
     <?php include __DIR__ . '/floating-widgets.php'; ?>
 
     <!-- Master Interactive Script -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>

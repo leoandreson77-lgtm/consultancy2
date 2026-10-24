@@ -26,8 +26,14 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/includes/smtp-mailer.php';
 require_once __DIR__ . '/includes/email-templates.php';
 
-// Only allow POST requests
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+// Allow unit testing in CLI mode without executing web pipeline
+if (PHP_SAPI === 'cli' && empty($_SERVER['REQUEST_METHOD'])) {
+    // Define helper functions for unit testing
+    return;
+}
+
+// Only allow POST requests in web context
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
     http_response_code(405);
     echo json_encode([
         'success' => false,

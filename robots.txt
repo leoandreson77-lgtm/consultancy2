@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /storage/
+Disallow: /scratch/
+Disallow: /tools/
+Disallow: /.env
+Disallow: /.git/
+
+Sitemap: https://dehradundefencecollege.com/sitemap.xml
