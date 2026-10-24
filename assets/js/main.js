@@ -172,16 +172,22 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.overflow = '';
   }
 
-  // Auto-Popup Registration / Admission Modal on Website Open (Client Requested)
-  // Disabled on Online Registration & Online Payment pages to never disrupt applicant form filling
+  // Auto-Popup Registration / Admission Modal ONLY on Home Page (Client Requested: "pop form sirf home page me aye")
   if (modalOverlay) {
-    const isRegOrPayPage = window.location.pathname.includes('online-registration') || 
-                           window.location.pathname.includes('online-payment') || 
-                           document.getElementById('onlineRegistrationForm') !== null;
-    if (!isRegOrPayPage) {
+    const isHomePage = document.querySelector('.hero-split-section') !== null ||
+                       document.body.classList.contains('page-home') ||
+                       document.body.classList.contains('home') ||
+                       document.body.classList.contains('front-page') ||
+                       document.body.getAttribute('data-page') === 'home' ||
+                       (function() {
+                         const p = window.location.pathname.toLowerCase().replace(/\/$/, '');
+                         return p === '' || p.endsWith('/index.html') || p.endsWith('/index.php') || p.endsWith('/consultancy');
+                       })();
+
+    if (isHomePage) {
       setTimeout(function () {
         openEnquiryModal('Direct Admission 2026 Batch');
-      }, 800); // Pops up promptly 800ms after website open on content pages
+      }, 800); // Pops up promptly 800ms after home page open
     }
   }
 

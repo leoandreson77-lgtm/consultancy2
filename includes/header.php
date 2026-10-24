@@ -95,7 +95,7 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
     <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body data-page="<?php echo htmlspecialchars($current_page ?? ''); ?>" class="<?php echo ($current_page === 'home') ? 'page-home' : ('page-' . htmlspecialchars($current_page ?? '')); ?>">
 
     <!-- 1. Top Announcement Bar -->
     <div class="top-notice-bar">
