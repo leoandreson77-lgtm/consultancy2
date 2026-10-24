@@ -5113,7 +5113,7 @@ body > .floating-whatsapp {
 .results-poster-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  align-items: center;
+  align-items: start;
 }
 
 /* Selection Feature Grid with Generous Whitespace */
@@ -5121,8 +5121,50 @@ body > .floating-whatsapp {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 3.5rem;
-  align-items: center;
+  align-items: start;
   margin-bottom: 4.5rem;
+}
+
+/* Selection Highlight Grid & Cards for Top Selections */
+.selection-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .selection-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.selection-highlight-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: 1.15rem 0.85rem;
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.selection-highlight-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.22);
+}
+
+.selection-highlight-card .cadet-card-photo {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2.5px solid var(--accent-gold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+  display: block;
+  margin: 0.2rem auto 0.55rem auto;
 }
 
 /* Director Profile Box */

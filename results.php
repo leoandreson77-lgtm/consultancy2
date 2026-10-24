@@ -81,32 +81,60 @@ include __DIR__ . '/includes/header.php';
                     </div>
                 </div>
 
-                <!-- Right: Selection Narrative & Key Commissions -->
+                <!-- Right: Latest 2025-2026 Selections Spotlight with Photos -->
                 <div style="padding-left: 0.5rem;">
-                    <span class="badge-gold">Star Commission & Recommendations</span>
-                    <h3 style="font-size: 1.85rem; color: var(--primary-navy); margin: 0.75rem 0 1rem 0;">
-                        From Dehradun Classrooms to NDA & Air Force Flying Cockpits
+                    <span class="badge-gold">★ Latest 2025-2026 Selections Spotlight</span>
+                    <h3 style="font-size: 1.85rem; color: var(--primary-navy); margin: 0.75rem 0 0.85rem 0; line-height: 1.3;">
+                        From Dehradun Classrooms to NDA &amp; Armed Forces Cockpits
                     </h3>
-                    <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.25rem;">
-                        Passing the Union Public Service Commission written examination is step one. Earning the recommendation letter through psychological screening, group testing, and interview assessment at 11 SSB Allahabad, 33 SSB Bhopal, 19 SSB, and 1 AFSB Dehradun is what sets Dehradun Defence College apart.
+                    <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem; font-size: 0.95rem;">
+                        Passing the Union Public Service Commission written examination is step one. Earning the recommendation letter through psychological screening, group testing, and interview assessment at SSB boards is what sets Dehradun Defence College apart. Celebrating our latest qualifiers:
                     </p>
 
-                    <!-- Top 2 Star Cadets Feature Cards -->
-                    <div class="form-row-2col" style="margin-bottom: 1.5rem;">
-                        <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 1.25rem; border: 2px solid var(--accent-gold); box-shadow: var(--shadow-sm); text-align: center;">
-                            <img src="assets/images/cadets/cadet-aadarsh-mishra.jpg" alt="Aadarsh Mishra Flying Officer" class="cadet-card-photo" loading="lazy" width="76" height="76">
-                            <span class="cadet-card-badge cadet-badge-iaf">Air Force Commission</span>
-                            <h4 style="font-size: 1.1rem; color: var(--primary-navy); margin: 0.35rem 0 0.2rem 0;">Aadarsh Mishra</h4>
-                            <p style="font-size: 0.825rem; color: var(--accent-gold-hover); font-weight: 700; margin-bottom: 0.25rem;">(DDCIAN)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Joined Indian Air Force as <strong>Flying Officer</strong></p>
+                    <!-- Latest 2025-2026 Star Cadets Highlight Grid (4 Key Selections with Photos) -->
+                    <div class="selection-highlight-grid">
+                        <!-- Card 1: Durshya Biradar -->
+                        <div class="selection-highlight-card">
+                            <span class="cadet-card-badge cadet-badge-nda" style="background: #FEF3C7; color: #92400E; font-weight: 800; border: 1px solid #FDE68A;">★ LATEST 2026 SELECTION</span>
+                            <img src="assets/images/cadets/cadet-durshya-biradar.jpg" alt="Durshya Biradar NDA-2 Selection" class="cadet-card-photo" loading="lazy" width="76" height="76">
+                            <h4 style="font-size: 1.05rem; color: var(--primary-navy); margin: 0.2rem 0 0.15rem 0; font-weight: 800;">Durshya Biradar</h4>
+                            <p style="font-size: 0.8rem; color: var(--accent-gold-hover); font-weight: 700; margin-bottom: 0.25rem;">(DDCIAN)</p>
+                            <p style="font-size: 0.775rem; color: var(--text-dark); margin: 0; line-height: 1.35;">Qualified <strong>NDA-2 (Sep 2026)</strong> Written Exam</p>
                         </div>
 
-                        <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 1.25rem; border: 2px solid var(--accent-gold); box-shadow: var(--shadow-sm); text-align: center;">
+                        <!-- Card 2: Akshant Chuksey -->
+                        <div class="selection-highlight-card">
+                            <span class="cadet-card-badge cadet-badge-nda" style="background: #FEF3C7; color: #92400E; font-weight: 800; border: 1px solid #FDE68A;">★ LATEST 2026 SELECTION</span>
+                            <img src="assets/images/cadets/cadet-akshant-chuksey.jpg" alt="Akshant Chuksey NDA-1 Selection" class="cadet-card-photo" loading="lazy" width="76" height="76">
+                            <h4 style="font-size: 1.05rem; color: var(--primary-navy); margin: 0.2rem 0 0.15rem 0; font-weight: 800;">Akshant Chuksey</h4>
+                            <p style="font-size: 0.8rem; color: var(--accent-gold-hover); font-weight: 700; margin-bottom: 0.25rem;">(DDCIAN)</p>
+                            <p style="font-size: 0.775rem; color: var(--text-dark); margin: 0; line-height: 1.35;">Qualified <strong>NDA-1 (Apr 2026)</strong> Written Exam</p>
+                        </div>
+
+                        <!-- Card 3: Aadarsh Mishra -->
+                        <div class="selection-highlight-card">
+                            <span class="cadet-card-badge cadet-badge-iaf" style="background: #E0F2FE; color: #0369A1; font-weight: 800; border: 1px solid #BAE6FD;">★ AIR FORCE COMMISSION</span>
+                            <img src="assets/images/cadets/cadet-aadarsh-mishra.jpg" alt="Aadarsh Mishra Flying Officer" class="cadet-card-photo" loading="lazy" width="76" height="76">
+                            <h4 style="font-size: 1.05rem; color: var(--primary-navy); margin: 0.2rem 0 0.15rem 0; font-weight: 800;">Aadarsh Mishra</h4>
+                            <p style="font-size: 0.8rem; color: var(--accent-gold-hover); font-weight: 700; margin-bottom: 0.25rem;">(DDCIAN)</p>
+                            <p style="font-size: 0.775rem; color: var(--text-dark); margin: 0; line-height: 1.35;">Commissioned as <strong>Flying Officer</strong> in IAF</p>
+                        </div>
+
+                        <!-- Card 4: Sanskar Jha -->
+                        <div class="selection-highlight-card">
+                            <span class="cadet-card-badge cadet-badge-ota" style="background: #DCFCE7; color: #166534; font-weight: 800; border: 1px solid #BBF7D0;">★ SSB RECOMMENDED</span>
                             <img src="assets/images/cadets/cadet-sanskar-jha.jpg" alt="Sanskar Jha NDA Cadet" class="cadet-card-photo" loading="lazy" width="76" height="76">
-                            <span class="cadet-card-badge cadet-badge-nda">NDA Recommendation</span>
-                            <h4 style="font-size: 1.1rem; color: var(--primary-navy); margin: 0.35rem 0 0.2rem 0;">Sanskar Jha</h4>
-                            <p style="font-size: 0.825rem; color: var(--accent-gold-hover); font-weight: 700; margin-bottom: 0.25rem;">(DDCIAN)</p>
-                            <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Cleared <strong>NDA Written Exam &amp; SSB Board</strong></p>
+                            <h4 style="font-size: 1.05rem; color: var(--primary-navy); margin: 0.2rem 0 0.15rem 0; font-weight: 800;">Sanskar Jha</h4>
+                            <p style="font-size: 0.8rem; color: var(--accent-gold-hover); font-weight: 700; margin-bottom: 0.25rem;">(DDCIAN)</p>
+                            <p style="font-size: 0.775rem; color: var(--text-dark); margin: 0; line-height: 1.35;">Cleared <strong>NDA Written &amp; SSB Board</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- Verified Selections Trust Strip -->
+                    <div style="background: linear-gradient(135deg, rgba(11,27,61,0.04) 0%, rgba(212,175,55,0.08) 100%); border: 1px dashed var(--accent-gold); border-radius: var(--radius-md); padding: 0.75rem 1rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 1.25rem; line-height: 1;">🎖️</span>
+                        <div style="flex: 1; font-size: 0.825rem; color: var(--primary-navy); line-height: 1.4;">
+                            <strong>13+ Selections in 2025-2026 Batches</strong> • 100% Genuine UPSC Roll Numbers &amp; SSB Call Letters verified on campus.
                         </div>
                     </div>
 
