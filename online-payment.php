@@ -32,99 +32,10 @@ include __DIR__ . '/includes/header.php';
     <section class="section-padding bg-slate">
         <div class="container">
             
-            <div class="registration-layout-grid" style="grid-template-columns: 1.15fr 1.85fr; gap: 2.5rem; align-items: start;">
+            <div class="payment-portal-grid">
                 
-                <!-- Left Column: Official Standee QR & Bank Credentials Card -->
-                <div>
-                    <!-- Standee Box -->
-                    <div class="ddc-payment-standee-card" style="margin-bottom: 1.75rem;">
-                        <div style="text-align: center; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 1rem;">
-                            <img src="assets/images/logo.png" alt="Dehradun Defence College Logo" style="width: 58px; height: 58px; object-fit: contain; margin: 0 auto 0.5rem auto; display: block;">
-                            <h2 style="font-size: 1.25rem; color: #FFFFFF; margin: 0; font-weight: 800;">DEHRADUN DEFENCE COLLEGE</h2>
-                            <p style="color: var(--accent-gold); font-size: 0.8rem; margin: 0.2rem 0 0 0; font-weight: 600; letter-spacing: 0.5px;">
-                                "Cradle of Aspiring Indian Officers" &bull; NDA | CDS | AFCAT | SSB
-                            </p>
-                        </div>
-
-                        <!-- Standee QR Image -->
-                        <div class="standee-qr-frame" style="max-width: 240px; margin: 0 auto 1.25rem auto;">
-                            <img src="assets/images/ddc-payment-qr.png" alt="Dehradun Defence College Official Standee Payment QR Code">
-                            <span class="scan-badge">SCAN TO PAY WITH ANY UPI APP</span>
-                            <div style="font-size: 0.72rem; color: #64748b; margin-top: 5px; font-weight: 700;">
-                                PhonePe &bull; Google Pay &bull; Paytm &bull; BHIM &bull; Cred
-                            </div>
-                        </div>
-
-                        <!-- Bank Details Table -->
-                        <div class="bank-details-wrapper">
-                            <div class="bank-details-header">
-                                <h4>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
-                                    <span>Bank Account Details</span>
-                                </h4>
-                                <span style="background: rgba(22, 163, 74, 0.25); color: #86efac; border: 1px solid #22c55e; padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 800;">
-                                    Verified Current A/C
-                                </span>
-                            </div>
-
-                            <div class="bank-row">
-                                <span class="bank-lbl">Holder Name:</span>
-                                <span class="bank-val">Dehradun Defence College</span>
-                            </div>
-
-                            <div class="bank-row">
-                                <span class="bank-lbl">Bank Name:</span>
-                                <span class="bank-val">Canara Bank</span>
-                            </div>
-
-                            <div class="bank-row">
-                                <span class="bank-lbl">Account Number:</span>
-                                <span class="bank-val mono">
-                                    <span>120003029000</span>
-                                    <button type="button" class="copy-badge-btn" data-copy="120003029000" title="Copy Account Number">
-                                        📋 Copy
-                                    </button>
-                                </span>
-                            </div>
-
-                            <div class="bank-row">
-                                <span class="bank-lbl">IFSC Code:</span>
-                                <span class="bank-val mono">
-                                    <span>CNRB0018515</span>
-                                    <button type="button" class="copy-badge-btn" data-copy="CNRB0018515" title="Copy IFSC Code">
-                                        📋 Copy
-                                    </button>
-                                </span>
-                            </div>
-
-                            <div class="bank-row">
-                                <span class="bank-lbl">Branch:</span>
-                                <span class="bank-val">Dehradun, Uttarakhand</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Instructions Card -->
-                    <div class="registration-sidebar-box" style="margin-bottom: 0;">
-                        <span class="badge-saffron">3 Simple Steps</span>
-                        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-top: 0.4rem; margin-bottom: 0.75rem;">
-                            How to Complete Online Payment
-                        </h3>
-                        <ol style="padding-left: 1.25rem; font-size: 0.86rem; color: var(--text-dark); line-height: 1.7; margin: 0;">
-                            <li>Open Google Pay, PhonePe, Paytm, BHIM, or your bank's mobile app and scan the QR code above (or use the Canara Bank Account &amp; IFSC).</li>
-                            <li>Enter the amount (Registration fee: ₹500 / or specified seat token / term installment).</li>
-                            <li>Take a screenshot of the successful transaction showing the 12-digit UTR / Reference Number and upload it in the form.</li>
-                        </ol>
-
-                        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; margin-top: 1rem; font-size: 0.8rem; color: #166534;">
-                            <strong>Helpline Support:</strong><br>
-                            If you encounter any difficulty while transferring, call our Accounts Directorate at <a href="tel:+919719104024" style="color: #166534; font-weight: 700;">+91 9719104024</a> / <a href="tel:+918650666609" style="color: #166534; font-weight: 700;">+91 8650666609</a>.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Proof of Deposit (POD) & Candidate Form -->
-                <div class="registration-form-card">
+                <!-- Left Column (Desktop) / Second on Mobile: Proof of Deposit (POD) & Candidate Form -->
+                <div class="registration-form-card payment-form-col" id="podFormSection">
                     <div style="display: flex; align-items: center; gap: 1.15rem; margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 2px solid rgba(212, 175, 55, 0.35);">
                         <img src="assets/images/logo.png" alt="Dehradun Defence College Emblem" style="width: 64px; height: 64px; object-fit: contain; flex-shrink: 0;">
                         <div>
@@ -312,6 +223,101 @@ include __DIR__ . '/includes/header.php';
                     <div style="margin-top: 1.5rem; text-align: center; font-size: 0.825rem; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--tricolor-green)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                         <span>Official Canara Bank Verification &bull; Email Alert with POD Dispatched Instantly</span>
+                    </div>
+                </div>
+
+                <!-- Right Column (Desktop) / Top Column (Mobile): Official Standee QR & Bank Credentials Card -->
+                <div class="payment-standee-col" id="officialPaymentStandee">
+                    <!-- Standee Box -->
+                    <div class="ddc-payment-standee-card">
+                        <div style="text-align: center; margin-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.15); padding-bottom: 1rem;">
+                            <img src="assets/images/logo.png" alt="Dehradun Defence College Logo" style="width: 58px; height: 58px; object-fit: contain; margin: 0 auto 0.5rem auto; display: block;">
+                            <h2 style="font-size: 1.25rem; color: #FFFFFF; margin: 0; font-weight: 800;">DEHRADUN DEFENCE COLLEGE</h2>
+                            <p style="color: var(--accent-gold); font-size: 0.8rem; margin: 0.2rem 0 0 0; font-weight: 600; letter-spacing: 0.5px;">
+                                "Cradle of Aspiring Indian Officers" &bull; NDA | CDS | AFCAT | SSB
+                            </p>
+                        </div>
+
+                        <!-- Standee QR Image (Prominent & Larger) -->
+                        <div class="standee-qr-frame">
+                            <img src="assets/images/ddc-payment-qr.png" alt="Dehradun Defence College Official Standee Payment QR Code">
+                            <span class="scan-badge">SCAN TO PAY WITH ANY UPI APP</span>
+                            <div style="font-size: 0.74rem; color: #475569; margin-top: 6px; font-weight: 700;">
+                                PhonePe &bull; Google Pay &bull; Paytm &bull; BHIM &bull; Cred &bull; Any UPI
+                            </div>
+                        </div>
+
+                        <!-- Bank Details Table -->
+                        <div class="bank-details-wrapper">
+                            <div class="bank-details-header">
+                                <h4>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line></svg>
+                                    <span>Bank Account Details</span>
+                                </h4>
+                                <span style="background: rgba(22, 163, 74, 0.25); color: #86efac; border: 1px solid #22c55e; padding: 2px 8px; border-radius: 999px; font-size: 0.7rem; font-weight: 800;">
+                                    Verified Current A/C
+                                </span>
+                            </div>
+
+                            <div class="bank-row">
+                                <span class="bank-lbl">Holder Name:</span>
+                                <span class="bank-val">Dehradun Defence College</span>
+                            </div>
+
+                            <div class="bank-row">
+                                <span class="bank-lbl">Bank Name:</span>
+                                <span class="bank-val">Canara Bank</span>
+                            </div>
+
+                            <div class="bank-row">
+                                <span class="bank-lbl">Account Number:</span>
+                                <span class="bank-val mono">
+                                    <span>120003029000</span>
+                                    <button type="button" class="copy-badge-btn" data-copy="120003029000" title="Copy Account Number">
+                                        📋 Copy
+                                    </button>
+                                </span>
+                            </div>
+
+                            <div class="bank-row">
+                                <span class="bank-lbl">IFSC Code:</span>
+                                <span class="bank-val mono">
+                                    <span>CNRB0018515</span>
+                                    <button type="button" class="copy-badge-btn" data-copy="CNRB0018515" title="Copy IFSC Code">
+                                        📋 Copy
+                                    </button>
+                                </span>
+                            </div>
+
+                            <div class="bank-row">
+                                <span class="bank-lbl">Branch:</span>
+                                <span class="bank-val">Dehradun, Uttarakhand</span>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Direct Jump to Form Button -->
+                        <a href="#podFormSection" class="btn btn-gold payment-portal-jump-btn" style="width: 100%; margin-top: 1.25rem; height: 46px; font-size: 0.92rem; font-weight: 800; text-decoration: none; align-items: center; justify-content: center; gap: 0.5rem; border-radius: var(--radius-sm); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                            <span>Already Paid? Upload POD Receipt Below</span>
+                        </a>
+                    </div>
+
+                    <!-- Instructions Card -->
+                    <div class="registration-sidebar-box" style="margin-bottom: 0;">
+                        <span class="badge-saffron">3 Simple Steps</span>
+                        <h3 style="font-size: 1.15rem; color: var(--primary-navy); margin-top: 0.4rem; margin-bottom: 0.75rem;">
+                            How to Complete Online Payment
+                        </h3>
+                        <ol style="padding-left: 1.25rem; font-size: 0.86rem; color: var(--text-dark); line-height: 1.7; margin: 0;">
+                            <li>Open Google Pay, PhonePe, Paytm, BHIM, or your bank's mobile app and scan the QR code above (or use the Canara Bank Account &amp; IFSC).</li>
+                            <li>Enter the amount (Registration fee: ₹500 / or specified seat token / term installment).</li>
+                            <li>Take a screenshot of the successful transaction showing the 12-digit UTR / Reference Number and upload it in the form.</li>
+                        </ol>
+
+                        <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; margin-top: 1rem; font-size: 0.8rem; color: #166534;">
+                            <strong>Helpline Support:</strong><br>
+                            If you encounter any difficulty while transferring, call our Accounts Directorate at <a href="tel:+919719104024" style="color: #166534; font-weight: 700;">+91 9719104024</a> / <a href="tel:+918650666609" style="color: #166534; font-weight: 700;">+91 8650666609</a>.
+                        </div>
                     </div>
                 </div>
 

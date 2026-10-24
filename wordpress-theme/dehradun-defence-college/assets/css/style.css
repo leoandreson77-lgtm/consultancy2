@@ -5807,23 +5807,125 @@ body > .floating-whatsapp {
   background: #ffffff;
 }
 
+/* ==========================================================================
+   Payment & Proof of Deposit (POD) Portal Responsive Grid
+   Desktop: Form on Left, Large QR Standee on Right (Sticky)
+   Mobile: Responsive Stack, Standee First with Direct Jump to Form
+   ========================================================================== */
+.payment-portal-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 1.05fr;
+  gap: 2.5rem;
+  align-items: start;
+  width: 100%;
+}
+
+.payment-portal-grid .payment-form-col {
+  order: 1;
+  min-width: 0;
+}
+
+.payment-portal-grid .payment-standee-col {
+  order: 2;
+  min-width: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px;
+}
+
+/* Standee Box & Bigger QR in Payment Portal */
+.payment-portal-grid .ddc-payment-standee-card {
+  padding: 2rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.payment-portal-grid .standee-qr-frame {
+  max-width: 330px;
+  margin: 0 auto 1.5rem auto;
+  padding: 14px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.payment-portal-grid .standee-qr-frame img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+  image-rendering: -webkit-optimize-contrast;
+  transition: transform 0.25s ease;
+}
+
+.payment-portal-grid .standee-qr-frame:hover img {
+  transform: scale(1.02);
+}
+
+.payment-portal-grid .scan-badge {
+  background: #0b1b3d;
+  color: var(--accent-gold);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 4px;
+  margin-top: 10px;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.payment-portal-jump-btn {
+  display: none !important;
+}
+
+@media (max-width: 991px) {
+  .payment-portal-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .payment-portal-grid .payment-standee-col {
+    order: 1 !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .payment-portal-grid .payment-form-col {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .payment-portal-grid .ddc-payment-standee-card {
+    padding: 1.5rem 1.15rem !important;
+  }
+
+  .payment-portal-grid .standee-qr-frame {
+    max-width: 280px !important;
+    padding: 10px !important;
+    margin: 0 auto 1.25rem auto !important;
+  }
+
+  .payment-portal-grid .standee-qr-frame img {
+    max-width: 255px !important;
+    width: 100% !important;
+  }
+
+  .payment-portal-jump-btn {
+    display: flex !important;
+  }
+}
+
 @media (max-width: 768px) {
   .payment-standee-inner-grid {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 1.25rem;
-  }
-  .standee-qr-frame {
-    max-width: 230px;
-    margin: 0 auto;
-    padding: 10px;
-  }
-  .standee-qr-frame img {
-    width: 100%;
-    max-width: 210px;
-    height: auto;
-    object-fit: contain;
-    margin: 0 auto;
   }
   .payment-mode-selector {
     grid-template-columns: 1fr;
@@ -5868,5 +5970,21 @@ body > .floating-whatsapp {
     object-fit: contain !important;
   }
 }
+
+@media (max-width: 480px) {
+  .payment-portal-grid .standee-qr-frame {
+    max-width: 250px !important;
+    padding: 8px !important;
+  }
+
+  .payment-portal-grid .standee-qr-frame img {
+    max-width: 230px !important;
+  }
+
+  .payment-portal-grid .bank-details-wrapper {
+    padding: 1rem !important;
+  }
+}
+
 
 
