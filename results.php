@@ -66,7 +66,7 @@ include __DIR__ . '/includes/header.php';
             </div>
 
             <!-- Official Merit Poster 2025-2026 Unobstructed Spotlight -->
-            <div class="selection-feature-grid" style="margin-bottom: 3.5rem;">
+            <div class="selection-feature-grid" style="margin-bottom: 4.5rem; gap: 3.5rem;">
                 <!-- Left: Framed High-Res Poster with Zoom -->
                 <div class="selection-poster-frame">
                     <a href="assets/images/ddc-selections-2025-2026.jpg" target="_blank" rel="noopener" title="Click to open full high-resolution merit poster">
@@ -82,7 +82,7 @@ include __DIR__ . '/includes/header.php';
                 </div>
 
                 <!-- Right: Selection Narrative & Key Commissions -->
-                <div>
+                <div style="padding-left: 0.5rem;">
                     <span class="badge-gold">Star Commission & Recommendations</span>
                     <h3 style="font-size: 1.85rem; color: var(--primary-navy); margin: 0.75rem 0 1rem 0;">
                         From Dehradun Classrooms to NDA & Air Force Flying Cockpits

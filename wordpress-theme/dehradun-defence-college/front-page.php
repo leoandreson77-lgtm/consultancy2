@@ -403,17 +403,17 @@ $theme_uri = get_template_directory_uri();
     </section>
 
     <!-- 3. Our Latest Selection of 2025-2026 -->
-    <section class="section-padding bg-slate" id="selections">
+    <section class="section-padding bg-slate" id="selections" style="padding-top: 5.5rem; padding-bottom: 6rem;">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" style="margin-bottom: 3.25rem;">
                 <span class="badge-saffron">Our Pride & National Duty</span>
                 <h2>Our Latest Selection of 2025-2026</h2>
                 <div class="gold-divider"></div>
                 <p>Saluting the courageous DDCIANs who answered the call of duty and earned their place in the Indian Armed Forces.</p>
             </div>
 
-            <div style="background: linear-gradient(135deg, #0B1B3D 0%, #162B56 100%); color: #FFFFFF; border-radius: var(--radius-md); padding: 1.25rem 2rem; border-left: 5px solid var(--accent-gold); margin-bottom: 2.5rem; text-align: center;">
-                <p style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 0.5px; margin: 0; text-transform: uppercase;">
+            <div style="background: linear-gradient(135deg, #0B1B3D 0%, #162B56 100%); color: #FFFFFF; border-radius: var(--radius-md); padding: 1.5rem 2.25rem; border-left: 5px solid var(--accent-gold); margin-bottom: 3.75rem; text-align: center; box-shadow: 0 10px 28px rgba(11, 27, 61, 0.15);">
+                <p style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 800; color: var(--accent-gold); letter-spacing: 0.5px; margin: 0; text-transform: uppercase;">
                     “One who is an officer is an officer now, and will remain one, rest of one's life for!”
                 </p>
             </div>
@@ -427,7 +427,7 @@ $theme_uri = get_template_directory_uri();
                     </div>
                 </div>
 
-                <div>
+                <div style="padding-left: 0.5rem;">
                     <span class="badge-gold">Star Commission & Recommendations</span>
                     <h3 style="font-size: 1.85rem; color: var(--primary-navy); margin: 0.75rem 0 1rem 0;">
                         From Dehradun Classrooms to NDA & Air Force Flying Cockpits
