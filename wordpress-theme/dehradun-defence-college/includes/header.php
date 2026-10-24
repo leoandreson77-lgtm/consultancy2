@@ -196,7 +196,7 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 <a href="results.php" class="nav-link <?php echo ($current_page === 'results') ? 'active' : ''; ?>">Selections 2026</a>
                 <a href="gallery.php" class="nav-link <?php echo ($current_page === 'gallery') ? 'active' : ''; ?>">Activities</a>
                 <a href="online-registration-form.php" class="nav-link nav-link-reg-desktop-hidden <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration</a>
-                <a href="online-payment.php" class="nav-link <?php echo ($current_page === 'online-payment') ? 'active' : ''; ?>" style="color: #22c55e; font-weight: 700;">Pay Online / POD</a>
+                <a href="online-payment.php" class="nav-link <?php echo ($current_page === 'online-payment') ? 'active' : ''; ?>" style="color: #22c55e; font-weight: 700;">Online Payment</a>
                 <a href="contact.php" class="nav-link <?php echo ($current_page === 'contact') ? 'active' : ''; ?>">Contact</a>
 
                 <div class="mobile-nav-footer">
@@ -218,7 +218,7 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 </a>
 
                 <a href="online-registration-form.php" class="btn btn-gold btn-sm" style="font-weight: 800; gap: 0.4rem; display: inline-flex; align-items: center; white-space: nowrap; flex-shrink: 0;">
-                    <span>Register Now</span>
+                    <span>Online Registration</span>
                 </a>
 
                 <!-- Mobile Hamburger Toggle -->

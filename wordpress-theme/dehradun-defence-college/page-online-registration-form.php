@@ -54,181 +54,19 @@ get_header();
                         <input type="hidden" name="action" value="ddc_submit_enquiry">
                         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ddc_enquiry_nonce'); ?>">
                         <input type="hidden" name="form_type" value="online_registration">
+                        <input type="hidden" name="payment_mode" value="online_qr">
                         <input type="text" name="website_url_check" class="hp-field" tabindex="-1" autocomplete="off">
                         <input type="hidden" name="form_start_time" value="<?php echo time(); ?>">
 
                         <div class="form-status-alert" role="alert"></div>
 
-                        <!-- 1. Course Selection -->
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <label class="form-label">Select Your Desired Course *</label>
-                            <select name="course_interest" class="form-control" required style="font-weight: 600; color: var(--primary-navy);">
-                                <option value="" disabled selected>Select Your Course</option>
-                                <option value="NDA Foundation after 8th">NDA Foundation after 8th (Pre-Foundation)</option>
-                                <option value="NDA Foundation after 10th">NDA Foundation after 10th (Class 11 &amp; 12 + NDA)</option>
-                                <option value="NDA Foundation after 12th">NDA Foundation / Target Batch after 12th</option>
-                                <option value="NDA (Girls) Special Wing">NDA (Girls) Special Residential Wing</option>
-                                <option value="CDS">CDS (Combined Defence Services - IMA / OTA / AFA)</option>
-                                <option value="AFCAT">AFCAT (Air Force Common Admission Test)</option>
-                                <option value="CAPF">CAPF (Assistant Commandant)</option>
-                                <option value="Sainik School">Sainik School &amp; Military School (RMS) Entrance</option>
-                                <option value="RIMC">RIMC Dehradun (Rashtriya Indian Military College)</option>
-                                <option value="SSB Interview Training">SSB Interview Training (14-Day Practical Ground Camp)</option>
-                                <option value="MNS (Military Nursing Service)">MNS (Military Nursing Service) &amp; NEET Integrated</option>
-                            </select>
-                            <div class="form-error-feedback"></div>
+                        <!-- 1. Seat Reservation & Online Fee Payment (Official Canara Bank Standee & POD) -->
+                        <div class="ddc-form-section-title" style="margin-top: 0.5rem;">
+                            <span class="section-step-badge">1</span>
+                            <h3>Online Fee Payment &amp; Seat Reservation (Canara Bank Standee QR)</h3>
                         </div>
 
-                        <!-- 2. Candidate Name & Father's Name (2-Cols) -->
-                        <div class="form-grid-2col" style="margin-bottom: 1.25rem;">
-                            <div class="form-group">
-                                <label class="form-label">Full Name of Candidate *</label>
-                                <input type="text" name="full_name" class="form-control" placeholder="Candidate's Name" required>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Father's / Guardian's Name *</label>
-                                <input type="text" name="father_name" class="form-control" placeholder="Father's Full Name" required>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                        </div>
-
-                        <!-- 3. Candidate Mobile, Parent Mobile & Email (3-Cols) -->
-                        <div class="form-grid-3col" style="margin-bottom: 1.25rem;">
-                            <div class="form-group">
-                                <label class="form-label">Candidate Mobile *</label>
-                                <input type="tel" name="mobile_number" class="form-control" placeholder="10-digit Mobile" required>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Parents Mobile *</label>
-                                <input type="tel" name="parent_mobile" class="form-control" placeholder="Parents Contact" required>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Email Address *</label>
-                                <input type="email" name="email" class="form-control" placeholder="candidate@example.com" required>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                        </div>
-
-                        <!-- 4. DOB, Gender & Current Class (3-Cols) -->
-                        <div class="form-grid-3col" style="margin-bottom: 1.25rem;">
-                            <div class="form-group">
-                                <label class="form-label">Date of Birth *</label>
-                                <input type="date" name="dob" class="form-control" required>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Gender *</label>
-                                <select name="gender" class="form-control" required>
-                                    <option value="" disabled selected>Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Current Academic Level *</label>
-                                <select name="education_level" class="form-control" required>
-                                    <option value="" disabled selected>Current Class</option>
-                                    <option value="Class 8th / 9th">Class 8th / 9th</option>
-                                    <option value="Class 10th (Appearing / Passed)">Class 10th (Appearing / Passed)</option>
-                                    <option value="Class 11th">Class 11th</option>
-                                    <option value="Class 12th (Appearing / Passed)">Class 12th (Appearing / Passed)</option>
-                                    <option value="Graduate / Final Year">Graduate / Final Year (For CDS/AFCAT)</option>
-                                </select>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                        </div>
-
-                        <!-- 5. City/State & Hostel Preference (2-Cols) -->
-                        <div class="form-grid-2col" style="margin-bottom: 1.25rem;">
-                            <div class="form-group">
-                                <label class="form-label">State &amp; City of Residence *</label>
-                                <input type="text" name="city_state" class="form-control" placeholder="e.g. Dehradun, Uttarakhand / Delhi / Patna" required>
-                                <div class="form-error-feedback"></div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Hostel Accommodation Needed? *</label>
-                                <select name="preferred_contact" class="form-control" required>
-                                    <option value="Yes, Need In-Campus Residential Hostel" selected>Yes, Need In-Campus Residential Hostel</option>
-                                    <option value="Day Scholar (Local Dehradun Resident)">No, Day Scholar (Local Dehradun Resident)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- 6. Candidate Passport Photograph Upload -->
-                        <div class="ddc-form-section-title">
-                            <span class="section-step-badge">6</span>
-                            <h3>Candidate Passport Photograph</h3>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 1.5rem;">
-                            <input type="file" id="candidate_photo" name="candidate_photo" accept="image/jpeg,image/png,image/webp" style="display: none;">
-                            
-                            <div class="candidate-photo-box" id="candidatePhotoBox">
-                                <div class="upload-prompt">
-                                    <div class="upload-icon-circle">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-                                    </div>
-                                    <div style="font-weight: 700; color: var(--primary-navy); font-size: 0.95rem;">
-                                        Click or Drag to Upload Candidate Passport Photo
-                                    </div>
-                                    <div style="font-size: 0.8rem; color: var(--text-muted);">
-                                        Supported: JPG, PNG, WEBP (Max 5MB) &bull; Required for Cadet Identity Card &amp; Official Records
-                                    </div>
-                                </div>
-
-                                <div class="candidate-photo-preview-wrap" id="candidatePhotoPreview">
-                                    <img id="candidatePhotoThumb" src="" alt="Candidate Photo Preview">
-                                    <div style="flex: 1;">
-                                        <div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.25rem;">
-                                            <span style="background: #16a34a; color: #fff; font-size: 0.72rem; font-weight: 800; padding: 2px 7px; border-radius: 999px;">✓ Photo Ready</span>
-                                            <span style="font-weight: 700; color: var(--primary-navy); font-size: 0.88rem;" id="candidatePhotoName">photo.jpg</span>
-                                        </div>
-                                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.6rem;" id="candidatePhotoSize">0 KB</div>
-                                        <button type="button" class="btn btn-sm btn-outline-navy" id="candidatePhotoChange" style="padding: 3px 10px; font-size: 0.76rem;">Change Photo</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-error-feedback"></div>
-                        </div>
-
-                        <!-- 7. Seat Reservation & Online Payment Option -->
-                        <div class="ddc-form-section-title">
-                            <span class="section-step-badge">7</span>
-                            <h3>Seat Reservation &amp; Online Fee Payment</h3>
-                        </div>
-                        
-                        <div class="payment-mode-selector">
-                            <label class="payment-mode-pill active">
-                                <input type="radio" name="payment_mode" value="online" checked>
-                                <div>
-                                    <div class="mode-title">
-                                        <span>💳 Pay Online &amp; Reserve Seat</span>
-                                        <span class="mode-badge-rec">RECOMMENDED</span>
-                                    </div>
-                                    <div class="mode-desc">
-                                        Scan official Canara Bank QR, pay ₹500 registration fee &amp; upload POD screenshot for instant seat reservation.
-                                    </div>
-                                </div>
-                            </label>
-
-                            <label class="payment-mode-pill">
-                                <input type="radio" name="payment_mode" value="pay_later">
-                                <div>
-                                    <div class="mode-title">
-                                        <span>🏫 Pay Later at Campus</span>
-                                    </div>
-                                    <div class="mode-desc">
-                                        Submit registration now and pay during your campus counseling visit in Dehradun.
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-
-                        <!-- 7.1 The Official Payment & POD Standee Container -->
-                        <div id="onlinePaymentSection" style="margin-bottom: 1.5rem;">
+                        <div id="onlinePaymentSection" style="margin-bottom: 2rem;">
                             <div class="ddc-payment-standee-card">
                                 <div class="payment-standee-inner-grid">
                                     <!-- QR Frame -->
@@ -294,7 +132,7 @@ get_header();
                             <div class="form-grid-2col" style="margin-bottom: 1.25rem;">
                                 <div class="form-group">
                                     <label class="form-label">Transaction ID / UTR Number * (12 Digits)</label>
-                                    <input type="text" name="transaction_id" id="transaction_id" class="form-control" placeholder="e.g. 428710294821 or UPI Ref ID" style="font-family: monospace; font-size: 1rem; font-weight: 700; letter-spacing: 0.5px;">
+                                    <input type="text" name="transaction_id" id="transaction_id" class="form-control" placeholder="e.g. 428710294821 or UPI Ref ID" required style="font-family: monospace; font-size: 1rem; font-weight: 700; letter-spacing: 0.5px;">
                                     <small style="font-size: 0.76rem; color: var(--text-muted); display: block; margin-top: 3px;">
                                         Found in your UPI app receipt after scanning QR.
                                     </small>
@@ -302,7 +140,7 @@ get_header();
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Amount Deposited (₹) *</label>
-                                    <input type="number" name="payment_amount" id="payment_amount" class="form-control" value="500" min="100" style="font-weight: 700;">
+                                    <input type="number" name="payment_amount" id="payment_amount" class="form-control" value="500" min="100" required style="font-weight: 700;">
                                     <small style="font-size: 0.76rem; color: var(--text-muted); display: block; margin-top: 3px;">
                                         Standard Registration: ₹500 (or seat reservation token).
                                     </small>
@@ -313,7 +151,7 @@ get_header();
                             <!-- Proof of Deposit (POD) Upload Box -->
                             <div class="form-group">
                                 <label class="form-label">Upload Proof of Deposit (POD Screenshot / Receipt) *</label>
-                                <input type="file" id="payment_pod" name="payment_pod" accept="image/jpeg,image/png,image/webp,application/pdf" style="display: none;">
+                                <input type="file" id="payment_pod" name="payment_pod" accept="image/jpeg,image/png,image/webp,application/pdf" style="display: none;" required>
                                 
                                 <div class="pod-upload-zone" id="paymentPodBox">
                                     <div class="upload-prompt">
@@ -344,13 +182,154 @@ get_header();
                             </div>
                         </div>
 
-                        <!-- 8. Additional Message / Background -->
+                        <!-- 2. Candidate & Admission Information -->
+                        <div class="ddc-form-section-title" style="margin-top: 1.5rem;">
+                            <span class="section-step-badge">2</span>
+                            <h3>Candidate &amp; Academic Details</h3>
+                        </div>
+
+                        <!-- Course Selection -->
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label class="form-label">Select Your Desired Course *</label>
+                            <select name="course_interest" class="form-control" required style="font-weight: 600; color: var(--primary-navy);">
+                                <option value="" disabled selected>Select Your Course</option>
+                                <option value="NDA Foundation after 8th">NDA Foundation after 8th (Pre-Foundation)</option>
+                                <option value="NDA Foundation after 10th">NDA Foundation after 10th (Class 11 &amp; 12 + NDA)</option>
+                                <option value="NDA Foundation after 12th">NDA Foundation / Target Batch after 12th</option>
+                                <option value="NDA (Girls) Special Wing">NDA (Girls) Special Residential Wing</option>
+                                <option value="CDS">CDS (Combined Defence Services - IMA / OTA / AFA)</option>
+                                <option value="AFCAT">AFCAT (Air Force Common Admission Test)</option>
+                                <option value="CAPF">CAPF (Assistant Commandant)</option>
+                                <option value="Sainik School">Sainik School &amp; Military School (RMS) Entrance</option>
+                                <option value="RIMC">RIMC Dehradun (Rashtriya Indian Military College)</option>
+                                <option value="SSB Interview Training">SSB Interview Training (14-Day Practical Ground Camp)</option>
+                                <option value="MNS (Military Nursing Service)">MNS (Military Nursing Service) &amp; NEET Integrated</option>
+                            </select>
+                            <div class="form-error-feedback"></div>
+                        </div>
+
+                        <!-- Candidate Name & Father's Name (2-Cols) -->
+                        <div class="form-grid-2col" style="margin-bottom: 1.25rem;">
+                            <div class="form-group">
+                                <label class="form-label">Full Name of Candidate *</label>
+                                <input type="text" name="full_name" class="form-control" placeholder="Candidate's Name" required>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Father's / Guardian's Name *</label>
+                                <input type="text" name="father_name" class="form-control" placeholder="Father's Full Name" required>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                        </div>
+
+                        <!-- Candidate Mobile, Parent Mobile & Email (3-Cols) -->
+                        <div class="form-grid-3col" style="margin-bottom: 1.25rem;">
+                            <div class="form-group">
+                                <label class="form-label">Candidate Mobile *</label>
+                                <input type="tel" name="mobile_number" class="form-control" placeholder="10-digit Mobile" required>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Parents Mobile *</label>
+                                <input type="tel" name="parent_mobile" class="form-control" placeholder="Parents Contact" required>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" name="email" class="form-control" placeholder="candidate@example.com" required>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                        </div>
+
+                        <!-- DOB, Gender & Current Class (3-Cols) -->
+                        <div class="form-grid-3col" style="margin-bottom: 1.25rem;">
+                            <div class="form-group">
+                                <label class="form-label">Date of Birth *</label>
+                                <input type="date" name="dob" class="form-control" required>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Gender *</label>
+                                <select name="gender" class="form-control" required>
+                                    <option value="" disabled selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Current Academic Level *</label>
+                                <select name="education_level" class="form-control" required>
+                                    <option value="" disabled selected>Current Class</option>
+                                    <option value="Class 8th / 9th">Class 8th / 9th</option>
+                                    <option value="Class 10th (Appearing / Passed)">Class 10th (Appearing / Passed)</option>
+                                    <option value="Class 11th">Class 11th</option>
+                                    <option value="Class 12th (Appearing / Passed)">Class 12th (Appearing / Passed)</option>
+                                    <option value="Graduate / Final Year">Graduate / Final Year (For CDS/AFCAT)</option>
+                                </select>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                        </div>
+
+                        <!-- City/State & Hostel Preference (2-Cols) -->
+                        <div class="form-grid-2col" style="margin-bottom: 1.25rem;">
+                            <div class="form-group">
+                                <label class="form-label">State &amp; City of Residence *</label>
+                                <input type="text" name="city_state" class="form-control" placeholder="e.g. Dehradun, Uttarakhand / Delhi / Patna" required>
+                                <div class="form-error-feedback"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Hostel Accommodation Needed? *</label>
+                                <select name="preferred_contact" class="form-control" required>
+                                    <option value="Yes, Need In-Campus Residential Hostel" selected>Yes, Need In-Campus Residential Hostel</option>
+                                    <option value="Day Scholar (Local Dehradun Resident)">No, Day Scholar (Local Dehradun Resident)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 3. Candidate Passport Photograph Upload -->
+                        <div class="ddc-form-section-title" style="margin-top: 1.5rem;">
+                            <span class="section-step-badge">3</span>
+                            <h3>Candidate Passport Photograph</h3>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <input type="file" id="candidate_photo" name="candidate_photo" accept="image/jpeg,image/png,image/webp" style="display: none;">
+                            
+                            <div class="candidate-photo-box" id="candidatePhotoBox">
+                                <div class="upload-prompt">
+                                    <div class="upload-icon-circle">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                                    </div>
+                                    <div style="font-weight: 700; color: var(--primary-navy); font-size: 0.95rem;">
+                                        Click or Drag to Upload Candidate Passport Photo
+                                    </div>
+                                    <div style="font-size: 0.8rem; color: var(--text-muted);">
+                                        Supported: JPG, PNG, WEBP (Max 5MB) &bull; Required for Cadet Identity Card &amp; Official Records
+                                    </div>
+                                </div>
+
+                                <div class="candidate-photo-preview-wrap" id="candidatePhotoPreview">
+                                    <img id="candidatePhotoThumb" src="" alt="Candidate Photo Preview">
+                                    <div style="flex: 1;">
+                                        <div style="display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.25rem;">
+                                            <span style="background: #16a34a; color: #fff; font-size: 0.72rem; font-weight: 800; padding: 2px 7px; border-radius: 999px;">✓ Photo Ready</span>
+                                            <span style="font-weight: 700; color: var(--primary-navy); font-size: 0.88rem;" id="candidatePhotoName">photo.jpg</span>
+                                        </div>
+                                        <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.6rem;" id="candidatePhotoSize">0 KB</div>
+                                        <button type="button" class="btn btn-sm btn-outline-navy" id="candidatePhotoChange" style="padding: 3px 10px; font-size: 0.76rem;">Change Photo</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-error-feedback"></div>
+                        </div>
+
+                        <!-- 4. Additional Message / Background -->
                         <div class="form-group" style="margin-bottom: 1.25rem;">
                             <label class="form-label">Additional Information / Prior Sports or NCC Achievements (Optional)</label>
                             <textarea name="message" class="form-control" rows="3" placeholder="Mention any NCC certificate, state/national sports achievements, or specific questions for the admissions counselor."></textarea>
                         </div>
 
-                        <!-- 9. Consent Checkbox -->
+                        <!-- 5. Consent Checkbox -->
                         <div class="form-check" style="margin-bottom: 1.75rem;">
                             <input type="checkbox" id="wp_reg_consent" name="privacy_consent" checked required>
                             <label for="wp_reg_consent" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
@@ -359,10 +338,10 @@ get_header();
                             <div class="form-error-feedback"></div>
                         </div>
 
-                        <!-- 10. Submit Button -->
+                        <!-- 6. Submit Button -->
                         <button type="submit" class="btn btn-gold" style="width: 100%; height: 54px; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.5px; border-radius: var(--radius-sm); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            <span>PROCEED &amp; SUBMIT APPLICATION WITH POD (₹500)</span>
+                            <span>SUBMIT ONLINE REGISTRATION &amp; PAYMENT PROOF (₹500)</span>
                         </button>
                     </form>
 

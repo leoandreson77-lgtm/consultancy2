@@ -114,6 +114,7 @@ $theme_uri = get_template_directory_uri();
                     <a href="<?php echo esc_url(home_url('/faculty-facilities/')); ?>" class="nav-link">Faculty & Campus</a>
                     <a href="<?php echo esc_url(home_url('/results/')); ?>" class="nav-link">Results</a>
                     <a href="<?php echo esc_url(home_url('/gallery/')); ?>" class="nav-link">Gallery</a>
+                    <a href="<?php echo esc_url(home_url('/online-payment/')); ?>" class="nav-link" style="color: #22c55e; font-weight: 700;">Online Payment</a>
                     <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="nav-link">Contact</a>
                 <?php } ?>
 
@@ -130,9 +131,9 @@ $theme_uri = get_template_directory_uri();
 
             <!-- Header Action CTAs -->
             <div class="header-cta-group">
-                <button type="button" class="btn btn-gold btn-sm open-enquiry-modal" data-course="General Website Enquiry">
-                    <span>Enquire Now</span>
-                </button>
+                <a href="<?php echo esc_url(home_url('/online-registration/')); ?>" class="btn btn-gold btn-sm" style="font-weight: 800; gap: 0.4rem; display: inline-flex; align-items: center; white-space: nowrap; flex-shrink: 0;">
+                    <span>Online Registration</span>
+                </a>
 
                 <button type="button" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
                     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>

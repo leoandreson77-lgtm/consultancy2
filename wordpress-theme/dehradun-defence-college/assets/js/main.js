@@ -173,10 +173,16 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Auto-Popup Registration / Admission Modal on Website Open (Client Requested)
+  // Disabled on Online Registration & Online Payment pages to never disrupt applicant form filling
   if (modalOverlay) {
-    setTimeout(function () {
-      openEnquiryModal('Direct Admission 2026 Batch');
-    }, 800); // Pops up promptly 800ms after website open
+    const isRegOrPayPage = window.location.pathname.includes('online-registration') || 
+                           window.location.pathname.includes('online-payment') || 
+                           document.getElementById('onlineRegistrationForm') !== null;
+    if (!isRegOrPayPage) {
+      setTimeout(function () {
+        openEnquiryModal('Direct Admission 2026 Batch');
+      }, 800); // Pops up promptly 800ms after website open on content pages
+    }
   }
 
   openModalBtns.forEach(function (btn) {
