@@ -198,8 +198,14 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 </div>
 
                 <a href="director.php" class="nav-link <?php echo ($current_page === 'director') ? 'active' : ''; ?>">Directors</a>
-                <a href="faculty-facilities.php" class="nav-link <?php echo ($current_page === 'faculty-facilities') ? 'active' : ''; ?>">Faculty & Campus</a>
-                <a href="career-advisors.php" class="nav-link <?php echo ($current_page === 'career-advisors') ? 'active' : ''; ?>">Our Career Advisors Team</a>
+                <a href="faculty-facilities.php" class="nav-link <?php echo ($current_page === 'faculty-facilities') ? 'active' : ''; ?>">
+                    <span class="nav-text-full">Faculty &amp; Campus</span>
+                    <span class="nav-text-compact">Faculty</span>
+                </a>
+                <a href="career-advisors.php" class="nav-link <?php echo ($current_page === 'career-advisors') ? 'active' : ''; ?>">
+                    <span class="nav-text-full">Our Career Advisors Team</span>
+                    <span class="nav-text-compact">Career Advisors</span>
+                </a>
                 <a href="gallery.php" class="nav-link <?php echo ($current_page === 'gallery' || $current_page === 'college-activity') ? 'active' : ''; ?>">College Activity</a>
                 <a href="results.php" class="nav-link <?php echo ($current_page === 'results') ? 'active' : ''; ?>">Selections 2026</a>
                 <a href="online-registration-form.php" class="nav-link nav-link-reg-desktop-hidden <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration</a>
@@ -224,8 +230,9 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                     <span>Call Now</span>
                 </a>
 
-                <a href="online-registration-form.php" class="btn btn-gold btn-sm" style="font-weight: 800; gap: 0.4rem; display: inline-flex; align-items: center; white-space: nowrap; flex-shrink: 0;">
-                    <span>Online Registration</span>
+                <a href="online-registration-form.php" class="btn btn-gold btn-sm header-reg-btn" style="font-weight: 800; gap: 0.4rem; display: inline-flex; align-items: center; white-space: nowrap; flex-shrink: 0;">
+                    <span class="btn-text-full">Online Registration</span>
+                    <span class="btn-text-compact">Register Now</span>
                 </a>
 
                 <!-- Mobile Hamburger Toggle -->
