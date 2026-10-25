@@ -45,6 +45,16 @@
       "permanent": false
     },
     {
+      "source": "/career-advisors.php",
+      "destination": "/career-advisors",
+      "permanent": false
+    },
+    {
+      "source": "/college-activity.php",
+      "destination": "/gallery",
+      "permanent": false
+    },
+    {
       "source": "/gallery.php",
       "destination": "/gallery",
       "permanent": false
