@@ -701,6 +701,35 @@ $DDC_FACULTY_MEMBERS = [
 ];
 
 // -------------------------------------------------------------
+// Career Advisors & Admission Counseling Team
+// -------------------------------------------------------------
+$DDC_CAREER_ADVISORS = [
+    [
+        'id'          => 'gouri-sharma',
+        'name'        => 'Gouri Sharma',
+        'role'        => 'Senior Career Advisor & Admissions Specialist',
+        'badge'       => 'Chief Career Counselor • DDC Admissions Wing',
+        'photo'       => 'assets/images/career-advisor-gouri-sharma.jpg',
+        'experience'  => 'Senior Defence Career & Admission Advisor',
+        'education'   => 'Academic Career Guidance & Counseling Specialist',
+        'quote'       => 'Every defence aspirant carries unique potential. Our mission as career advisors is to craft the exact academic, physical, and strategic roadmap that turns your dream of donning the uniform into reality.',
+        'bio'         => 'Gouri Sharma is a dedicated Senior Career Advisor at Dehradun Defence College, specializing in mentoring aspiring defence candidates and their parents through the competitive pathways of NDA, CDS, AFCAT, and SSB. With deep insight into UPSC examination patterns, age eligibility criteria, physical fitness benchmarks, and integrated schooling programs, she provides personalized 1-on-1 counseling to help students choose the optimal preparation track and achieve their dream of serving the nation as commissioned officers.',
+        'contact_btn' => 'Connect with Gouri Sharma',
+        'specialties' => [
+            'NDA Foundation (Class 11 & 12 Schooling + Defence)',
+            'NDA (Girls) Special Wing Admissions & Support',
+            'NDA Target / Dropper Batch Strategic Planning',
+            'CDS & AFCAT Graduate Entry Pathway Guidance',
+            'SSB Interview Mentorship & Psychological Overview',
+            'Residential Campus, Hostel & Parent Counseling',
+            'Veer Nari & Merit Scholarship Assistance'
+        ],
+        'availability' => 'Mon - Sun: 8:00 AM - 6:00 PM',
+        'languages'    => 'Hindi, English'
+    ]
+];
+
+// -------------------------------------------------------------
 // Email & SMTP Configuration
 // -------------------------------------------------------------
 define('SMTP_ENABLED', ddc_env('SMTP_ENABLED', 'true') === 'true');

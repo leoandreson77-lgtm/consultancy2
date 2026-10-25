@@ -12,10 +12,10 @@ $theme_uri = get_template_directory_uri();
 
     <section class="section-padding-sm bg-navy" style="background-image: linear-gradient(135deg, #0B1B3D 0%, #162B56 100%);">
         <div class="container" style="text-align: center;">
-            <span class="badge-gold">Visual Tour</span>
-            <h1 style="color: #FFFFFF; margin: 0.75rem 0 0.5rem 0;">Campus & Training Gallery</h1>
+            <span class="badge-gold">Campus Life &amp; Cadets Routine</span>
+            <h1 style="color: #FFFFFF; margin: 0.75rem 0 0.5rem 0;">College Activity &amp; Campus Gallery</h1>
             <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 720px; margin: 0 auto;">
-                A glimpse into the daily life, military discipline, classroom rigour, and obstacle training of our cadets.
+                A glimpse into the vibrant college activities, daily military discipline, classroom rigour, and obstacle training of our cadets.
             </p>
         </div>
     </section>

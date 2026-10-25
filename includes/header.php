@@ -199,8 +199,9 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
 
                 <a href="director.php" class="nav-link <?php echo ($current_page === 'director') ? 'active' : ''; ?>">Directors</a>
                 <a href="faculty-facilities.php" class="nav-link <?php echo ($current_page === 'faculty-facilities') ? 'active' : ''; ?>">Faculty & Campus</a>
+                <a href="career-advisors.php" class="nav-link <?php echo ($current_page === 'career-advisors') ? 'active' : ''; ?>">Our Career Advisors Team</a>
+                <a href="gallery.php" class="nav-link <?php echo ($current_page === 'gallery' || $current_page === 'college-activity') ? 'active' : ''; ?>">College Activity</a>
                 <a href="results.php" class="nav-link <?php echo ($current_page === 'results') ? 'active' : ''; ?>">Selections 2026</a>
-                <a href="gallery.php" class="nav-link <?php echo ($current_page === 'gallery') ? 'active' : ''; ?>">Activities</a>
                 <a href="online-registration-form.php" class="nav-link nav-link-reg-desktop-hidden <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration</a>
                 <a href="online-payment.php" class="nav-link <?php echo ($current_page === 'online-payment') ? 'active' : ''; ?>" style="color: #22c55e; font-weight: 700;">Online Payment</a>
                 <a href="contact.php" class="nav-link <?php echo ($current_page === 'contact') ? 'active' : ''; ?>">Contact</a>

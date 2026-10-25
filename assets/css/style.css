@@ -6165,5 +6165,53 @@ body > .floating-whatsapp {
   }
 }
 
+/* ==========================================================================
+   CAREER ADVISORS & COLLEGE ACTIVITY ENHANCEMENTS
+   ========================================================================== */
+@media (min-width: 1241px) and (max-width: 1400px) {
+  .nav-menu {
+    gap: 0.45rem;
+  }
+  .nav-link {
+    font-size: 0.77rem;
+    padding: 0.35rem 0.08rem;
+  }
+  .header-container {
+    gap: 0.5rem;
+  }
+}
 
+.advisor-card-featured {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
 
+.advisor-card-featured:hover {
+  box-shadow: 0 20px 48px -10px rgba(11, 27, 61, 0.2) !important;
+  transform: translateY(-2px);
+}
+
+.advisor-card-featured .advisor-photo {
+  transition: transform var(--transition-base);
+}
+
+.advisor-card-featured:hover .advisor-photo {
+  transform: scale(1.04);
+}
+
+@media (max-width: 991px) {
+  .advisor-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .advisor-sidebar {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-light) !important;
+    padding: 2rem 1.5rem !important;
+  }
+  .advisor-content {
+    padding: 2rem 1.5rem !important;
+  }
+  .advisor-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}

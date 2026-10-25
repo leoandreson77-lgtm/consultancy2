@@ -17,6 +17,8 @@ $pages = [
     'online-registration-form.php' => 'online-registration-form.html',
     'online-payment.php'         => 'online-payment.html',
     'faculty-facilities.php'     => 'faculty-facilities.html',
+    'career-advisors.php'        => 'career-advisors.html',
+    'college-activity.php'       => 'college-activity.html',
     'gallery.php'                => 'gallery.html',
     'results.php'                => 'results.html',
     'blog.php'                   => 'blog.html',
@@ -43,7 +45,7 @@ function clean_static_links($html) {
     // 3. Other internal pages
     $staticPages = [
         'about', 'director', 'courses', 'course-detail', 'online-registration-form', 'online-payment',
-        'faculty-facilities', 'gallery',
+        'faculty-facilities', 'career-advisors', 'college-activity', 'gallery',
         'results', 'blog', 'blog-single', 'contact',
         'privacy-policy', 'terms', '404'
     ];
