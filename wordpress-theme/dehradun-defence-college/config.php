@@ -718,6 +718,29 @@ $DDC_FACULTY_MEMBERS = [
 // -------------------------------------------------------------
 $DDC_CAREER_ADVISORS = [
     [
+        'id'          => 'himani-doriyal',
+        'name'        => 'Himani Doriyal',
+        'role'        => 'Chief Admissions & Career Advisor',
+        'badge'       => 'Chief Admissions & Career Guidance Specialist',
+        'photo'       => 'assets/images/career-advisor-himani.jpg',
+        'experience'  => 'Head of Admissions & Career Strategy',
+        'education'   => 'Defence Career Strategic Planning & Counseling',
+        'quote'       => 'Our commitment is to guide every aspiring cadet with honest, structured, and goal-oriented direction from day one, transforming ambition into uniform excellence.',
+        'bio'         => 'Himani Doriyal serves as the Chief Admissions & Career Advisor at Dehradun Defence College. She leads the student career advisory and admissions division, mentoring hundreds of defence aspirants and their families every year. Specializing in strategic admission planning, course selection (NDA Foundation, Dropper Batches, CDS, AFCAT), scholarship allocations, and hostel onboarding, she ensures that every candidate receives clear, empowering, and end-to-end guidance towards their goal of joining the Indian Armed Forces.',
+        'contact_btn' => 'Connect with Himani Doriyal',
+        'specialties' => [
+            'Comprehensive Admission Roadmap & Career Strategy',
+            'NDA 2-Year Integrated Schooling (Class 11 & 12)',
+            'NDA Dropper / Target 1-Year Fast-Track Guidance',
+            'CDS, AFCAT & Graduate Entry Career Counseling',
+            'SSB Preparation & Officer Like Qualities (OLQ) Orientation',
+            'Residential Campus, Safe Hostel Facilities & Parent Queries',
+            'Fee Structure, Scholarships & Admission Documentation'
+        ],
+        'availability' => 'Mon - Sun: 8:00 AM - 6:00 PM',
+        'languages'    => 'Hindi, English'
+    ],
+    [
         'id'          => 'gouri-sharma',
         'name'        => 'Gouri Sharma',
         'role'        => 'Senior Career Advisor & Admissions Specialist',

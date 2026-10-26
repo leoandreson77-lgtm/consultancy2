@@ -46,24 +46,29 @@ $theme_uri = get_template_directory_uri();
                 </p>
             </div>
 
-            <!-- Featured Advisor Card: Gouri Sharma -->
+            <?php 
+            require_once get_template_directory() . '/config.php';
+            global $DDC_CAREER_ADVISORS;
+            foreach ($DDC_CAREER_ADVISORS as $idx => $advisor): 
+            ?>
+            <!-- Advisor Card: <?php echo esc_html($advisor['name']); ?> -->
             <div class="advisor-card-featured" style="background: #FFFFFF; border-radius: var(--radius-lg); border: 2px solid var(--accent-gold); box-shadow: 0 16px 40px -10px rgba(11, 27, 61, 0.12); overflow: hidden; margin-bottom: 3.5rem;">
                 <div class="advisor-grid" style="display: grid; grid-template-columns: 340px 1fr; align-items: stretch;">
                     
                     <!-- Left Column: Portrait & Quick CTAs -->
                     <div class="advisor-sidebar" style="background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%); padding: 2.5rem 2rem; text-align: center; border-right: 1px solid var(--border-light); display: flex; flex-direction: column; align-items: center; justify-content: center;">
                         <div class="advisor-photo-wrap" style="position: relative; width: 230px; height: 280px; margin: 0 auto 1.5rem auto; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--accent-gold); box-shadow: 0 10px 28px rgba(11, 27, 61, 0.2);">
-                            <img src="<?php echo esc_url($theme_uri . '/assets/images/career-advisor-gouri-sharma.jpg'); ?>" alt="Gouri Sharma - Senior Career Advisor" class="advisor-photo" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
+                            <img src="<?php echo esc_url($theme_uri . '/' . $advisor['photo']); ?>" alt="<?php echo esc_attr($advisor['name'] . ' - ' . $advisor['role']); ?>" class="advisor-photo" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
                             <span class="badge-navy" style="position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; padding: 0.3rem 0.75rem; white-space: nowrap; box-shadow: var(--shadow-sm);">
                                 Career Advisor
                             </span>
                         </div>
 
                         <h3 style="font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 0.25rem; font-family: var(--font-heading); font-weight: 800;">
-                            Gouri Sharma
+                            <?php echo esc_html($advisor['name']); ?>
                         </h3>
                         <p style="color: var(--accent-gold-hover); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.35rem;">
-                            Senior Career Advisor
+                            <?php echo esc_html($advisor['role']); ?>
                         </p>
                         <p style="font-size: 0.825rem; color: var(--text-muted); margin-bottom: 1.25rem;">
                             Dehradun Defence College Admissions Wing
@@ -83,7 +88,7 @@ $theme_uri = get_template_directory_uri();
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                 <span>Call: +91 9719104024</span>
                             </a>
-                            <a href="https://wa.me/919719104024?text=<?php echo urlencode('Hello Gouri Ma\'am, I would like to seek career guidance for NDA/defence exams at Dehradun Defence College.'); ?>" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm" style="width: 100%; justify-content: center; gap: 0.5rem; padding: 0.65rem 1rem; color: #16a34a; border-color: #16a34a;">
+                            <a href="https://wa.me/919719104024?text=<?php echo urlencode('Hello ' . $advisor['name'] . ', I would like to seek career guidance for NDA/defence exams at Dehradun Defence College.'); ?>" target="_blank" rel="noopener" class="btn btn-outline-navy btn-sm" style="width: 100%; justify-content: center; gap: 0.5rem; padding: 0.65rem 1rem; color: #16a34a; border-color: #16a34a;">
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
                                 <span>Chat on WhatsApp</span>
                             </a>
@@ -97,19 +102,19 @@ $theme_uri = get_template_directory_uri();
                         </span>
 
                         <h3 style="font-size: clamp(1.4rem, 2vw, 1.85rem); color: var(--primary-navy); margin-bottom: 0.75rem; font-family: var(--font-heading);">
-                            Guiding Every Cadet Towards the Uniform
+                            <?php echo ($idx === 0) ? 'Guiding Every Cadet Towards the Uniform' : 'Empowering Defence Aspirants &amp; Parents'; ?>
                         </h3>
 
                         <!-- Quote Banner -->
                         <div style="background: rgba(212, 175, 55, 0.08); border-left: 4px solid var(--accent-gold); padding: 1.15rem 1.35rem; border-radius: var(--radius-sm); margin-bottom: 1.35rem;">
                             <p style="font-size: 1.05rem; font-style: italic; color: var(--primary-navy); margin: 0; line-height: 1.65;">
-                                “Every defence aspirant carries unique potential. Our mission as career advisors is to craft the exact academic, physical, and strategic roadmap that turns your dream of donning the uniform into reality.”
+                                “<?php echo esc_html($advisor['quote']); ?>”
                             </p>
                         </div>
 
                         <!-- Bio Narrative -->
                         <p style="font-size: 0.985rem; line-height: 1.75; color: var(--text-dark); margin-bottom: 1rem;">
-                            Gouri Sharma is a dedicated Senior Career Advisor at Dehradun Defence College, specializing in mentoring aspiring defence candidates and their parents through the competitive pathways of NDA, CDS, AFCAT, and SSB. With deep insight into UPSC examination patterns, age eligibility criteria, physical fitness benchmarks, and integrated schooling programs, she provides personalized 1-on-1 counseling to help students choose the optimal preparation track and achieve their dream of serving the nation as commissioned officers.
+                            <?php echo esc_html($advisor['bio']); ?>
                         </p>
                         <p style="font-size: 0.965rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 1.5rem;">
                             At Dehradun Defence College, we believe that academic readiness must be accompanied by emotional clarity and strong discipline. Whether a student is transitioning after 10th into Senior Secondary CBSE schooling, preparing for a drop year after 12th, or planning SSB preparation, our career guidance desk provides transparent, realistic counseling that helps parents and students make the best choices with complete peace of mind.
@@ -122,36 +127,18 @@ $theme_uri = get_template_directory_uri();
                         </h4>
 
                         <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.65rem; margin-bottom: 2rem;">
+                            <?php foreach ($advisor['specialties'] as $spec): ?>
                             <div style="background: rgba(11, 27, 61, 0.03); border: 1px solid rgba(11, 27, 61, 0.08); border-left: 3px solid var(--accent-gold); border-radius: var(--radius-sm); padding: 0.55rem 0.85rem; font-size: 0.865rem; font-weight: 600; color: var(--primary-navy); display: flex; align-items: center; gap: 0.45rem;">
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>NDA Foundation (Class 11 &amp; 12 Schooling + Defence)</span>
+                                <span><?php echo esc_html($spec); ?></span>
                             </div>
-                            <div style="background: rgba(11, 27, 61, 0.03); border: 1px solid rgba(11, 27, 61, 0.08); border-left: 3px solid var(--accent-gold); border-radius: var(--radius-sm); padding: 0.55rem 0.85rem; font-size: 0.865rem; font-weight: 600; color: var(--primary-navy); display: flex; align-items: center; gap: 0.45rem;">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>NDA (Girls) Special Wing Admissions &amp; Support</span>
-                            </div>
-                            <div style="background: rgba(11, 27, 61, 0.03); border: 1px solid rgba(11, 27, 61, 0.08); border-left: 3px solid var(--accent-gold); border-radius: var(--radius-sm); padding: 0.55rem 0.85rem; font-size: 0.865rem; font-weight: 600; color: var(--primary-navy); display: flex; align-items: center; gap: 0.45rem;">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>NDA Target / Dropper Batch Strategic Planning</span>
-                            </div>
-                            <div style="background: rgba(11, 27, 61, 0.03); border: 1px solid rgba(11, 27, 61, 0.08); border-left: 3px solid var(--accent-gold); border-radius: var(--radius-sm); padding: 0.55rem 0.85rem; font-size: 0.865rem; font-weight: 600; color: var(--primary-navy); display: flex; align-items: center; gap: 0.45rem;">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>CDS &amp; AFCAT Graduate Entry Pathway Guidance</span>
-                            </div>
-                            <div style="background: rgba(11, 27, 61, 0.03); border: 1px solid rgba(11, 27, 61, 0.08); border-left: 3px solid var(--accent-gold); border-radius: var(--radius-sm); padding: 0.55rem 0.85rem; font-size: 0.865rem; font-weight: 600; color: var(--primary-navy); display: flex; align-items: center; gap: 0.45rem;">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>SSB Interview Mentorship &amp; Psychological Overview</span>
-                            </div>
-                            <div style="background: rgba(11, 27, 61, 0.03); border: 1px solid rgba(11, 27, 61, 0.08); border-left: 3px solid var(--accent-gold); border-radius: var(--radius-sm); padding: 0.55rem 0.85rem; font-size: 0.865rem; font-weight: 600; color: var(--primary-navy); display: flex; align-items: center; gap: 0.45rem;">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Residential Campus, Hostel &amp; Parent Counseling</span>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
 
                         <!-- Action Buttons -->
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <button type="button" class="btn btn-gold btn-md open-enquiry-modal" data-course="Career Guidance with Gouri Sharma" style="box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);">
-                                <span>Book 1-on-1 Counseling Session</span>
+                            <button type="button" class="btn btn-gold btn-md open-enquiry-modal" data-course="Career Guidance with <?php echo esc_attr($advisor['name']); ?>" style="box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);">
+                                <span>Book 1-on-1 Counseling with <?php echo esc_html($advisor['name']); ?></span>
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                             </button>
                             <a href="<?php echo esc_url(home_url('/gallery/')); ?>" class="btn btn-outline-navy btn-md">
@@ -161,6 +148,7 @@ $theme_uri = get_template_directory_uri();
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
 
         </div>
     </section>
