@@ -120,11 +120,27 @@
         
         <div class="hero-form-header" style="margin-top: 0.25rem;">
             <span class="badge-gold">National Defence Scholarship 2027</span>
-            <h3 id="scholarshipTitle" style="margin-top: 0.4rem; color: var(--primary-navy);">Defence & Meritorious Scholarship Scheme</h3>
+            <h3 id="scholarshipTitle" style="margin-top: 0.4rem; color: var(--primary-navy);">Defence &amp; Meritorious Scholarship Scheme</h3>
             <p>Dehradun Defence College honors national service with special institutional concessions and grants.</p>
         </div>
 
+        <!-- Class 9th & 10th Online Test Callout Card -->
+        <div style="background: linear-gradient(135deg, rgba(11,27,61,0.95) 0%, rgba(13,40,80,0.95) 100%); border: 1.5px solid #FFD700; border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <span class="badge-saffron pulse-badge" style="font-size: 0.72rem; padding: 2px 8px; margin-bottom: 0.5rem; display: inline-flex;">
+                🔥 CLASS 9th &amp; 10th ONLINE TEST LIVE
+            </span>
+            <h4 style="color: #FFFFFF; font-size: 1.1rem; margin: 0.25rem 0 0.35rem 0;">Scholarship Test 9th &amp; 10th (Session 2027)</h4>
+            <p style="color: #FFD700; font-style: italic; font-size: 0.85rem; margin-bottom: 0.75rem;">"Be brave. Be confident. Be the future officer of India"</p>
+            <p style="color: rgba(255,255,255,0.85); font-size: 0.825rem; margin-bottom: 1rem; line-height: 1.4;">
+                50 Questions • 100 Marks • Up to 100% Tuition Fee Waiver on NDA Foundation
+            </p>
+            <a href="<?php echo SCHOLARSHIP_TEST_URL; ?>" target="_blank" rel="noopener" class="btn btn-gold btn-sm" style="display: inline-flex; width: auto; font-weight: 800; padding: 0.55rem 1.25rem;">
+                <span>START ONLINE TEST NOW 🚀</span>
+            </a>
+        </div>
+
         <div class="scholarship-scheme-grid">
+
             <div class="scholarship-scheme-item">
                 <h4>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color: #166534;"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>

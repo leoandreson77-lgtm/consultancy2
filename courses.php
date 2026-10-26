@@ -32,8 +32,22 @@ include __DIR__ . '/includes/header.php';
                 <p>Select your educational qualification to find the ideal batch and preparation track.</p>
             </div>
 
+            <!-- Official Online Scholarship Test Banner (Class 9th & 10th) -->
+            <div class="test-alert-banner">
+                <div class="test-alert-banner-left">
+                    <span class="test-alert-badge">🔥 SCHOLARSHIP TEST 2027</span>
+                    <div class="test-alert-text">
+                        <strong>For Class 9th &amp; 10th Students:</strong> Attempt our 50-Question Online Test to qualify for up to <strong>100% Tuition Fee Scholarship</strong> on NDA Foundation.
+                    </div>
+                </div>
+                <a href="<?php echo SCHOLARSHIP_TEST_URL; ?>" target="_blank" rel="noopener" class="btn btn-gold btn-sm" style="white-space: nowrap; font-weight: 800;">
+                    <span>START TEST NOW →</span>
+                </a>
+            </div>
+
             <!-- Filter Buttons -->
             <div class="course-filter-nav">
+
                 <button type="button" class="course-filter-btn active" data-filter="all">All Programs</button>
                 <button type="button" class="course-filter-btn" data-filter="nda">NDA Foundation</button>
                 <button type="button" class="course-filter-btn" data-filter="graduate">Graduate Entries (CDS/AFCAT)</button>

@@ -50,7 +50,21 @@ get_header();
                         </div>
                     </div>
 
+                    <!-- Scholarship Test Alert Banner for Aspirants -->
+                    <div class="test-alert-banner" style="margin-bottom: 1.5rem; background: linear-gradient(90deg, #0B1B3D 0%, #162B56 100%);">
+                        <div class="test-alert-banner-left">
+                            <span class="test-alert-badge">CLASS 9 &amp; 10 TEST</span>
+                            <div class="test-alert-text">
+                                Have you taken the <strong>Scholarship Test 2027</strong>? Attempt 50 MCQs to unlock up to <strong>100% Tuition Waiver</strong>!
+                            </div>
+                        </div>
+                        <a href="<?php echo SCHOLARSHIP_TEST_URL; ?>" target="_blank" rel="noopener" class="btn btn-gold btn-sm" style="white-space: nowrap; font-weight: 800;">
+                            <span>Take Online Test →</span>
+                        </a>
+                    </div>
+
                     <form action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" method="POST" enctype="multipart/form-data" class="ddc-enquiry-form" novalidate id="onlineRegistrationForm">
+
                         <input type="hidden" name="action" value="ddc_submit_enquiry">
                         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('ddc_enquiry_nonce'); ?>">
                         <input type="hidden" name="form_type" value="online_registration">

@@ -28,7 +28,21 @@ $theme_uri = get_template_directory_uri();
                 <div class="gold-divider"></div>
             </div>
 
+            <!-- Official Online Scholarship Test Banner (Class 9th & 10th) -->
+            <div class="test-alert-banner">
+                <div class="test-alert-banner-left">
+                    <span class="test-alert-badge">🔥 SCHOLARSHIP TEST 2027</span>
+                    <div class="test-alert-text">
+                        <strong>For Class 9th &amp; 10th Students:</strong> Attempt our 50-Question Online Test to qualify for up to <strong>100% Tuition Fee Scholarship</strong> on NDA Foundation.
+                    </div>
+                </div>
+                <a href="<?php echo SCHOLARSHIP_TEST_URL; ?>" target="_blank" rel="noopener" class="btn btn-gold btn-sm" style="white-space: nowrap; font-weight: 800;">
+                    <span>START TEST NOW →</span>
+                </a>
+            </div>
+
             <div class="courses-grid">
+
                 <?php
                 $courses_query = new WP_Query([
                     'post_type'      => 'ddc_course',

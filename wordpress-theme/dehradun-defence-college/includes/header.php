@@ -150,16 +150,16 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
             <div class="top-scholarship-left">
                 <span class="top-scholarship-badge">
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-                    SCHOLARSHIP NOTICE
+                    SCHOLARSHIP TEST 2027
                 </span>
                 <span class="top-scholarship-text">
-                    <strong>Veer Naris &amp; Martyr's Children:</strong> 100% Tuition Fee Waiver &bull; <strong>Betiyon Ka Raksha Samman:</strong> Special grants for NDA Girls &amp; MNS Nursing
+                    <strong>Online Scholarship Test for Class 9th &amp; 10th (Session 2027):</strong> 50 Questions • Up to 100% Tuition Fee Waiver!
                 </span>
             </div>
             <div class="top-scholarship-actions">
-                <button type="button" class="btn-scholarship-apply" id="openScholarshipPopup">
-                    <span>Apply Scholarship →</span>
-                </button>
+                <a href="<?php echo SCHOLARSHIP_TEST_URL; ?>" target="_blank" rel="noopener" class="btn-scholarship-apply" style="text-decoration: none;">
+                    <span>Take Online Test →</span>
+                </a>
                 <button type="button" class="btn-scholarship-close" id="closeScholarshipBar" aria-label="Dismiss Scholarship Notice">&times;</button>
             </div>
         </div>
@@ -212,9 +212,14 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 </a>
                 <a href="gallery.php" class="nav-link <?php echo ($current_page === 'gallery' || $current_page === 'college-activity') ? 'active' : ''; ?>">College Activity</a>
                 <a href="results.php" class="nav-link <?php echo ($current_page === 'results') ? 'active' : ''; ?>">Selections 2026</a>
+                <a href="index.php#scholarship-test" class="nav-link nav-link-scholarship-test" style="color: #FFD700; font-weight: 700;">
+                    <span>Scholarship Test</span>
+                    <span class="nav-badge-live">LIVE</span>
+                </a>
                 <a href="online-registration-form.php" class="nav-link nav-link-reg-desktop-hidden <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration for 2027</a>
                 <a href="online-payment.php" class="nav-link <?php echo ($current_page === 'online-payment') ? 'active' : ''; ?>" style="color: #22c55e; font-weight: 700;">Online Payment</a>
                 <a href="contact.php" class="nav-link <?php echo ($current_page === 'contact') ? 'active' : ''; ?>">Contact</a>
+
 
                 <div class="mobile-nav-footer">
                     <a href="tel:<?php echo CONTACT_PHONE_1_RAW; ?>" class="btn btn-outline-navy btn-sm" style="width: 100%; justify-content: center; gap: 0.5rem;">

@@ -1195,8 +1195,111 @@ include __DIR__ . '/includes/header.php';
         </div>
     </section>
 
+    <!-- 5.5 All-India Scholarship & Admission Test (Class 9th & 10th - Session 2027) -->
+    <section class="section-padding scholarship-test-section" id="scholarship-test" aria-label="Class 9th and 10th Online Scholarship Test">
+        <div class="container">
+            <div class="scholarship-test-container">
+                <div class="scholarship-test-header">
+                    <div class="hero-badge-wrap" style="justify-content: center; margin-bottom: 0.75rem;">
+                        <span class="badge-saffron pulse-badge">
+                            <span class="pulsing-dot-white"></span>
+                            🔥 ONLINE SCHOLARSHIP TEST • SESSION 2027
+                        </span>
+                        <span class="badge-campus-tag" style="background: rgba(255, 215, 0, 0.15); color: #FFD700; border-color: rgba(255, 215, 0, 0.4);">
+                            🎯 For Class 9th &amp; 10th Students
+                        </span>
+                    </div>
+
+                    <h2 class="scholarship-test-title">
+                        All-India Scholarship &amp; Admission Test
+                    </h2>
+                    
+                    <p class="scholarship-test-motto">
+                        "Be brave. Be confident. Be the future officer of India."
+                    </p>
+
+                    <p class="scholarship-test-subtitle">
+                        Step towards your dream of wearing the Indian Armed Forces uniform. Attempt the official <strong>50-Question Online Evaluation</strong> to qualify for up to <strong>100% Tuition Fee Waiver</strong> for our NDA Foundation residential coaching batches in Dehradun.
+                    </p>
+                </div>
+
+                <!-- 4 Quick Highlights Cards Grid -->
+                <div class="scholarship-highlights-grid">
+                    <div class="test-highlight-card">
+                        <div class="test-highlight-icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="test-highlight-info">
+                            <span class="test-highlight-label">Pattern &amp; Marking</span>
+                            <h4>50 Questions • 100 Marks</h4>
+                            <p>Objective MCQ pattern &bull; 2 Marks each &bull; 60 Mins online duration.</p>
+                        </div>
+                    </div>
+
+                    <div class="test-highlight-card">
+                        <div class="test-highlight-icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        </div>
+                        <div class="test-highlight-info">
+                            <span class="test-highlight-label">Tested Syllabus</span>
+                            <h4>Class 9th &amp; 10th Level</h4>
+                            <p>Mathematics, General Science (PCB), English Grammar &amp; Defence GK.</p>
+                        </div>
+                    </div>
+
+                    <div class="test-highlight-card highlight-glow">
+                        <div class="test-highlight-icon" style="color: #FFD700;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <div class="test-highlight-info">
+                            <span class="test-highlight-label" style="color: #FEF08A;">Scholarship Grants</span>
+                            <h4 style="color: #FFD700;">Up to 100% Fee Waiver</h4>
+                            <p>Merit-based fee concession on NDA Foundation residential batches.</p>
+                        </div>
+                    </div>
+
+                    <div class="test-highlight-card">
+                        <div class="test-highlight-icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <div class="test-highlight-info">
+                            <span class="test-highlight-label">Test Format</span>
+                            <h4>100% Online &amp; Free</h4>
+                            <p>Attempt anytime from home on your Mobile, Tablet, or Laptop.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action Box -->
+                <div class="scholarship-test-cta-box">
+                    <div class="test-cta-content">
+                        <div class="test-cta-badge">⚡ NO REGISTRATION FEE &bull; OFFICIAL ONLINE EVALUATION</div>
+                        <h3>Ready to Test Your Defence Potential?</h3>
+                        <p>Attempt 50 MCQs online. Our Senior Defence Admission Committee will evaluate your score for scholarship grants and NDA Foundation admission.</p>
+                    </div>
+                    <div class="test-cta-actions">
+                        <a href="<?php echo SCHOLARSHIP_TEST_URL; ?>" target="_blank" rel="noopener" class="btn btn-gold btn-xl test-cta-btn">
+                            <span>START ONLINE TEST NOW</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </a>
+                        <a href="tel:<?php echo CONTACT_PHONE_1_RAW; ?>" class="btn btn-outline-white btn-lg" style="border-color: rgba(255,255,255,0.4);">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>Helpline: <?php echo CONTACT_PHONE_1; ?></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer reassurance note -->
+                <div class="test-trust-note">
+                    🔒 Official Google Assessment Link &bull; Dehradun Defence College Admission Cell &bull; Session 2027
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 6. Transparent Fee Structure & Scholarship Details -->
     <section class="section-padding" id="fee-structure">
+
         <div class="container">
             <div class="section-header">
                 <span class="badge-gold">Transparent Investment</span>

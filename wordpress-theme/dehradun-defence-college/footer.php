@@ -69,7 +69,9 @@ $theme_uri    = get_template_directory_uri();
                         <li><a href="https://joinindianarmy.nic.in" target="_blank" rel="noopener">Join Indian Army ↗</a></li>
                         <li><a href="https://indianairforce.nic.in" target="_blank" rel="noopener">Indian Air Force ↗</a></li>
                         <li><a href="https://www.joinindiannavy.gov.in" target="_blank" rel="noopener">Indian Navy Careers ↗</a></li>
+                        <li><a href="<?php echo esc_url(SCHOLARSHIP_TEST_URL); ?>" target="_blank" rel="noopener" style="color: #FFD700; font-weight: 700;">🔥 Scholarship Test 2027 (Class 9 &amp; 10) ↗</a></li>
                     </ul>
+
                 </div>
 
                 <!-- Col 4: Campus Contact -->

@@ -6388,3 +6388,335 @@ body > .floating-whatsapp {
     gap: 2rem !important;
   }
 }
+
+/* ==========================================================================
+   ALL-INDIA SCHOLARSHIP & ADMISSION TEST (CLASS 9TH & 10TH) SECTION
+   ========================================================================== */
+.scholarship-test-section {
+  background: radial-gradient(ellipse at 50% 0%, #0d2850 0%, #06152d 100%);
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem 0;
+  border-top: 2px solid rgba(255, 215, 0, 0.35);
+  border-bottom: 2px solid rgba(255, 215, 0, 0.35);
+}
+
+.scholarship-test-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  animation: testRotateAura 20s linear infinite;
+}
+
+@keyframes testRotateAura {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.scholarship-test-container {
+  position: relative;
+  z-index: 2;
+  background: rgba(11, 27, 61, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 215, 0, 0.3);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 3rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.15);
+}
+
+.scholarship-test-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 3rem auto;
+}
+
+.scholarship-test-title {
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  color: #FFFFFF;
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0.75rem 0 0.85rem 0;
+  letter-spacing: -0.5px;
+}
+
+.scholarship-test-motto {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  color: #FFD700;
+  font-style: italic;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 16px rgba(255, 215, 0, 0.5);
+  letter-spacing: 0.2px;
+}
+
+.scholarship-test-subtitle {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0 auto;
+}
+
+.scholarship-test-subtitle strong {
+  color: #FEF08A;
+}
+
+/* 4 Highlights Grid */
+.scholarship-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.test-highlight-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.test-highlight-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 215, 0, 0.45);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.test-highlight-card.highlight-glow {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(185, 28, 28, 0.2) 100%);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+}
+
+.test-highlight-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 215, 0, 0.12);
+  color: #FFD700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.15rem;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.test-highlight-info .test-highlight-label {
+  font-size: 0.725rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.test-highlight-info h4 {
+  font-size: 1.15rem;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+}
+
+.test-highlight-info p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Call to Action Box */
+.scholarship-test-cta-box {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.12) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border: 1.5px solid #FFD700;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(255, 215, 0, 0.08);
+}
+
+.test-cta-content {
+  flex: 1 1 auto;
+}
+
+.test-cta-badge {
+  font-size: 0.75rem;
+  color: #FFD700;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+  display: inline-block;
+}
+
+.test-cta-content h3 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  color: #FFFFFF;
+  margin: 0 0 0.4rem 0;
+  font-weight: 800;
+}
+
+.test-cta-content p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.925rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.test-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.test-cta-btn {
+  background: linear-gradient(135deg, #FFD700 0%, #F59E0B 100%) !important;
+  color: #0B1B3D !important;
+  font-weight: 900 !important;
+  font-size: 1.05rem !important;
+  padding: 1rem 1.85rem !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.45) !important;
+  transition: all var(--transition-fast) !important;
+  white-space: nowrap;
+  border: 2px solid #FFFFFF !important;
+  animation: testPulseBtn 2.2s infinite ease-in-out;
+}
+
+.test-cta-btn:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 12px 32px rgba(255, 215, 0, 0.65) !important;
+  background: linear-gradient(135deg, #FFF08A 0%, #FFD700 100%) !important;
+}
+
+@keyframes testPulseBtn {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(255, 215, 0, 0.45);
+  }
+  50% {
+    box-shadow: 0 8px 36px rgba(255, 215, 0, 0.8), 0 0 14px rgba(255, 255, 255, 0.7);
+  }
+}
+
+.test-trust-note {
+  text-align: center;
+  margin-top: 1.75rem;
+  font-size: 0.825rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.4px;
+}
+
+/* Nav Link Live Badge */
+.nav-badge-live {
+  background: #dc2626;
+  color: #FFFFFF;
+  font-size: 0.625rem;
+  font-weight: 900;
+  padding: 1px 6px;
+  border-radius: 999px;
+  margin-left: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 8px rgba(220, 38, 38, 0.8);
+  animation: badgeGlowPulse 1.8s infinite;
+  vertical-align: middle;
+}
+
+/* Page Alert Banner for Test */
+.test-alert-banner {
+  background: linear-gradient(90deg, #06152d 0%, #0d2850 50%, #06152d 100%);
+  border: 1.5px solid #FFD700;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.35rem;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.test-alert-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.test-alert-badge {
+  background: #FFD700;
+  color: #0B1B3D;
+  font-weight: 900;
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.test-alert-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.test-alert-text strong {
+  color: #FFD700;
+}
+
+@media (max-width: 1024px) {
+  .scholarship-highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .scholarship-test-cta-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .test-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .test-cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .scholarship-test-container {
+    padding: 2rem 1.25rem;
+  }
+  .scholarship-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .test-alert-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.85rem;
+  }
+  .test-alert-banner-left {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .test-alert-banner .btn {
+    width: 100%;
+  }
+}
+

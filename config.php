@@ -124,6 +124,8 @@ define('WHATSAPP_GROUP_LINK', 'https://whatsapp.com/channel/0029Va7Vlq9GJP8JqjCF
 define('FACEBOOK_LINK', 'https://www.facebook.com/profile.php?id=61590307295275');
 define('INSTAGRAM_LINK', 'https://www.instagram.com/dehradun_defence7/');
 define('YOUTUBE_LINK', 'https://www.youtube.com/@dehradundefencecollege');
+define('SCHOLARSHIP_TEST_URL', 'https://docs.google.com/forms/d/e/1FAIpQLSfPS_lrWxcfZO80aTFWGxS08rakDkhA5dGaQCNWDwh6H5A5kg/viewform?usp=dialog');
+
 
 // Google Maps Embed URL
 define('GOOGLE_MAPS_EMBED_URL', 'https://maps.google.com/maps?q=Dehradun%20Defence%20College%20Maldevta%20-%20NDA%20Coaching%20in%20Dehradun&t=m&z=14&output=embed&iwloc=near');
