@@ -168,12 +168,17 @@ $DDC_COURSES = [
         'timetable_title' => 'NDA Foundation (Class 11-12) Timetable & Study Plan',
         'timetable_hours' => '2-3 hrs weekdays, 5-6 hrs weekends',
         'daily_routine'   => [
-            ['time' => '6:00 - 6:45 AM', 'activity' => 'Morning Running, Exercise & Fitness Drill'],
-            ['time' => '5:00 - 6:30 PM', 'activity' => 'NDA Mathematics (New Concept & Problem Solving)'],
-            ['time' => '7:30 - 8:15 PM', 'activity' => 'GAT: Science or Social Science (Alternate Days)'],
-            ['time' => '8:30 - 9:00 PM', 'activity' => 'English Vocabulary, Grammar & Defence Current Affairs'],
-            ['time' => 'Saturday',       'activity' => 'Topic-Wise Subject Tests & Weak-Area Work'],
-            ['time' => 'Sunday',         'activity' => 'Full 2 to 3 Hour Sectional Paper & Deep Analysis']
+            ['time' => '5:30 AM',                  'activity' => 'Reveille & Morning PT — Physical training, 5km cross-country run, calisthenics, and parade drill on the main ground.'],
+            ['time' => '8:00 AM',                  'activity' => 'Breakfast & Inspection — Nutritious high-protein breakfast in the mess, followed by room and uniform inspection.'],
+            ['time' => '09:00 AM - 01:30 PM',      'activity' => 'Academic UPSC Classes — Intensive syllabus lectures on Mathematics, Physics, English, History, and Current Affairs.'],
+            ['time' => '2:00 PM to 2:30 PM',       'activity' => 'Lunch Break — Nutritious, hot and balanced meal served in the cadet dining hall.'],
+            ['time' => '2:30 PM to 4:00 PM',       'activity' => 'Extra Classes & Doubt Session — One-on-one doubt solving and personalized concept reinforcement.'],
+            ['time' => '4:00 PM to 5:00 PM',       'activity' => 'Games — Outdoor sports, football, basketball, volleyball & physical agility conditioning.'],
+            ['time' => '5:00 PM to 5:30 PM',       'activity' => 'Hi Tea & Snacks Break — Evening refreshment, energy snacks, and social bonding time.'],
+            ['time' => '06:00 PM - 08:00 PM',      'activity' => 'NDA Classes — Targeted UPSC NDA question practice, speed shortcuts, and PYQ analysis.'],
+            ['time' => '08:00 PM - 08:30 PM',      'activity' => 'Dinner Hour — Wholesome nutritious hot dinner in the residential mess.'],
+            ['time' => '08:30 PM - 10:30 PM',      'activity' => 'Self Study & Revision — Guided self-study hours with faculty on hand for one-on-one doubt clearing and formula revision.'],
+            ['time' => '10:30 PM - 11:00 PM',      'activity' => 'Turn in for Night & Tucked in Bed — Roll call debrief, inspection, and lights out for restful sleep.']
         ],
         'features'        => ['Integrated CBSE/State Board Schooling', 'Daily NDA Syllabus Lectures & Maths Tricks', 'Morning PT & Physical Fitness Drill', 'Ex-SSB Officer Mentoring & GTO Practice', 'In-Campus Hostel & Balanced Nutritious Food']
     ],
@@ -208,12 +213,17 @@ $DDC_COURSES = [
         'timetable_title' => 'NDA Girls Wing Timetable & Academic Routine',
         'timetable_hours' => '2-3 hrs weekdays, 5-6 hrs weekends',
         'daily_routine'   => [
-            ['time' => '6:00 - 6:45 AM', 'activity' => 'Morning Physical Conditioning & Stamina Running'],
-            ['time' => '5:00 - 6:30 PM', 'activity' => 'UPSC NDA Mathematics & Speed Problem Solving'],
-            ['time' => '7:30 - 8:15 PM', 'activity' => 'General Ability Test (Physics, Chemistry & History)'],
-            ['time' => '8:30 - 9:00 PM', 'activity' => 'English Communication, Vocabulary & Current Affairs'],
-            ['time' => 'Saturday',       'activity' => 'Weekly Sectional Evaluation & Confidence Building'],
-            ['time' => 'Sunday',         'activity' => 'Mock UPSC Test & Women Officer Interaction']
+            ['time' => '5:30 AM',                  'activity' => 'Reveille & Morning PT — Physical training, 5km cross-country run, calisthenics, and parade drill on the main ground.'],
+            ['time' => '8:00 AM',                  'activity' => 'Breakfast & Inspection — Nutritious high-protein breakfast in the mess, followed by room and uniform inspection.'],
+            ['time' => '09:00 AM - 01:30 PM',      'activity' => 'Academic UPSC Classes — Intensive syllabus lectures on Mathematics, Physics, English, History, and Current Affairs.'],
+            ['time' => '2:00 PM to 2:30 PM',       'activity' => 'Lunch Break — Nutritious, hot and balanced meal served in the cadet dining hall.'],
+            ['time' => '2:30 PM to 4:00 PM',       'activity' => 'Extra Classes & Doubt Session — One-on-one doubt solving and personalized concept reinforcement.'],
+            ['time' => '4:00 PM to 5:00 PM',       'activity' => 'Games — Outdoor sports, football, basketball, volleyball & physical agility conditioning.'],
+            ['time' => '5:00 PM to 5:30 PM',       'activity' => 'Hi Tea & Snacks Break — Evening refreshment, energy snacks, and social bonding time.'],
+            ['time' => '06:00 PM - 08:00 PM',      'activity' => 'NDA Classes — Targeted UPSC NDA question practice, speed shortcuts, and PYQ analysis.'],
+            ['time' => '08:00 PM - 08:30 PM',      'activity' => 'Dinner Hour — Wholesome nutritious hot dinner in the residential mess.'],
+            ['time' => '08:30 PM - 10:30 PM',      'activity' => 'Self Study & Revision — Guided self-study hours with faculty on hand for one-on-one doubt clearing and formula revision.'],
+            ['time' => '10:30 PM - 11:00 PM',      'activity' => 'Turn in for Night & Tucked in Bed — Roll call debrief, inspection, and lights out for restful sleep.']
         ],
         'features'        => ['Secure Dedicated Girls Hostel Wing', 'Personalized Physical Fitness Conditioning', 'Targeted UPSC NDA Written Exam Prep', 'Women Officer Mentorship & SSB Guidance', 'Confidence & Public Speaking Development']
     ],
@@ -228,14 +238,17 @@ $DDC_COURSES = [
         'timetable_title' => 'NDA After 12th (6 & 12 Month) Timetable & Study Plan',
         'timetable_hours' => '8-10 hrs Daily Intensive Routine',
         'daily_routine'   => [
-            ['time' => '5:30 - 6:30 AM', 'activity' => 'Morning Running, Exercise & Obstacle Warmup'],
-            ['time' => '7:30 - 10:30 AM', 'activity' => 'UPSC Mathematics (Core Concept + 60+ MCQs Practice)'],
-            ['time' => '11:00 AM - 1:00 PM', 'activity' => 'GAT Science (Physics/Chemistry) & Social Science'],
-            ['time' => '3:00 - 5:30 PM', 'activity' => 'Maths Advanced Practice, PYQs & Doubt Clearance'],
-            ['time' => '6:00 - 7:00 PM', 'activity' => 'English Grammar, Comprehension & Spotting Errors'],
-            ['time' => '8:00 - 9:30 PM', 'activity' => 'Daily Defence Current Affairs & Revision Notes'],
-            ['time' => 'Saturday',       'activity' => 'Sectional Timed Tests & Weak-Area Drill'],
-            ['time' => 'Sunday',         'activity' => 'Full 5-Hour UPSC Mock (Maths 2.5h + GAT 2.5h) & Analysis']
+            ['time' => '5:30 AM',                  'activity' => 'Reveille & Morning PT — Physical training, 5km cross-country run, calisthenics, and parade drill on the main ground.'],
+            ['time' => '8:00 AM',                  'activity' => 'Breakfast & Inspection — Nutritious high-protein breakfast in the mess, followed by room and uniform inspection.'],
+            ['time' => '09:00 AM - 01:30 PM',      'activity' => 'Academic UPSC Classes — Intensive syllabus lectures on Mathematics, Physics, English, History, and Current Affairs.'],
+            ['time' => '2:00 PM to 2:30 PM',       'activity' => 'Lunch Break — Nutritious, hot and balanced meal served in the cadet dining hall.'],
+            ['time' => '2:30 PM to 4:00 PM',       'activity' => 'Extra Classes & Doubt Session — One-on-one doubt solving and personalized concept reinforcement.'],
+            ['time' => '4:00 PM to 5:00 PM',       'activity' => 'Games — Outdoor sports, football, basketball, volleyball & physical agility conditioning.'],
+            ['time' => '5:00 PM to 5:30 PM',       'activity' => 'Hi Tea & Snacks Break — Evening refreshment, energy snacks, and social bonding time.'],
+            ['time' => '06:00 PM - 08:00 PM',      'activity' => 'NDA Classes — Targeted UPSC NDA question practice, speed shortcuts, and PYQ analysis.'],
+            ['time' => '08:00 PM - 08:30 PM',      'activity' => 'Dinner Hour — Wholesome nutritious hot dinner in the residential mess.'],
+            ['time' => '08:30 PM - 10:30 PM',      'activity' => 'Self Study & Revision — Guided self-study hours with faculty on hand for one-on-one doubt clearing and formula revision.'],
+            ['time' => '10:30 PM - 11:00 PM',      'activity' => 'Turn in for Night & Tucked in Bed — Roll call debrief, inspection, and lights out for restful sleep.']
         ],
         'features'        => ['Comprehensive UPSC Syllabus Coverage', 'Mathematics Speed Techniques & Shortcuts', 'Current Affairs & Defence GK Modules', 'Daily 6-Hour Academic Schedule + Evening Doubt Classes', 'Complete SSB Interview Dossier Training']
     ],
