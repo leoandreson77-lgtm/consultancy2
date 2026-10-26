@@ -70,7 +70,7 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   max-width: 100%;
 }
@@ -81,7 +81,7 @@ body {
   line-height: 1.65;
   color: var(--text-main);
   background-color: var(--bg-white);
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
   max-width: 100%;
   position: relative;
@@ -3161,7 +3161,7 @@ body > .floating-whatsapp {
 @media (max-width: 1240px) {
   /* Universal Grid Shrink & Overflow Safety */
   html, body {
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     width: 100% !important;
     max-width: 100% !important;
   }
@@ -3187,7 +3187,7 @@ body > .floating-whatsapp {
 @media (max-width: 768px) {
   /* 0. Viewport & Universal Grid Shrink Safety */
   html, body {
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     width: 100% !important;
     max-width: 100% !important;
   }
