@@ -718,17 +718,19 @@ $DDC_FACULTY_MEMBERS = [
 // -------------------------------------------------------------
 $DDC_CAREER_ADVISORS = [
     [
-        'id'          => 'himani-doriyal',
-        'name'        => 'Himani Doriyal',
-        'role'        => 'Chief Admissions & Career Advisor',
-        'badge'       => 'Chief Admissions & Career Guidance Specialist',
-        'photo'       => 'assets/images/career-advisor-himani.jpg',
-        'experience'  => 'Head of Admissions & Career Strategy',
-        'education'   => 'Defence Career Strategic Planning & Counseling',
-        'quote'       => 'Our commitment is to guide every aspiring cadet with honest, structured, and goal-oriented direction from day one, transforming ambition into uniform excellence.',
-        'bio'         => 'Himani Doriyal serves as the Chief Admissions & Career Advisor at Dehradun Defence College. She leads the student career advisory and admissions division, mentoring hundreds of defence aspirants and their families every year. Specializing in strategic admission planning, course selection (NDA Foundation, Dropper Batches, CDS, AFCAT), scholarship allocations, and hostel onboarding, she ensures that every candidate receives clear, empowering, and end-to-end guidance towards their goal of joining the Indian Armed Forces.',
-        'contact_btn' => 'Connect with Himani Doriyal',
-        'specialties' => [
+        'id'             => 'himani-doriyal',
+        'name'           => 'Himani Doriyal',
+        'role'           => 'Chief Admissions & Career Advisor',
+        'badge'          => 'Chief Admissions & Career Guidance Specialist',
+        'badge_tag'      => 'Chief Career Advisor',
+        'photo'          => 'assets/images/career-advisor-himani.jpg',
+        'photo_position' => 'center 62%',
+        'experience'     => 'Head of Admissions & Career Strategy',
+        'education'      => 'Defence Career Strategic Planning & Counseling',
+        'quote'          => 'Our commitment is to guide every aspiring cadet with honest, structured, and goal-oriented direction from day one, transforming ambition into uniform excellence.',
+        'bio'            => 'Himani Doriyal serves as the Chief Admissions & Career Advisor at Dehradun Defence College. She leads the student career advisory and admissions division, mentoring hundreds of defence aspirants and their families every year. Specializing in strategic admission planning, course selection (NDA Foundation, Dropper Batches, CDS, AFCAT), scholarship allocations, and hostel onboarding, she ensures that every candidate receives clear, empowering, and end-to-end guidance towards their goal of joining the Indian Armed Forces.',
+        'contact_btn'    => 'Connect with Himani Doriyal',
+        'specialties'    => [
             'Comprehensive Admission Roadmap & Career Strategy',
             'NDA 2-Year Integrated Schooling (Class 11 & 12)',
             'NDA Dropper / Target 1-Year Fast-Track Guidance',
@@ -737,21 +739,23 @@ $DDC_CAREER_ADVISORS = [
             'Residential Campus, Safe Hostel Facilities & Parent Queries',
             'Fee Structure, Scholarships & Admission Documentation'
         ],
-        'availability' => 'Mon - Sun: 8:00 AM - 6:00 PM',
-        'languages'    => 'Hindi, English'
+        'availability'   => 'Mon - Sun: 8:00 AM - 6:00 PM',
+        'languages'      => 'Hindi, English'
     ],
     [
-        'id'          => 'gouri-sharma',
-        'name'        => 'Gouri Sharma',
-        'role'        => 'Senior Career Advisor & Admissions Specialist',
-        'badge'       => 'Chief Career Counselor • DDC Admissions Wing',
-        'photo'       => 'assets/images/career-advisor-gouri-sharma.jpg',
-        'experience'  => 'Senior Defence Career & Admission Advisor',
-        'education'   => 'Academic Career Guidance & Counseling Specialist',
-        'quote'       => 'Every defence aspirant carries unique potential. Our mission as career advisors is to craft the exact academic, physical, and strategic roadmap that turns your dream of donning the uniform into reality.',
-        'bio'         => 'Gouri Sharma is a dedicated Senior Career Advisor at Dehradun Defence College, specializing in mentoring aspiring defence candidates and their parents through the competitive pathways of NDA, CDS, AFCAT, and SSB. With deep insight into UPSC examination patterns, age eligibility criteria, physical fitness benchmarks, and integrated schooling programs, she provides personalized 1-on-1 counseling to help students choose the optimal preparation track and achieve their dream of serving the nation as commissioned officers.',
-        'contact_btn' => 'Connect with Gouri Sharma',
-        'specialties' => [
+        'id'             => 'gouri-sharma',
+        'name'           => 'Gouri Sharma',
+        'role'           => 'Senior Career Advisor & Admissions Specialist',
+        'badge'          => 'Chief Career Counselor • DDC Admissions Wing',
+        'badge_tag'      => 'Senior Career Advisor',
+        'photo'          => 'assets/images/career-advisor-gouri-sharma.jpg',
+        'photo_position' => 'center 20%',
+        'experience'     => 'Senior Defence Career & Admission Advisor',
+        'education'      => 'Academic Career Guidance & Counseling Specialist',
+        'quote'          => 'Every defence aspirant carries unique potential. Our mission as career advisors is to craft the exact academic, physical, and strategic roadmap that turns your dream of donning the uniform into reality.',
+        'bio'            => 'Gouri Sharma is a dedicated Senior Career Advisor at Dehradun Defence College, specializing in mentoring aspiring defence candidates and their parents through the competitive pathways of NDA, CDS, AFCAT, and SSB. With deep insight into UPSC examination patterns, age eligibility criteria, physical fitness benchmarks, and integrated schooling programs, she provides personalized 1-on-1 counseling to help students choose the optimal preparation track and achieve their dream of serving the nation as commissioned officers.',
+        'contact_btn'    => 'Connect with Gouri Sharma',
+        'specialties'    => [
             'NDA Foundation (Class 11 & 12 Schooling + Defence)',
             'NDA (Girls) Special Wing Admissions & Support',
             'NDA Target / Dropper Batch Strategic Planning',
@@ -760,21 +764,23 @@ $DDC_CAREER_ADVISORS = [
             'Residential Campus, Hostel & Parent Counseling',
             'Veer Nari & Merit Scholarship Assistance'
         ],
-        'availability' => 'Mon - Sun: 8:00 AM - 6:00 PM',
-        'languages'    => 'Hindi, English'
+        'availability'   => 'Mon - Sun: 8:00 AM - 6:00 PM',
+        'languages'      => 'Hindi, English'
     ],
     [
-        'id'          => 'neha-pal',
-        'name'        => 'Neha Pal',
-        'role'        => 'Career Advisor & Student Mentor',
-        'badge'       => 'Defence Career Counselor • Student Advisory Desk',
-        'photo'       => 'assets/images/career-advisor-neha-pal.jpg',
-        'experience'  => 'Defence Aspirants Guidance Specialist',
-        'education'   => 'Student Mentoring & Career Advisory Specialist',
-        'quote'       => 'With proper discipline, sincere guidance, and the right strategic study plan, every cadet can overcome obstacles and proudly wear the Indian Armed Forces uniform.',
-        'bio'         => 'Neha Pal is a dedicated Career Advisor at Dehradun Defence College. She specializes in guiding students and their guardians through the detailed admission and exam preparation processes for NDA, Foundation Schooling, CDS, and SSB batches. Known for her approachable counseling style and meticulous attention to cadet strengths and areas of improvement, Neha helps students set actionable academic milestones and adapt seamlessly to the disciplined gurukul routine of DDC.',
-        'contact_btn' => 'Connect with Neha Pal',
-        'specialties' => [
+        'id'             => 'neha-pal',
+        'name'           => 'Neha Pal',
+        'role'           => 'Career Advisor & Student Mentor',
+        'badge'          => 'Defence Career Counselor • Student Advisory Desk',
+        'badge_tag'      => 'Career Advisor & Student Mentor',
+        'photo'          => 'assets/images/career-advisor-neha-pal.jpg',
+        'photo_position' => 'center center',
+        'experience'     => 'Defence Aspirants Guidance Specialist',
+        'education'      => 'Student Mentoring & Career Advisory Specialist',
+        'quote'          => 'With proper discipline, sincere guidance, and the right strategic study plan, every cadet can overcome obstacles and proudly wear the Indian Armed Forces uniform.',
+        'bio'            => 'Neha Pal is a dedicated Career Advisor at Dehradun Defence College. She specializes in guiding students and their guardians through the detailed admission and exam preparation processes for NDA, Foundation Schooling, CDS, and SSB batches. Known for her approachable counseling style and meticulous attention to cadet strengths and areas of improvement, Neha helps students set actionable academic milestones and adapt seamlessly to the disciplined gurukul routine of DDC.',
+        'contact_btn'    => 'Connect with Neha Pal',
+        'specialties'    => [
             'NDA Foundation & Schooling Integrated Batches',
             'Syllabus & Exam Pattern Roadmap Mentorship',
             'Cadet Personality Development & Interview Prep',
@@ -783,8 +789,8 @@ $DDC_CAREER_ADVISORS = [
             'Admission Process & 1-on-1 Student Motivation',
             'Parent Consultations & Regular Performance Updates'
         ],
-        'availability' => 'Mon - Sun: 8:00 AM - 6:00 PM',
-        'languages'    => 'Hindi, English'
+        'availability'   => 'Mon - Sun: 8:00 AM - 6:00 PM',
+        'languages'      => 'Hindi, English'
     ]
 ];
 

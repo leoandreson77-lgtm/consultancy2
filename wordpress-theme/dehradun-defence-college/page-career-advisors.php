@@ -57,12 +57,13 @@ $theme_uri = get_template_directory_uri();
                     
                     <!-- Left Column: Portrait & Quick CTAs -->
                     <div class="advisor-sidebar" style="background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 100%); padding: 2.5rem 2rem; text-align: center; border-right: 1px solid var(--border-light); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                        <div class="advisor-photo-wrap" style="position: relative; width: 230px; height: 280px; margin: 0 auto 1.5rem auto; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--accent-gold); box-shadow: 0 10px 28px rgba(11, 27, 61, 0.2);">
-                            <img src="<?php echo esc_url($theme_uri . '/' . $advisor['photo']); ?>" alt="<?php echo esc_attr($advisor['name'] . ' - ' . $advisor['role']); ?>" class="advisor-photo" style="width: 100%; height: 100%; object-fit: cover; object-position: top center;">
-                            <span class="badge-navy" style="position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; padding: 0.3rem 0.75rem; white-space: nowrap; box-shadow: var(--shadow-sm);">
-                                Career Advisor
-                            </span>
+                        <div class="advisor-photo-wrap" style="position: relative; width: 230px; height: 280px; margin: 0 auto 1.25rem auto; border-radius: var(--radius-md); overflow: hidden; border: 4px solid var(--accent-gold); box-shadow: 0 10px 28px rgba(11, 27, 61, 0.2);">
+                            <img src="<?php echo esc_url($theme_uri . '/' . $advisor['photo']); ?>" alt="<?php echo esc_attr($advisor['name'] . ' - ' . $advisor['role']); ?>" class="advisor-photo" style="width: 100%; height: 100%; object-fit: cover; object-position: <?php echo esc_attr($advisor['photo_position'] ?? 'center top'); ?>;">
                         </div>
+
+                        <span style="display: inline-block; background-color: var(--primary-navy); color: #FFFFFF; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.85rem; border-radius: 20px; border: 1.5px solid var(--accent-gold); margin-bottom: 0.65rem; box-shadow: var(--shadow-sm); letter-spacing: 0.3px;">
+                            ★ <?php echo esc_html($advisor['badge_tag'] ?? 'Career Advisor'); ?>
+                        </span>
 
                         <h3 style="font-size: 1.5rem; color: var(--primary-navy); margin-bottom: 0.25rem; font-family: var(--font-heading); font-weight: 800;">
                             <?php echo esc_html($advisor['name']); ?>
