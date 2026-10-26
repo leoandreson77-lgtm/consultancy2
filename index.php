@@ -1526,82 +1526,86 @@ include __DIR__ . '/includes/header.php';
                 <p>Instilling military discipline, time management, and stamina through an unbroken daily schedule.</p>
             </div>
 
-            <div class="cadet-timetable-container">
-                <div class="cadet-timetable-card">
-                    <!-- Row 1: 5:30 AM Reveille & Morning PT -->
-                    <div class="timetable-row">
-                        <div class="timetable-time-gold">5:30 AM</div>
-                        <div class="timetable-title-navy">Reveille &amp; Morning PT</div>
-                        <div class="timetable-desc">Physical training, 5km cross-country run, calisthenics, and parade drill on the main ground.</div>
-                    </div>
-
-                    <!-- Row 2: 8:00 AM Breakfast & Inspection -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-navy">8:00 AM Breakfast &amp; Inspection</div>
-                        <div class="timetable-desc">Nutritious high-protein breakfast in the mess, followed by room and uniform inspection.</div>
-                    </div>
-
-                    <!-- Row 3: 09:00 AM - 01:30 PM Academic UPSC Classes -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-navy">09:00 AM - 01:30 PM - Academic UPSC Classes</div>
-                        <div class="timetable-desc">Intensive syllabus lectures on Mathematics, Physics, English, History, and Current Affairs.</div>
-                    </div>
-
-                    <!-- Row 4: 2:00 PM to 2:30 PM Lunch Break -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-gold">2:00 PM to 2:30 PM Lunch Break</div>
-                    </div>
-
-                    <!-- Row 5: 2:30 PM to 4:00 PM Extra Classes & Doubt Session -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-gold">2:30 PM to 4:00 PM Extra Classes &amp; Doubt Session</div>
-                    </div>
-
-                    <!-- Row 6: 4:00 PM to 5:00 PM Games -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-gold">4:00 PM to 5:00 PM Games</div>
-                    </div>
-
-                    <!-- Row 7: 5:00 PM to 5:30 PM Hi Tea & Snacks Break -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-navy">5:00 PM to 5:30 PM Hi Tea &amp; Snacks Break</div>
-                    </div>
-
-                    <!-- Row 8: 06:00 PM - 08:00 PM - NDA Classes -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-gold">06:00 PM - 08:00 PM - NDA Classes</div>
-                    </div>
-
-                    <!-- Row 9: 08:00 PM - 08:30 PM Dinner Hour -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-gold">08:00 PM - 08:30 PM Dinner Hour</div>
-                    </div>
-
-                    <!-- Row 10: 08:30 PM - 10:30 PM Self Study & Revision -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-gold">08:30 PM - 10:30 PM Self Study &amp; Revision</div>
-                        <div class="timetable-desc">Guided self-study hours with faculty on hand for one-on-one doubt clearing and formula revision.</div>
-                    </div>
-
-                    <!-- Row 11: 10:30 PM - 11:00 PM Turn in for Night & Tucked in Bed -->
-                    <div class="timetable-row">
-                        <div class="timetable-title-gold">10:30 PM - 11:00 PM - Turn in for Night &amp; Tucked in Bed</div>
-                    </div>
+            <div class="routine-timeline">
+                <div class="routine-step highlight">
+                    <div class="routine-time">05:30 AM</div>
+                    <div class="routine-title">Reveille &amp; Morning PT</div>
+                    <div class="routine-desc">Physical training, 5km cross-country run, calisthenics, and parade drill on the main ground.</div>
                 </div>
 
-                <div class="timetable-action-bar">
-                    <div class="timetable-action-text">
-                        <span>⏰ <strong>Strict Gurukul Routine:</strong> Followed Monday to Saturday. Sunday includes Sectional Mock Tests &amp; Outdoor Sports.</span>
-                    </div>
-                    <div class="timetable-action-buttons">
-                        <a href="assets/downloads/ddc-nda-foundation-timetable.pdf" download class="btn btn-navy btn-sm">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                            <span>Download Timetable PDF</span>
-                        </a>
-                        <button type="button" class="btn btn-gold btn-sm open-enquiry-modal" data-course="Cadet Daily Timetable Routine">
-                            <span>Enquire for Admission</span>
-                        </button>
-                    </div>
+                <div class="routine-step">
+                    <div class="routine-time">08:00 AM</div>
+                    <div class="routine-title">Breakfast &amp; Inspection</div>
+                    <div class="routine-desc">Nutritious high-protein breakfast in the mess, followed by room and uniform inspection.</div>
+                </div>
+
+                <div class="routine-step highlight">
+                    <div class="routine-time">09:00 AM - 01:30 PM</div>
+                    <div class="routine-title">Academic UPSC Classes</div>
+                    <div class="routine-desc">Intensive syllabus lectures on Mathematics, Physics, English, History, and Current Affairs.</div>
+                </div>
+
+                <div class="routine-step">
+                    <div class="routine-time">02:00 PM - 02:30 PM</div>
+                    <div class="routine-title">Lunch Break</div>
+                    <div class="routine-desc">Nutritious, hot and balanced meal served in the cadet dining mess.</div>
+                </div>
+
+                <div class="routine-step highlight">
+                    <div class="routine-time">02:30 PM - 04:00 PM</div>
+                    <div class="routine-title">Extra Classes &amp; Doubt Session</div>
+                    <div class="routine-desc">One-on-one doubt solving, personalized concept reinforcement, and faculty mentoring.</div>
+                </div>
+
+                <div class="routine-step">
+                    <div class="routine-time">04:00 PM - 05:00 PM</div>
+                    <div class="routine-title">Games &amp; Sports</div>
+                    <div class="routine-desc">Outdoor sports, football, basketball, volleyball &amp; physical agility conditioning.</div>
+                </div>
+
+                <div class="routine-step">
+                    <div class="routine-time">05:00 PM - 05:30 PM</div>
+                    <div class="routine-title">Hi-Tea &amp; Snacks Break</div>
+                    <div class="routine-desc">Evening refreshment, energy snacks, and social bonding time in campus.</div>
+                </div>
+
+                <div class="routine-step highlight">
+                    <div class="routine-time">06:00 PM - 08:00 PM</div>
+                    <div class="routine-title">NDA Classes</div>
+                    <div class="routine-desc">Targeted UPSC NDA question practice, speed shortcuts, and PYQ analysis.</div>
+                </div>
+
+                <div class="routine-step">
+                    <div class="routine-time">08:00 PM - 08:30 PM</div>
+                    <div class="routine-title">Dinner Hour</div>
+                    <div class="routine-desc">Wholesome, nutritious hot dinner served in the residential dining mess.</div>
+                </div>
+
+                <div class="routine-step highlight">
+                    <div class="routine-time">08:30 PM - 10:30 PM</div>
+                    <div class="routine-title">Self Study &amp; Revision</div>
+                    <div class="routine-desc">Guided self-study hours with faculty on hand for one-on-one doubt clearing and formula revision.</div>
+                </div>
+
+                <div class="routine-step">
+                    <div class="routine-time">10:30 PM - 11:00 PM</div>
+                    <div class="routine-title">Turn in for Night &amp; Tucked in Bed</div>
+                    <div class="routine-desc">Roll call debrief, room inspection, and lights out for restful sleep.</div>
+                </div>
+            </div>
+
+            <div class="timetable-action-bar" style="margin-top: 2rem;">
+                <div class="timetable-action-text">
+                    <span>⏰ <strong>Strict Gurukul Routine:</strong> Followed Monday to Saturday. Sunday includes Sectional Mock Tests &amp; Outdoor Sports.</span>
+                </div>
+                <div class="timetable-action-buttons">
+                    <a href="assets/downloads/ddc-nda-foundation-timetable.pdf" download class="btn btn-navy btn-sm">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <span>Download Timetable PDF</span>
+                    </a>
+                    <button type="button" class="btn btn-gold btn-sm open-enquiry-modal" data-course="Cadet Daily Timetable Routine">
+                        <span>Enquire for Admission</span>
+                    </button>
                 </div>
             </div>
         </div>
