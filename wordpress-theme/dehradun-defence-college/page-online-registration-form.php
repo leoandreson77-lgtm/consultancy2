@@ -14,12 +14,12 @@ get_header();
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.7);">
                 <a href="<?php echo esc_url(home_url('/')); ?>" style="color: rgba(255,255,255,0.8); text-decoration: none;">Home</a>
                 <span>/</span>
-                <span style="color: var(--accent-gold); font-weight: 600;">Online Registration Form</span>
+                <span style="color: var(--accent-gold); font-weight: 600;">Online Registration for 2027</span>
             </div>
-            <span class="badge-gold">Admission Session 2026-2027</span>
-            <h1 style="color: #FFFFFF; margin: 0.75rem 0 0.5rem 0; font-size: 2.5rem;">Online Registration Form</h1>
+            <span class="badge-gold">Admission Session 2027</span>
+            <h1 style="color: #FFFFFF; margin: 0.75rem 0 0.5rem 0; font-size: 2.5rem;">Online Registration for 2027</h1>
             <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 780px; margin: 0 auto;">
-                Official registration portal for NDA Foundation, CDS, AFCAT, and SSB practical training batches with residential campus hostel.
+                Official online registration portal for NDA Foundation, CDS, AFCAT, and SSB practical training batches with residential campus hostel for 2027 session.
             </p>
         </div>
     </section>
@@ -40,7 +40,7 @@ get_header();
                         <img src="<?php echo esc_url($theme_uri . '/assets/images/logo.png'); ?>" alt="Dehradun Defence College Official Emblem" style="width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(11,27,61,0.2)); flex-shrink: 0;">
                         <div>
                             <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.35rem;">
-                                <span class="badge-saffron" style="font-size: 0.72rem; padding: 2px 8px;">★ Session 2026-2027</span>
+                                <span class="badge-saffron" style="font-size: 0.72rem; padding: 2px 8px;">★ Session 2027</span>
                                 <span class="badge-gold" style="font-size: 0.72rem; padding: 2px 8px;">Official Application</span>
                             </div>
                             <h2 style="font-size: clamp(1.3rem, 2vw, 1.75rem); color: var(--primary-navy); margin: 0; line-height: 1.2;">Candidate Admission Application</h2>
@@ -341,7 +341,7 @@ get_header();
                         <!-- 6. Submit Button -->
                         <button type="submit" class="btn btn-gold" style="width: 100%; height: 54px; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.5px; border-radius: var(--radius-sm); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            <span>SUBMIT ONLINE REGISTRATION &amp; PAYMENT PROOF (₹5,000)</span>
+                            <span>SUBMIT ONLINE REGISTRATION FOR 2027 (₹5,000)</span>
                         </button>
                     </form>
 

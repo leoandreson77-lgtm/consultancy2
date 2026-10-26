@@ -14,7 +14,7 @@ require_once __DIR__ . '/../config.php';
                 <img src="assets/images/logo.png" alt="Dehradun Defence College Logo" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3)); flex-shrink: 0;">
                 <div style="text-align: left;">
                     <div style="font-size: 1.1rem; font-weight: 800; color: #FFFFFF; line-height: 1.2;">Dehradun Defence College</div>
-                    <span class="badge-gold" style="font-size: 0.68rem; padding: 2px 7px; display: inline-block; margin-top: 2px;">★ Admissions Open 2026-2027</span>
+                    <span class="badge-gold" style="font-size: 0.68rem; padding: 2px 7px; display: inline-block; margin-top: 2px;">★ Online Registration for 2027</span>
                 </div>
             </div>
             <h3 id="modalTitle" style="margin: 0.4rem 0 0.35rem 0; font-size: 1.45rem; color: #FFD700; font-weight: 800; text-shadow: 0 1px 3px rgba(0,0,0,0.4);">Career Counselling Form</h3>
@@ -120,7 +120,7 @@ require_once __DIR__ . '/../config.php';
         <button type="button" class="ddc-modal-close close-scholarship-modal" aria-label="Close Modal">&times;</button>
         
         <div class="hero-form-header" style="margin-top: 0.25rem;">
-            <span class="badge-gold">National Defence Scholarship 2026-2027</span>
+            <span class="badge-gold">National Defence Scholarship 2027</span>
             <h3 id="scholarshipTitle" style="margin-top: 0.4rem; color: var(--primary-navy);">Defence & Meritorious Scholarship Scheme</h3>
             <p>Dehradun Defence College honors national service with special institutional concessions and grants.</p>
         </div>

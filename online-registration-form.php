@@ -1,11 +1,11 @@
 <?php
 /**
- * Online Registration Form 2026-2027 - Dehradun Defence College
+ * Online Registration for 2027 - Dehradun Defence College
  */
 require_once __DIR__ . '/config.php';
 
-$page_title = 'Online Registration Form 2026-2027 | Dehradun Defence College';
-$page_desc = 'Apply online for NDA Foundation, CDS, AFCAT, SSB & Sainik School coaching at Dehradun Defence College. Session 2026-2027 direct admission form and verification portal.';
+$page_title = 'Online Registration for 2027 | Dehradun Defence College';
+$page_desc = 'Apply online for NDA Foundation, CDS, AFCAT, SSB & Sainik School coaching at Dehradun Defence College. Session 2027 direct admission form and verification portal.';
 $current_page = 'online-registration-form';
 
 include __DIR__ . '/includes/header.php';
@@ -17,12 +17,12 @@ include __DIR__ . '/includes/header.php';
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.7);">
                 <a href="index.php" style="color: rgba(255,255,255,0.8); text-decoration: none;">Home</a>
                 <span>/</span>
-                <span style="color: var(--accent-gold); font-weight: 600;">Online Registration Form</span>
+                <span style="color: var(--accent-gold); font-weight: 600;">Online Registration for 2027</span>
             </div>
-            <span class="badge-gold">Admission Session 2026-2027</span>
-            <h1 style="color: #FFFFFF; margin: 0.75rem 0 0.5rem 0; font-size: 2.5rem;">Online Registration Form</h1>
+            <span class="badge-gold">Admission Session 2027</span>
+            <h1 style="color: #FFFFFF; margin: 0.75rem 0 0.5rem 0; font-size: 2.5rem;">Online Registration for 2027</h1>
             <p style="color: rgba(255,255,255,0.85); font-size: 1.1rem; max-width: 780px; margin: 0 auto;">
-                Official registration portal for NDA Foundation, CDS, AFCAT, and SSB practical training batches with residential campus hostel.
+                Official online registration portal for NDA Foundation, CDS, AFCAT, and SSB practical training batches with residential campus hostel for 2027 session.
             </p>
         </div>
     </section>
@@ -43,7 +43,7 @@ include __DIR__ . '/includes/header.php';
                         <img src="assets/images/logo.png" alt="Dehradun Defence College Official Emblem" style="width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(11,27,61,0.2)); flex-shrink: 0;">
                         <div>
                             <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.35rem;">
-                                <span class="badge-saffron" style="font-size: 0.72rem; padding: 2px 8px;">★ Session 2026-2027</span>
+                                <span class="badge-saffron" style="font-size: 0.72rem; padding: 2px 8px;">★ Session 2027</span>
                                 <span class="badge-gold" style="font-size: 0.72rem; padding: 2px 8px;">Official Application</span>
                             </div>
                             <h2 style="font-size: clamp(1.3rem, 2vw, 1.75rem); color: var(--primary-navy); margin: 0; line-height: 1.2;">Candidate Admission Application</h2>
@@ -342,7 +342,7 @@ include __DIR__ . '/includes/header.php';
                         <!-- 6. Submit Button -->
                         <button type="submit" class="btn btn-gold" style="width: 100%; height: 54px; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.5px; border-radius: var(--radius-sm); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            <span>SUBMIT ONLINE REGISTRATION &amp; PAYMENT PROOF (₹5,000)</span>
+                            <span>SUBMIT ONLINE REGISTRATION FOR 2027 (₹5,000)</span>
                         </button>
                     </form>
 
@@ -511,15 +511,15 @@ include __DIR__ . '/includes/header.php';
         <div class="container" style="max-width: 900px;">
             <div style="text-align: center; margin-bottom: 2.5rem;">
                 <span class="badge-gold">Frequently Asked Questions</span>
-                <h2 style="font-size: 2rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">Online Registration &amp; Admission FAQs</h2>
+                <h2 style="font-size: 2rem; margin-top: 0.5rem; margin-bottom: 0.5rem;">Online Registration for 2027 &amp; Admission FAQs</h2>
                 <p style="color: var(--text-muted);">Have questions before applying? Here are answers to common queries from parents and aspirants.</p>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 1rem;">
                 <details style="background: #FFFFFF; padding: 1.25rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-light); cursor: pointer;" open>
-                    <summary style="font-weight: 700; color: var(--primary-navy); font-size: 1.05rem;">When do the fresh batches for April 2026 session commence?</summary>
+                    <summary style="font-weight: 700; color: var(--primary-navy); font-size: 1.05rem;">When do the fresh batches for 2027 session commence?</summary>
                     <p style="margin-top: 0.75rem; margin-bottom: 0; color: var(--text-muted); line-height: 1.6; font-size: 0.925rem;">
-                        New batches for NDA 2 2026 and NDA Foundation (Classes 9th and 11th) start on 1st April, 15th April, and 1st May 2026. Admissions are confirmed on a first-come, first-served basis due to limited hostel capacity.
+                        New batches for NDA 2027 and NDA Foundation (Classes 9th and 11th) start on 1st April, 15th April, and 1st May 2027. Admissions are confirmed on a first-come, first-served basis due to limited hostel capacity.
                     </p>
                 </details>
 

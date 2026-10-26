@@ -76,15 +76,15 @@ function ddc_build_admin_lead_email(array $data): string {
     if ($hasPayment) {
         $badgeText   = '💰 PAID REGISTRATION (POD ATTACHED)';
         $badgeBg     = '#10b981';
-        $portalLabel = 'Online Fee Payment & Verification • Session 2026-2027';
+        $portalLabel = 'Online Fee Payment & Verification • Session 2027';
     } elseif ($isRegistration) {
-        $badgeText   = '🎖️ OFFICIAL ONLINE REGISTRATION';
+        $badgeText   = '🎖️ OFFICIAL ONLINE REGISTRATION FOR 2027';
         $badgeBg     = '#FF9933';
-        $portalLabel = 'Online Registration Portal • Session 2026-2027';
+        $portalLabel = 'Online Registration for 2027 Portal • Session 2027';
     } else {
         $badgeText   = '🔥 NEW ADMISSION LEAD';
         $badgeBg     = '#D4AF37';
-        $portalLabel = 'Website Lead Generation Engine • Session 2026';
+        $portalLabel = 'Website Lead Generation Engine • Session 2027';
     }
 
     $logoUrl = !empty($data['logo_url']) ? $data['logo_url'] : 'cid:ddc_logo';

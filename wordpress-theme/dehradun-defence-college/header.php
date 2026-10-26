@@ -138,7 +138,7 @@ $theme_uri = get_template_directory_uri();
             <!-- Header Action CTAs -->
             <div class="header-cta-group">
                 <a href="<?php echo esc_url(home_url('/online-registration/')); ?>" class="btn btn-gold btn-sm" style="font-weight: 800; gap: 0.4rem; display: inline-flex; align-items: center; white-space: nowrap; flex-shrink: 0;">
-                    <span>Online Registration</span>
+                    <span>Online Registration for 2027</span>
                 </a>
 
                 <button type="button" class="mobile-nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">

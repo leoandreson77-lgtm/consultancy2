@@ -55,7 +55,7 @@ $phone1_raw = preg_replace('/[^\d\+]/', '', $phone1);
                 <span class="live-enroll-time" id="enrollTime">Just now</span>
             </div>
             <div class="live-enroll-name" id="enrollName">Aman Sharma (Dehradun)</div>
-            <div class="live-enroll-action" id="enrollAction">Enrolled in NDA Foundation 2026 Batch</div>
+            <div class="live-enroll-action" id="enrollAction">Enrolled in NDA Foundation 2027 Batch</div>
         </div>
     </div>
 </div>

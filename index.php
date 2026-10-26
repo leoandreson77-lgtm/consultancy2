@@ -306,7 +306,7 @@ include __DIR__ . '/includes/header.php';
                     </div>
                     <div class="pulse-live-badge">
                         <span class="live-dot"></span>
-                        <span>Admissions Open • 2026-2027 Batch</span>
+                        <span>Online Registration for 2027 • Admissions Open</span>
                     </div>
                     <h3 class="form-card-title">Register For Admission</h3>
                     <p class="form-card-sub">Get personalized counseling, fee structure &amp; scholarship guidance</p>
@@ -360,7 +360,7 @@ include __DIR__ . '/includes/header.php';
                         </div>
 
                         <button type="submit" class="btn btn-gold btn-lg" style="width: 100%; height: 48px; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 15px rgba(212,175,55,0.45);">
-                            <span>Register Now (April 2026 Batch)</span>
+                            <span>Register for 2027 Batch</span>
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
                         </button>
                     </form>
@@ -1873,11 +1873,11 @@ include __DIR__ . '/includes/header.php';
                 Ready to Wear the Olive Green, White, or Air Force Blue?
             </h2>
             <p style="color: rgba(255,255,255,0.85); font-size: 1.15rem; margin-bottom: 2.25rem;">
-                Admissions for the 2026 Batch are actively underway. Seats for in-house separate residential hostel batches are limited to maintain personal attention.
+                Admissions and Online Registration for 2027 are actively underway. Seats for in-house separate residential hostel batches are limited to maintain personal attention.
             </p>
             <div style="display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
-                <button type="button" class="btn btn-gold btn-lg open-enquiry-modal" data-course="Direct Admission 2026">
-                    <span>Enquire for 2026 Batch</span>
+                <button type="button" class="btn btn-gold btn-lg open-enquiry-modal" data-course="Online Registration for 2027">
+                    <span>Online Registration for 2027</span>
                 </button>
                 <a href="<?php echo WHATSAPP_LINK; ?>" class="btn btn-outline-white btn-lg" target="_blank" rel="noopener">
                     <span>Chat on WhatsApp</span>

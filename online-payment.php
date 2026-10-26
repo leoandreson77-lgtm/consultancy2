@@ -20,7 +20,7 @@ include __DIR__ . '/includes/header.php';
                 <span>/</span>
                 <span style="color: var(--accent-gold); font-weight: 600;">Online Fee Payment &amp; POD</span>
             </div>
-            <span class="badge-gold">Official Banking Portal &bull; Session 2026-2027</span>
+            <span class="badge-gold">Official Banking Portal &bull; Session 2027</span>
             <h1 style="color: #FFFFFF; margin: 0.75rem 0 0.5rem 0; font-size: clamp(1.8rem, 3.5vw, 2.6rem);">Online Fee Payment &amp; POD Verification</h1>
             <p style="color: rgba(255,255,255,0.85); font-size: 1.05rem; max-width: 800px; margin: 0 auto; line-height: 1.6;">
                 Scan our official Canara Bank QR code with any UPI app (GPay, PhonePe, Paytm, BHIM) or transfer via IMPS/NEFT, then upload your Proof of Deposit (POD) screenshot below for instant verification.

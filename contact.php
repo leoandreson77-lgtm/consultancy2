@@ -98,7 +98,7 @@ include __DIR__ . '/includes/header.php';
                         <img src="assets/images/logo.png" alt="Dehradun Defence College Official Emblem" style="width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(11,27,61,0.15)); flex-shrink: 0;">
                         <div>
                             <div style="font-size: 1.1rem; font-weight: 800; color: var(--primary-navy); line-height: 1.2;">Dehradun Defence College</div>
-                            <span class="badge-saffron" style="font-size: 0.7rem; padding: 2px 8px; margin-top: 2px; display: inline-block;">★ Admissions Open 2026 Batch</span>
+                            <span class="badge-saffron" style="font-size: 0.7rem; padding: 2px 8px; margin-top: 2px; display: inline-block;">★ Online Registration for 2027</span>
                         </div>
                     </div>
                     <h3 style="font-size: 1.75rem; margin-top: 0.25rem;">Send an Admission Enquiry</h3>

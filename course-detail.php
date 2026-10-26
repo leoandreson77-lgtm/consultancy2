@@ -204,11 +204,11 @@ include __DIR__ . '/includes/header.php';
                             <img src="assets/images/logo.png" alt="Dehradun Defence College Official Emblem" style="width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 2px 6px rgba(11,27,61,0.15)); flex-shrink: 0;">
                             <div style="text-align: left;">
                                 <div style="font-size: 1rem; font-weight: 800; color: var(--primary-navy); line-height: 1.2;">Dehradun Defence College</div>
-                                <span class="badge-saffron" style="font-size: 0.65rem; padding: 2px 7px; margin-top: 2px; display: inline-block;">★ Official Registration</span>
+                                <span class="badge-saffron" style="font-size: 0.65rem; padding: 2px 7px; margin-top: 2px; display: inline-block;">★ Online Registration for 2027</span>
                             </div>
                         </div>
-                        <span class="badge-saffron">Enrollment 2026</span>
-                        <h3>Register for this Course</h3>
+                        <span class="badge-saffron">Online Registration for 2027</span>
+                        <h3>Register for 2027 Batch</h3>
                         <p>Direct admission guidance & fee breakdown for <strong><?php echo htmlspecialchars($c['title']); ?></strong></p>
                     </div>
 

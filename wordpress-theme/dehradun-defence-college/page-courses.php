@@ -23,7 +23,7 @@ $theme_uri = get_template_directory_uri();
     <section class="section-padding bg-slate">
         <div class="container">
             <div class="section-header">
-                <span class="badge-navy">Admission Programs 2026</span>
+                <span class="badge-navy">Online Registration for 2027</span>
                 <h2>Choose Your Pathway to Commission</h2>
                 <div class="gold-divider"></div>
             </div>

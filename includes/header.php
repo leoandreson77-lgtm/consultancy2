@@ -117,9 +117,9 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
             </div>
 
             <div class="top-marquee-wrap">
-                <span class="top-marquee-tag">Admissions 2026</span>
+                <span class="top-marquee-tag">Admissions 2027</span>
                 <marquee behavior="scroll" direction="left" scrollamount="5" style="color: rgba(255,255,255,0.9); font-size: 0.825rem;">
-                    ★ Fresh Batches for NDA 2 2026 & NDA Foundation (After 10th) Admissions Now Open! Limited Seats with In-Campus Hostel & Daily SSB Ground Training. ★
+                    ★ Online Registration for 2027 Now Open! Fresh Batches for NDA &amp; NDA Foundation (After 10th). Limited Seats with In-Campus Hostel &amp; Daily SSB Ground Training. ★
                 </marquee>
             </div>
 
@@ -208,7 +208,7 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 </a>
                 <a href="gallery.php" class="nav-link <?php echo ($current_page === 'gallery' || $current_page === 'college-activity') ? 'active' : ''; ?>">College Activity</a>
                 <a href="results.php" class="nav-link <?php echo ($current_page === 'results') ? 'active' : ''; ?>">Selections 2026</a>
-                <a href="online-registration-form.php" class="nav-link nav-link-reg-desktop-hidden <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration</a>
+                <a href="online-registration-form.php" class="nav-link nav-link-reg-desktop-hidden <?php echo ($current_page === 'online-registration-form') ? 'active' : ''; ?>">Online Registration for 2027</a>
                 <a href="online-payment.php" class="nav-link <?php echo ($current_page === 'online-payment') ? 'active' : ''; ?>" style="color: #22c55e; font-weight: 700;">Online Payment</a>
                 <a href="contact.php" class="nav-link <?php echo ($current_page === 'contact') ? 'active' : ''; ?>">Contact</a>
 
@@ -231,8 +231,8 @@ $canonical_url = $canonical_url ?? (SITE_URL . '/' . ($current_page === 'home' ?
                 </a>
 
                 <a href="online-registration-form.php" class="btn btn-gold btn-sm header-reg-btn" style="font-weight: 800; gap: 0.4rem; display: inline-flex; align-items: center; white-space: nowrap; flex-shrink: 0;">
-                    <span class="btn-text-full">Online Registration</span>
-                    <span class="btn-text-compact">Register Now</span>
+                    <span class="btn-text-full">Online Registration for 2027</span>
+                    <span class="btn-text-compact">Register for 2027</span>
                 </a>
 
                 <!-- Mobile Hamburger Toggle -->
