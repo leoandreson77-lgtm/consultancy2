@@ -263,7 +263,7 @@ if (!empty($errors)) {
 // 5. Record Lead & Payment to Local Storage
 // -------------------------------------------------------------
 $lead_entry = [
-    'id'                   => uniqid('DDC_', true),
+    'id'                   => 'DDC-2027-' . rand(100000, 999999),
     'timestamp'            => date('Y-m-d H:i:s'),
     'form_type'            => $form_type,
     'full_name'            => $full_name,

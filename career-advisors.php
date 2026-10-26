@@ -330,23 +330,29 @@ $advisor = $DDC_CAREER_ADVISORS[0] ?? [
                             Speak directly with Senior Career Advisor Gouri Sharma
                         </p>
 
-                        <form action="send-enquiry.php" method="POST" class="career-advisor-enquiry-form">
+                        <form action="send-enquiry.php" method="POST" class="career-advisor-enquiry-form ddc-enquiry-form" novalidate>
+                            <input type="text" name="website_url_check" class="hp-field" tabindex="-1" autocomplete="off">
+                            <input type="hidden" name="form_start_time" value="<?php echo time(); ?>">
                             <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token'] ?? ''); ?>">
                             <input type="hidden" name="form_source" value="Career Advisors Page - Gouri Sharma">
 
-                            <div style="margin-bottom: 0.85rem;">
+                            <div class="form-status-alert" role="alert"></div>
+
+                            <div class="form-group" style="margin-bottom: 0.85rem;">
                                 <label style="display: block; font-size: 0.825rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 0.25rem;">Student / Candidate Name *</label>
                                 <input type="text" name="full_name" required placeholder="Enter student's full name" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.9rem;">
+                                <div class="form-error-feedback"></div>
                             </div>
 
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.85rem;">
-                                <div>
+                                <div class="form-group">
                                     <label style="display: block; font-size: 0.825rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 0.25rem;">Mobile Number *</label>
-                                    <input type="tel" name="phone" required placeholder="10-digit number" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.9rem;">
+                                    <input type="tel" name="mobile_number" required placeholder="10-digit number" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.9rem;">
+                                    <div class="form-error-feedback"></div>
                                 </div>
-                                <div>
+                                <div class="form-group">
                                     <label style="display: block; font-size: 0.825rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 0.25rem;">Target Course *</label>
-                                    <select name="interested_course" required style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.9rem; background: #FFF;">
+                                    <select name="course_interest" required style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.9rem; background: #FFF;">
                                         <option value="NDA Foundation (After 10th)">NDA Foundation (After 10th)</option>
                                         <option value="NDA Girls Special Wing">NDA (Girls) Special Wing</option>
                                         <option value="NDA Target Batch (After 12th)">NDA Target Batch (After 12th)</option>
@@ -356,12 +362,14 @@ $advisor = $DDC_CAREER_ADVISORS[0] ?? [
                                         <option value="MNS Military Nursing">MNS Military Nursing</option>
                                         <option value="RIMC / Sainik School">RIMC / Sainik School</option>
                                     </select>
+                                    <div class="form-error-feedback"></div>
                                 </div>
                             </div>
 
-                            <div style="margin-bottom: 1.25rem;">
+                            <div class="form-group" style="margin-bottom: 1.25rem;">
                                 <label style="display: block; font-size: 0.825rem; font-weight: 700; color: var(--primary-navy); margin-bottom: 0.25rem;">State / Current Class or Qualification</label>
                                 <input type="text" name="city_qualification" placeholder="e.g. Class 10th appearing, Uttar Pradesh" style="width: 100%; padding: 0.65rem 0.85rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 0.9rem;">
+                                <div class="form-error-feedback"></div>
                             </div>
 
                             <button type="submit" class="btn btn-gold btn-md" style="width: 100%; justify-content: center; font-weight: 800; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);">
