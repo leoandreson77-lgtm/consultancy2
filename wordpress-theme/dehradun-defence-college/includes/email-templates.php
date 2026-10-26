@@ -7,11 +7,7 @@
  */
 
 if (!defined('SITE_NAME')) {
-    if (file_exists(__DIR__ . '/../config.php')) {
-        require_once __DIR__ . '/../config.php';
-    } elseif (file_exists(dirname(__DIR__) . '/config.php')) {
-        require_once dirname(__DIR__) . '/config.php';
-    }
+    require_once __DIR__ . '/../config.php';
 }
 
 /**
@@ -68,7 +64,7 @@ function ddc_build_admin_lead_email(array $data): string {
     $ipAddress        = htmlspecialchars($data['ip_address'] ?? ($_SERVER['REMOTE_ADDR'] ?? 'UNKNOWN'), ENT_QUOTES, 'UTF-8');
 
     $hasPayment         = !empty($data['has_payment']) || !empty($data['transaction_id']) || !empty($data['payment_pod']);
-    $paymentAmount      = htmlspecialchars($data['payment_amount'] ?? '500', ENT_QUOTES, 'UTF-8');
+    $paymentAmount      = htmlspecialchars($data['payment_amount'] ?? '5000', ENT_QUOTES, 'UTF-8');
     $transactionId      = htmlspecialchars($data['transaction_id'] ?? 'Not Provided', ENT_QUOTES, 'UTF-8');
     $paymentDate        = htmlspecialchars($data['payment_date'] ?? date('d M Y'), ENT_QUOTES, 'UTF-8');
     $paymentMode        = htmlspecialchars($data['payment_mode'] ?? 'online_qr', ENT_QUOTES, 'UTF-8');
@@ -415,7 +411,7 @@ function ddc_build_student_welcome_email(array $data): string {
     $logoUrl        = !empty($data['logo_url']) ? $data['logo_url'] : 'cid:ddc_logo';
 
     $hasPayment     = !empty($data['has_payment']) || !empty($data['transaction_id']) || !empty($data['payment_pod_path']);
-    $paymentAmount  = htmlspecialchars((string)($data['payment_amount'] ?? '500'), ENT_QUOTES, 'UTF-8');
+    $paymentAmount  = htmlspecialchars((string)($data['payment_amount'] ?? '5000'), ENT_QUOTES, 'UTF-8');
     $transactionId  = htmlspecialchars((string)($data['transaction_id'] ?? 'UTR Verification In Progress'), ENT_QUOTES, 'UTF-8');
 
     $studentPaymentCard = '';

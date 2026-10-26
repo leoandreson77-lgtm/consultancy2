@@ -164,7 +164,7 @@ $form_type         = ddc_clean_string($_POST['form_type'] ?? 'enquiry');
 // Online Fee Payment Fields
 $payment_mode      = ddc_clean_string($_POST['payment_mode'] ?? 'pay_later');
 $transaction_id    = ddc_clean_string($_POST['transaction_id'] ?? ($_POST['utr_number'] ?? ''));
-$payment_amount    = ddc_clean_string($_POST['payment_amount'] ?? (defined('DEFAULT_REGISTRATION_FEE') ? DEFAULT_REGISTRATION_FEE : '500'));
+$payment_amount    = ddc_clean_string($_POST['payment_amount'] ?? (defined('DEFAULT_REGISTRATION_FEE') ? DEFAULT_REGISTRATION_FEE : '5000'));
 $payment_date      = ddc_clean_string($_POST['payment_date'] ?? date('Y-m-d'));
 
 $errors = [];

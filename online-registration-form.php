@@ -123,7 +123,7 @@ include __DIR__ . '/includes/header.php';
 
                                         <div class="bank-row">
                                             <span class="bank-lbl">Standard Fee:</span>
-                                            <span class="bank-val" style="color: var(--accent-gold); font-size: 1.05rem;">₹ 500 (One-Time Registration)</span>
+                                            <span class="bank-val" style="color: var(--accent-gold); font-size: 1.05rem;">₹ 5,000 (One-Time Registration / Seat Reservation)</span>
                                         </div>
                                     </div>
                                 </div>
@@ -141,9 +141,9 @@ include __DIR__ . '/includes/header.php';
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Amount Deposited (₹) *</label>
-                                    <input type="number" name="payment_amount" id="payment_amount" class="form-control" value="500" min="100" required style="font-weight: 700;">
+                                    <input type="number" name="payment_amount" id="payment_amount" class="form-control" value="5000" min="100" required style="font-weight: 700;">
                                     <small style="font-size: 0.76rem; color: var(--text-muted); display: block; margin-top: 3px;">
-                                        Standard Registration: ₹500 (or seat reservation token).
+                                        Standard Registration: ₹5,000 (or seat reservation token).
                                     </small>
                                     <div class="form-error-feedback"></div>
                                 </div>
@@ -342,7 +342,7 @@ include __DIR__ . '/includes/header.php';
                         <!-- 6. Submit Button -->
                         <button type="submit" class="btn btn-gold" style="width: 100%; height: 54px; font-size: 1.05rem; font-weight: 800; letter-spacing: 0.5px; border-radius: var(--radius-sm); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45); display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            <span>SUBMIT ONLINE REGISTRATION &amp; PAYMENT PROOF (₹500)</span>
+                            <span>SUBMIT ONLINE REGISTRATION &amp; PAYMENT PROOF (₹5,000)</span>
                         </button>
                     </form>
 

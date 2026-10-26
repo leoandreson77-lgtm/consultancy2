@@ -299,7 +299,7 @@ function ddc_ajax_submit_enquiry_handler() {
     // Online Payment Fields
     $payment_mode      = sanitize_text_field($_POST['payment_mode'] ?? 'pay_later');
     $transaction_id    = sanitize_text_field($_POST['transaction_id'] ?? ($_POST['utr_number'] ?? ''));
-    $payment_amount    = sanitize_text_field($_POST['payment_amount'] ?? '500');
+    $payment_amount    = sanitize_text_field($_POST['payment_amount'] ?? '5000');
     $payment_date      = sanitize_text_field($_POST['payment_date'] ?? date('Y-m-d'));
 
     $errors = [];

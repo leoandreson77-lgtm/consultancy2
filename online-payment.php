@@ -122,7 +122,7 @@ include __DIR__ . '/includes/header.php';
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Amount Paid (₹) *</label>
-                                <input type="number" name="payment_amount" id="payment_amount" class="form-control" value="500" min="100" required style="font-weight: 700;">
+                                <input type="number" name="payment_amount" id="payment_amount" class="form-control" value="5000" min="100" required style="font-weight: 700;">
                                 <div class="form-error-feedback"></div>
                             </div>
                             <div class="form-group">
@@ -310,7 +310,7 @@ include __DIR__ . '/includes/header.php';
                         </h3>
                         <ol style="padding-left: 1.25rem; font-size: 0.86rem; color: var(--text-dark); line-height: 1.7; margin: 0;">
                             <li>Open Google Pay, PhonePe, Paytm, BHIM, or your bank's mobile app and scan the QR code above (or use the Canara Bank Account &amp; IFSC).</li>
-                            <li>Enter the amount (Registration fee: ₹500 / or specified seat token / term installment).</li>
+                            <li>Enter the amount (Registration fee: ₹5,000 / or specified seat token / term installment).</li>
                             <li>Take a screenshot of the successful transaction showing the 12-digit UTR / Reference Number and upload it in the form.</li>
                         </ol>
 

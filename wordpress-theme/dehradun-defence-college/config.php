@@ -137,7 +137,7 @@ define('BANK_NAME', 'Canara Bank');
 define('BANK_IFSC', 'CNRB0018515');
 define('BANK_BRANCH', 'Dehradun, Uttarakhand');
 define('PAYMENT_QR_IMAGE', 'assets/images/ddc-payment-qr.png');
-define('DEFAULT_REGISTRATION_FEE', '500');
+define('DEFAULT_REGISTRATION_FEE', '5000');
 define('UPLOADS_DIR', __DIR__ . '/uploads');
 define('UPLOADS_URL', 'uploads');
 
