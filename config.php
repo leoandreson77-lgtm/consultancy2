@@ -762,6 +762,29 @@ $DDC_CAREER_ADVISORS = [
         ],
         'availability' => 'Mon - Sun: 8:00 AM - 6:00 PM',
         'languages'    => 'Hindi, English'
+    ],
+    [
+        'id'          => 'neha-pal',
+        'name'        => 'Neha Pal',
+        'role'        => 'Career Advisor & Student Mentor',
+        'badge'       => 'Defence Career Counselor • Student Advisory Desk',
+        'photo'       => 'assets/images/career-advisor-neha-pal.jpg',
+        'experience'  => 'Defence Aspirants Guidance Specialist',
+        'education'   => 'Student Mentoring & Career Advisory Specialist',
+        'quote'       => 'With proper discipline, sincere guidance, and the right strategic study plan, every cadet can overcome obstacles and proudly wear the Indian Armed Forces uniform.',
+        'bio'         => 'Neha Pal is a dedicated Career Advisor at Dehradun Defence College. She specializes in guiding students and their guardians through the detailed admission and exam preparation processes for NDA, Foundation Schooling, CDS, and SSB batches. Known for her approachable counseling style and meticulous attention to cadet strengths and areas of improvement, Neha helps students set actionable academic milestones and adapt seamlessly to the disciplined gurukul routine of DDC.',
+        'contact_btn' => 'Connect with Neha Pal',
+        'specialties' => [
+            'NDA Foundation & Schooling Integrated Batches',
+            'Syllabus & Exam Pattern Roadmap Mentorship',
+            'Cadet Personality Development & Interview Prep',
+            'Girls Special Wing Counseling & Welfare Support',
+            'Hostel Facilities, Mess & Campus Routine Queries',
+            'Admission Process & 1-on-1 Student Motivation',
+            'Parent Consultations & Regular Performance Updates'
+        ],
+        'availability' => 'Mon - Sun: 8:00 AM - 6:00 PM',
+        'languages'    => 'Hindi, English'
     ]
 ];
 
